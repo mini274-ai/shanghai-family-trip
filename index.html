@@ -16,26 +16,55 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap">
-<script src="./image-slot.js"></script>
 <style>
 body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 *{box-sizing:border-box}
 a{color:#1E2536}a:hover{color:#C4462E}
-[data-scroll]::-webkit-scrollbar{display:none}
+
+.trip-page{word-break:normal;overflow-wrap:break-word}
+.trip-page h1,.trip-page h2,.trip-page h3{word-break:keep-all;overflow-wrap:break-word}
+.itinerary-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:20px 20px 4px}
+.day-tab-num{display:block;font-family:'Instrument Serif',serif;font-size:19px;line-height:1.1;white-space:nowrap}
+.day-tab-date{display:block;font-size:12px;margin-top:5px;opacity:.8;white-space:nowrap}
+.itinerary-tabs button:focus-visible{outline:3px solid #C4462E;outline-offset:2px}
+.photo-frame{position:relative;min-width:0;overflow:hidden}
+.travel-photo{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;touch-action:auto}
+.photo-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 0}
+.photo-pair>div{min-width:0}
+.photo-pair .photo-frame{aspect-ratio:4/3;width:100%}
+.photo-pair .travel-photo{object-position:center 45%}
+.photo-location{margin:4px 0 6px;font-size:11.5px;line-height:1.6;color:#5B6272}
+.photo-credits{margin:30px 20px 0;padding-top:18px;border-top:1px solid rgba(30,37,54,.12);font-size:12px;line-height:1.7;color:#5B6272}
+.photo-credits summary{cursor:pointer;font-size:13px;font-weight:600;color:#5B6272;min-height:44px;padding:10px 0}
+.photo-credits ul{margin:8px 0 0;padding-left:18px}
+.photo-credits li{margin:0 0 16px}
+.photo-credits a{color:inherit;text-underline-offset:2px}
+.photo-credits .work-title{font-size:11px;overflow-wrap:anywhere}
+@media(max-width:480px){
+  .trip-page section[data-screen-label]:not([data-screen-label="04 일정"]){padding-left:16px!important;padding-right:16px!important}
+  .trip-page [data-screen-label="표지"]{padding-left:18px!important;padding-right:18px!important}
+  .itinerary-intro,.itinerary-body{padding-left:16px!important;padding-right:16px!important}
+  .day-card{padding-left:14px!important;padding-right:14px!important}
+  .itinerary-tabs{gap:4px;padding-left:16px;padding-right:16px}
+  .day-tab-num{font-size:17px}
+  .day-tab-date{font-size:11px}
+  .photo-credits{margin-left:16px;margin-right:16px}
+}
+
 </style>
 </helmet>
-<div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word">
+<div class="trip-page" style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:normal;overflow-wrap:break-word">
 <div style="max-width:600px;margin:0 auto;padding-bottom:64px">
 
 <div data-screen-label="표지" style="background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;padding:32px 22px 26px;border-radius:0 0 30px 30px">
   <div style="font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#E0B46A">FAMILY TRIP · SHANGHAI</div>
-  <h1 style="margin:14px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:36px;line-height:1.25;letter-spacing:-.01em;text-wrap:pretty">상하이,<br>우리 가족의 4박 5일</h1>
-  <p style="margin:14px 0 0;font-size:15px;line-height:1.75;color:rgba(244,239,229,.8);text-wrap:pretty">수능을 마친 딸의 새로운 출발을 축하하며, 할아버지 할머니부터 고등학생까지 열 명이 함께 떠나는 여행입니다.</p>
+  <h1 style="margin:14px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:36px;line-height:1.25;letter-spacing:-.01em;text-wrap:wrap">상하이,<br>우리 가족의 4박 5일</h1>
+  <p style="margin:14px 0 0;font-size:15px;line-height:1.75;color:rgba(244,239,229,.8);text-wrap:wrap">수능을 마친 딸의 새로운 출발을 축하하며, 할아버지 할머니부터 고등학생까지 열 명이 함께 떠나는 여행입니다.</p>
   <div style="margin:24px 0 0;font-family:'Instrument Serif',serif;font-size:32px;line-height:1.1">2027. 2. 23 <span style="color:#E0B46A">—</span> 2. 27</div>
   <div style="margin-top:6px;font-size:13px;color:rgba(244,239,229,.7)">화요일 출국 · 토요일 귀국 · 4박 5일</div>
-  <div style="margin-top:22px;aspect-ratio:3/2;width:100%"><image-slot id="v2-hero-photo" shape="rounded" radius="20" src="./01-shanghai-skyline.jpg" credit="Photo by George Dagerotip on Unsplash" credit-href="https://unsplash.com/@dagerotip" placeholder="와이탄에서 바라본 루자쭈이 야경"></image-slot></div>
-  <p style="margin:12px 0 0;font-family:'Gowun Batang',serif;font-size:15px;line-height:1.6;color:#F4EFE5;text-wrap:pretty">첫날 저녁, 우리 가족이 함께 마주할 상하이의 불빛.</p>
-  <p style="margin:6px 0 0;font-size:11.5px;line-height:1.6;color:rgba(244,239,229,.62)">와이탄에서 바라본 루자쭈이 · 사진 <a href="https://unsplash.com/@dagerotip" target="_blank" rel="noopener" style="color:rgba(244,239,229,.85)">George Dagerotip</a> · <a href="https://unsplash.com/photos/shanghais-skyline-glows-brightly-at-night-54aEjbImVdY" target="_blank" rel="noopener" style="color:rgba(244,239,229,.85)">Unsplash ↗</a><br>사진은 여행지 분위기 참고용이며 계절·날씨·장식은 방문 시점과 다를 수 있습니다.</p>
+  <div class="photo-frame" style="margin-top:22px;aspect-ratio:3/2;width:100%;border-radius:20px"><img id="v2-hero-photo" class="travel-photo" src="./01-shanghai-skyline.jpg" alt="와이탄에서 바라본 루자쭈이 스카이라인의 야경" draggable="false" decoding="async" loading="eager" fetchpriority="high"></div>
+  <p style="margin:12px 0 0;font-family:'Gowun Batang',serif;font-size:15px;line-height:1.6;color:#F4EFE5;text-wrap:wrap">첫날 저녁, 우리 가족이 함께 마주할 상하이의 불빛.</p>
+  <p style="margin:6px 0 0;font-size:11.5px;line-height:1.6;color:rgba(244,239,229,.62)">와이탄에서 바라본 루자쭈이<br>사진은 여행지 분위기 참고용이며 계절·날씨·장식은 방문 시점과 다를 수 있습니다.</p>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px">
     <div style="padding:12px 12px 10px;border:1px solid rgba(244,239,229,.14);border-radius:14px;background:rgba(255,255,255,.04)"><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1">10<span style="font-family:'Pretendard Variable',sans-serif;font-size:13px;margin-left:2px">명</span></div><div style="margin-top:6px;font-size:12px;color:rgba(244,239,229,.7)">세 가족이 함께</div></div>
     <div style="padding:12px 12px 10px;border:1px solid rgba(244,239,229,.14);border-radius:14px;background:rgba(255,255,255,.04)"><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1">4<span style="font-family:'Pretendard Variable',sans-serif;font-size:13px;margin-left:2px">박</span> 5<span style="font-family:'Pretendard Variable',sans-serif;font-size:13px;margin-left:2px">일</span></div><div style="margin-top:6px;font-size:12px;color:rgba(244,239,229,.7)">한 호텔 연박</div></div>
@@ -46,7 +75,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="01 개요" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">01 · 개요</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">한눈에 보기</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">관광지를 많이 채우는 대신, 이동 피로·추위·휴식·젊은 세대의 재미를 균형 있게 맞춘 일정입니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">관광지를 많이 채우는 대신, 이동 피로·추위·휴식·젊은 세대의 재미를 균형 있게 맞춘 일정입니다.</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px">
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 14px 12px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#5B6272">여행 기간</div><div style="margin-top:6px;font-weight:700;font-size:15px;line-height:1.45">2/23(화) → 2/27(토)</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">4박 5일</div></div>
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 14px 12px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#5B6272">출발 공항</div><div style="margin-top:6px;font-weight:700;font-size:15px;line-height:1.45">김해 PUS</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">울산권 집결 · 대안 인천</div></div>
@@ -57,7 +86,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
   </div>
   <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
     <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#C4462E">왜 2월 23일인가</div>
-    <p style="margin:8px 0 0;font-size:14.5px;line-height:1.7;text-wrap:pretty">상하이 학교들이 2월 22일 개학하고, 춘절(2월 6일) 본시즌도 지난 뒤입니다. 관광 핵심일을 화~금에 두어 주말 혼잡을 피합니다. 2월 29일은 2027년에 존재하지 않으므로 25~29일안은 제외했습니다.</p>
+    <p style="margin:8px 0 0;font-size:14.5px;line-height:1.7;text-wrap:wrap">상하이 학교들이 2월 22일 개학하고, 춘절(2월 6일) 본시즌도 지난 뒤입니다. 관광 핵심일을 화~금에 두어 주말 혼잡을 피합니다. 2월 29일은 2027년에 존재하지 않으므로 25~29일안은 제외했습니다.</p>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
       <span style="display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:12px;font-weight:600">1순위 · 2/23~27 화~토</span>
       <span style="display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:12px;font-weight:600">2순위 · 2/22~26 월~금</span>
@@ -76,7 +105,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="02 항공" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">02 · 항공 · 공항 이동</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">김해에서 바로, 약 두 시간</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">울산에서 김해공항은 리무진으로 1시간대, 인천공항은 5시간 이상입니다. 집 문을 나서서 호텔에 도착하기까지의 총시간이 김해가 훨씬 짧습니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">울산에서 김해공항은 리무진으로 1시간대, 인천공항은 5시간 이상입니다. 집 문을 나서서 호텔에 도착하기까지의 총시간이 김해가 훨씬 짧습니다.</p>
   <div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">1순위</span><span style="font-size:12px;color:#5B6272">대한항공 직항</span></div>
     <div style="display:flex;align-items:center;gap:12px;margin-top:14px">
@@ -102,7 +131,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="03 숙소" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">03 · 숙소 · 객실 배정</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">난징동루·인민광장에서 4박 연박</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">와이탄·난징루·인민광장·예원·신톈디에 모두 가깝고, 매번 지하철을 갈아타지 않아도 택시로 일정을 운영하기 쉬운 곳입니다. 호텔을 옮길 이유가 없습니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">와이탄·난징루·인민광장·예원·신톈디에 모두 가깝고, 매번 지하철을 갈아타지 않아도 택시로 일정을 운영하기 쉬운 곳입니다. 호텔을 옮길 이유가 없습니다.</p>
   <div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">{{ hotel.tag }}</span><span style="font-size:12px;color:#5B6272">{{ hotel.kind }}</span></div>
     <div style="margin-top:12px;font-family:'Gowun Batang',serif;font-weight:700;font-size:21px;line-height:1.3">{{ hotel.name }}</div>
@@ -128,27 +157,27 @@ a{color:#1E2536}a:hover{color:#C4462E}
 </section>
 
 <section data-screen-label="04 일정" style="padding:46px 0 0">
-  <div style="padding:0 20px">
+  <div class="itinerary-intro" style="padding:0 20px">
     <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">04 · 일별 일정</div>
     <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">닷새의 흐름</h2>
-    <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">매일 <b style="color:#1E2536">야외 60~90분 → 실내·식사 → 호텔 휴식</b>을 반복합니다. 날짜를 눌러 보거나 옆으로 넘겨 보세요.</p>
+    <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">매일 <b style="color:#1E2536">야외 60~90분 → 실내·식사 → 호텔 휴식</b>을 반복합니다. 날짜 버튼을 눌러 하루씩 살펴보세요.</p>
   </div>
-  <div data-scroll="true" style="display:flex;gap:8px;overflow-x:auto;padding:20px 20px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+  <div class="itinerary-tabs" role="group" aria-label="여행 날짜 선택">
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
-      <button type="button" onClick="{{ t.go }}" style="{{ t.style }}"><span style="display:block;font-family:'Instrument Serif',serif;font-size:19px;line-height:1">{{ t.num }}</span><span style="display:block;font-size:12px;margin-top:5px;opacity:.8">{{ t.date }}</span></button>
+      <button type="button" onClick="{{ t.go }}" aria-pressed="{{ t.selected }}" style="{{ t.style }}"><span class="day-tab-num">{{ t.num }}</span><span class="day-tab-date">{{ t.date }}</span></button>
     </sc-for>
   </div>
-  <div onTouchStart="{{ onTouchStart }}" onTouchEnd="{{ onTouchEnd }}" style="padding:12px 20px 0">
+  <div class="itinerary-body" style="padding:12px 20px 0">
 
     <sc-if value="{{ isDay1 }}" hint-placeholder-val="{{ true }}">
-      <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
+      <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 23 · TUE</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">도착, 그리고 첫 야경</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">4~6천 보</b></div>
         </div>
-        <div style="margin:16px 0 0;aspect-ratio:3/2;width:100%"><image-slot id="v2-day1-photo" shape="rounded" radius="16" src="./06-nanjing-road-night.jpg" credit="EditQ · Wikimedia Commons · CC BY-SA 4.0" credit-href="https://commons.wikimedia.org/wiki/File:南京路步行街夜景.jpg" placeholder="난징동루 보행자 거리의 밤" role="img" aria-label="네온 간판과 보행자들이 어우러진 상하이 난징동루 야경"></image-slot></div>
-        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:pretty">네온이 켜진 난징동루에서, 상하이의 첫 저녁을 시작합니다.</p>
-        <p style="margin:4px 0 6px;font-size:11.5px;line-height:1.6;color:#5B6272">난징동루 보행자 거리의 밤 · 사진 EditQ · <a href="https://commons.wikimedia.org/wiki/File:南京路步行街夜景.jpg" target="_blank" rel="noopener" style="color:#5B6272">Wikimedia Commons ↗</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:#5B6272">CC BY-SA 4.0 ↗</a> · 웹 표시용 축소·화면 맞춤.</p>
+        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day1-photo" class="travel-photo" src="./06-nanjing-road-night.jpg" alt="네온 간판이 켜진 상하이 난징동루 보행자 거리" draggable="false" decoding="async" loading="lazy"></div>
+        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">네온이 켜진 난징동루에서, 상하이의 첫 저녁을 시작합니다.</p>
+        <p class="photo-location">난징동루 보행자 거리의 밤</p>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">오전</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">울산권 집결 → 김해공항 → 푸둥</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">국내 이동 후 약 2시간 비행. 공항에서 간단히 식사.</div><a href="https://www.google.com/maps/search/?api=1&query=Gimhae+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">김해공항 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">14:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">입국 · 전용차로 호텔 이동</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">50~70분. 체크인 후 <b style="color:#1E2536">90분 휴식</b>이 이 날의 핵심 일정입니다.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Pudong+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">푸둥공항 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">17:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">난징동루 짧은 산책 · 이른 저녁</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">평지 위주의 보행자 거리. 저녁은 현장에서 컨디션 보고 선택.</div><a href="https://www.google.com/maps/search/?api=1&query=Nanjing+Road+East+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">난징동루 지도 ↗</a></div></div>
@@ -158,14 +187,14 @@ a{color:#1E2536}a:hover{color:#C4462E}
     </sc-if>
 
     <sc-if value="{{ isDay2 }}" hint-placeholder-val="{{ false }}">
-      <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
+      <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 24 · WED</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">예원, 그리고 황푸강 위에서</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">7천~1만 보</b></div>
         </div>
-        <div style="margin:16px 0 0;aspect-ratio:3/2;width:100%"><image-slot id="v2-day2-photo" shape="rounded" radius="16" src="./02-yuyuan-huxinting.jpg" credit="Photo by Bruna Santos on Unsplash" credit-href="https://unsplash.com/photos/4FkqCVknxk8" placeholder="예원 또는 유람선 사진"></image-slot></div>
-        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:pretty">굽이진 처마와 연못을 따라, 오래된 상하이를 만나는 오전.</p>
-        <p style="margin:4px 0 6px;font-size:11.5px;line-height:1.6;color:#5B6272">예원 주변·호심정 일대 · 사진 Bruna Santos · <a href="https://unsplash.com/photos/4FkqCVknxk8" target="_blank" rel="noopener" style="color:#5B6272">Unsplash ↗</a></p>
+        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day2-photo" class="travel-photo" src="./02-yuyuan-huxinting.jpg" alt="연못과 전통 건축이 어우러진 예원 주변 호심정" draggable="false" decoding="async" loading="lazy"></div>
+        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">굽이진 처마와 연못을 따라, 오래된 상하이를 만나는 오전.</p>
+        <p class="photo-location">예원 주변·호심정 일대</p>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">예원 정원 · 구시가지</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">보행 2~3km. 정원 관람과 주변 상업지구 식사는 별개의 공간이라 나눠서 움직입니다. 정원 입장권은 사전 확인.</div><a href="https://www.google.com/maps/search/?api=1&query=Yu+Garden+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">예원 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">12:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">점심 · 샤오롱바오와 중식</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">향이 약한 메뉴를 섞어 주문. 10인 자리가 되는 곳으로.</div></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">14:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">호텔 휴식 두 시간</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">카페·낮잠. 저녁 유람선을 위해 체력을 비축합니다.</div></div></div>
@@ -177,23 +206,23 @@ a{color:#1E2536}a:hover{color:#C4462E}
     </sc-if>
 
     <sc-if value="{{ isDay3 }}" hint-placeholder-val="{{ false }}">
-      <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
+      <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 25 · THU</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">두 팀으로 나눠 즐기는 날</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">A팀 <b style="color:#1E2536">1.5~2.5만 보</b><br>B팀 <b style="color:#1E2536">4~6천 보</b></div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 0">
+        <div class="photo-pair">
           <div>
-            <div style="aspect-ratio:4/5;width:100%"><image-slot id="day3a-photo" shape="rounded" radius="16" src="./03-shanghai-disneyland.jpg" credit="Fayhoo · Wikimedia Commons · CC BY-SA 3.0" credit-href="https://commons.wikimedia.org/wiki/File:Enchanted_Storybook_Castle_of_Shanghai_Disneyland.jpg" placeholder="디즈니랜드 사진"></image-slot></div>
+            <div class="photo-frame" style="width:100%;border-radius:16px"><img id="day3a-photo" class="travel-photo" src="./03-shanghai-disneyland.jpg" alt="상하이 디즈니랜드의 인챈티드 스토리북 캐슬" draggable="false" decoding="async" loading="lazy"></div>
             <div style="display:flex;align-items:center;gap:6px;margin-top:10px"><span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">A팀</span></div>
-            <p style="margin:6px 0 0;font-family:'Gowun Batang',serif;font-size:14px;line-height:1.55;text-wrap:pretty">A팀의 하루, 동화 속 성을 만나러 가는 날.</p>
-            <p style="margin:4px 0 0;font-size:11px;line-height:1.6;color:#5B6272">상하이 디즈니랜드 · 사진 Fayhoo · <a href="https://commons.wikimedia.org/wiki/File:Enchanted_Storybook_Castle_of_Shanghai_Disneyland.jpg" target="_blank" rel="noopener" style="color:#5B6272">Wikimedia Commons ↗</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#5B6272">CC BY-SA 3.0 ↗</a> · 원본 미수정, 화면 크기에 맞춰 일부만 보일 수 있음</p>
+            <p style="margin:6px 0 0;font-family:'Gowun Batang',serif;font-size:14px;line-height:1.55;text-wrap:wrap">A팀의 하루, 동화 속 성을 만나러 가는 날.</p>
+            <p class="photo-location">상하이 디즈니랜드</p>
           </div>
           <div>
-            <div style="aspect-ratio:4/5;width:100%"><image-slot id="day3b-photo" shape="rounded" radius="16" src="./04-xintiandi-cafe.jpg" credit="Photo by Ye Massa on Unsplash" credit-href="https://unsplash.com/@massa404" placeholder="신톈디 사진"></image-slot></div>
+            <div class="photo-frame" style="width:100%;border-radius:16px"><img id="day3b-photo" class="travel-photo" src="./04-xintiandi-cafe.jpg" alt="신톈디 카페 거리의 야외 좌석과 건물" draggable="false" decoding="async" loading="lazy"></div>
             <div style="display:flex;align-items:center;gap:6px;margin-top:10px"><span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:11px;font-weight:700">B팀</span></div>
-            <p style="margin:6px 0 0;font-family:'Gowun Batang',serif;font-size:14px;line-height:1.55;text-wrap:pretty">천천히 걷고, 커피 한 잔 마시며 함께 보내는 오후.</p>
-            <p style="margin:4px 0 0;font-size:11px;line-height:1.6;color:#5B6272">신톈디 카페 거리 · 사진 <a href="https://unsplash.com/@massa404" target="_blank" rel="noopener" style="color:#5B6272">Ye Massa</a> · <a href="https://unsplash.com/photos/0Z8hYPSroQw" target="_blank" rel="noopener" style="color:#5B6272">Unsplash ↗</a> · 녹음과 야외 좌석은 사진 속 계절의 모습</p>
+            <p style="margin:6px 0 0;font-family:'Gowun Batang',serif;font-size:14px;line-height:1.55;text-wrap:wrap">천천히 걷고, 커피 한 잔 마시며 함께 보내는 오후.</p>
+            <p class="photo-location">신톈디 카페 거리</p>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:8px;margin-top:14px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">A팀 · 6명</span><span style="font-weight:700;font-size:15px">상하이 디즈니랜드</span></div>
@@ -207,14 +236,14 @@ a{color:#1E2536}a:hover{color:#C4462E}
     </sc-if>
 
     <sc-if value="{{ isDay4 }}" hint-placeholder-val="{{ false }}">
-      <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
+      <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 26 · FRI</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">함께 보내는 날, 그리고 기념 만찬</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">느리게</b></div>
         </div>
-        <div style="margin:16px 0 0;aspect-ratio:3/2;width:100%"><image-slot id="v2-day4-photo" shape="rounded" radius="16" src="./07-shanghai-museum.jpg" credit="Simon Wade · Wikimedia Commons · CC BY-SA 4.0" credit-href="https://commons.wikimedia.org/wiki/File:Shanghai_Museum_20240512.jpg" placeholder="상하이박물관 · 인민광장관 외관" role="img" aria-label="둥근 지붕과 아치형 장식이 특징인 상하이박물관 인민광장관"></image-slot></div>
-        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:pretty">인민광장에서 느긋하게 시작해, 저녁에는 모두 함께 기념 만찬을 즐기는 날.</p>
-        <p style="margin:4px 0 6px;font-size:11.5px;line-height:1.6;color:#5B6272">상하이박물관 · 인민광장관 외관 · 사진 Simon Wade · <a href="https://commons.wikimedia.org/wiki/File:Shanghai_Museum_20240512.jpg" target="_blank" rel="noopener" style="color:#5B6272">Wikimedia Commons ↗</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:#5B6272">CC BY-SA 4.0 ↗</a> · 웹 표시용 축소·화면 맞춤.</p>
+        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day4-photo" class="travel-photo" src="./07-shanghai-museum.jpg" alt="둥근 지붕이 특징인 상하이박물관 인민광장관" draggable="false" decoding="async" loading="lazy"></div>
+        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">인민광장에서 느긋하게 시작해, 저녁에는 모두 함께 기념 만찬을 즐기는 날.</p>
+        <p class="photo-location">상하이박물관 · 인민광장관 외관</p>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">인민광장 · 실내 관광</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">전날 디즈니 피로를 회복하는 느린 오전. 상하이 박물관 계열 전시는 예약 여부 확인.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Museum+People%27s+Square" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">인민광장 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">12:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">점심 · 짧은 이동</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">중식 또는 양식, 컨디션대로.</div></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">14:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">호텔 휴식 두 시간 · 필수</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">저녁을 위해 모두 쉽니다.</div></div></div>
@@ -225,14 +254,14 @@ a{color:#1E2536}a:hover{color:#C4462E}
     </sc-if>
 
     <sc-if value="{{ isDay5 }}" hint-placeholder-val="{{ false }}">
-      <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
+      <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 27 · SAT</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">여유로운 마무리</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">자유</b></div>
         </div>
-        <div style="margin:16px 0 0;aspect-ratio:3/2;width:100%"><image-slot id="v2-day5-photo" shape="rounded" radius="16" src="./08-nanjing-road-day.jpg" credit="Nikolamikovic82 · Wikimedia Commons · CC0 1.0" credit-href="https://commons.wikimedia.org/wiki/File:Nanjing_Road,_Shanghai.jpg" placeholder="난징동루의 낮 풍경" role="img" aria-label="낮 시간의 난징동루 상점과 보행자 거리"></image-slot></div>
-        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:pretty">마지막 오전은 난징루에서, 기념품과 함께 여행의 여운을 챙깁니다.</p>
-        <p style="margin:4px 0 6px;font-size:11.5px;line-height:1.6;color:#5B6272">난징동루의 낮 풍경 · 사진 Nikolamikovic82 · <a href="https://commons.wikimedia.org/wiki/File:Nanjing_Road,_Shanghai.jpg" target="_blank" rel="noopener" style="color:#5B6272">Wikimedia Commons ↗</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener" style="color:#5B6272">CC0 1.0 ↗</a> · 웹 표시용 축소·화면 맞춤.</p>
+        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day5-photo" class="travel-photo" src="./08-nanjing-road-day.jpg" alt="상점과 고층 건물이 늘어선 낮의 난징동루" draggable="false" decoding="async" loading="lazy"></div>
+        <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">마지막 오전은 난징루에서, 기념품과 함께 여행의 여운을 챙깁니다.</p>
+        <p class="photo-location">난징동루의 낮 풍경</p>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">08:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">늦은 조식</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">여유롭게. 짐은 체크아웃 전에 정리.</div></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">10:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">난징루 쇼핑 · 기념품</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">한 곳만. 할아버지 할머니는 카페에서 쉬셔도 좋습니다.</div><a href="https://www.google.com/maps/search/?api=1&query=Nanjing+Road+East+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">난징루 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">12:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">호텔 → 푸둥공항 전용차</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">국제선 출발 3시간 전 도착 목표. 공항에서 식사.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Pudong+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">푸둥공항 지도 ↗</a></div></div>
@@ -262,7 +291,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="05 디즈니 A팀 B팀" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">05 · 디즈니 A팀 / 시내 B팀</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">전원보다 '일부 참가'가 낫습니다</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">디즈니는 하루 1.5~2.5만 보를 걷고 추위 속에서 기다리는 곳입니다. 젊은 가족의 만족도는 높이고, 조부모는 보호하는 구성입니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">디즈니는 하루 1.5~2.5만 보를 걷고 추위 속에서 기다리는 곳입니다. 젊은 가족의 만족도는 높이고, 조부모는 보호하는 구성입니다.</p>
   <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px">
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#1E2536;color:#F4EFE5;border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">6명 참가 <span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700;vertical-align:middle;margin-left:4px">추천</span></div><div style="font-size:13px;color:rgba(244,239,229,.75);margin-top:2px">청년층 만족 · 조부모 보호 · 가족이 하루만 분리</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap">90~160만+</div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">10명 전원</div><div style="font-size:13px;color:#5B6272;margin-top:2px">하루 종일 함께 · 조부모 대기·추위·도보 부담 큼</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap;color:#5B6272">120~220만+</div></div>
@@ -287,7 +316,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="06 식사" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">06 · 식사 · 기념 만찬</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">열 명이 한 공간에 앉는 저녁</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">10인 가족에게는 '가장 유명한 소형 맛집'보다 예약 가능한 중대형 식당이 중요합니다. 기념 만찬 한 번만 미리 확정하고, 나머지 끼니는 컨디션에 따라 정합니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">10인 가족에게는 '가장 유명한 소형 맛집'보다 예약 가능한 중대형 식당이 중요합니다. 기념 만찬 한 번만 미리 확정하고, 나머지 끼니는 컨디션에 따라 정합니다.</p>
   <div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">기념 만찬 1순위</span><span style="font-size:12px;color:#5B6272">Marriott Marquis City Centre</span></div>
     <div style="margin-top:12px;font-family:'Gowun Batang',serif;font-weight:700;font-size:21px;line-height:1.3">Man Bao Lou 滿寶樓</div>
@@ -297,11 +326,11 @@ a{color:#1E2536}a:hover{color:#C4462E}
   </div>
   <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px;margin-top:8px"><div><div style="font-weight:700;font-size:15px">Regents Restaurant <span style="font-weight:500;color:#5B6272;font-size:13px">Crowne Plaza Nanjing Road</span></div><div style="font-size:13px;color:#5B6272;margin-top:2px">상하이·광둥·차오저우·쓰촨 요리, 별실 보유. 이 호텔에 묵으면 이동이 전혀 없음</div></div><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700;white-space:nowrap">2순위</span></div>
   <div style="display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:14px;margin-top:14px">
-    <div style="width:104px;height:104px"><image-slot id="food-xiaolongbao" shape="rounded" radius="14" src="./05-xiaolongbao.jpg" credit="MR+G · Wikimedia Commons · CC BY 2.0" credit-href="https://commons.wikimedia.org/wiki/File:Xiao_long_bao_closeup_in_Shanghai.jpg" placeholder="음식 사진"></image-slot></div>
+    <div class="photo-frame" style="width:104px;height:104px;border-radius:14px"><img id="food-xiaolongbao" class="travel-photo" src="./05-xiaolongbao.jpg" alt="찜기 안에 담긴 샤오롱바오" draggable="false" decoding="async" loading="lazy"></div>
     <div style="min-width:0">
       <span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700">음식 참고 사진</span>
-      <p style="margin:8px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.55;text-wrap:pretty">찜기 뚜껑을 열면 시작되는, 상하이의 맛.</p>
-      <p style="margin:6px 0 0;font-size:11px;line-height:1.6;color:#5B6272">샤오롱바오 · 사진 MR+G · <a href="https://commons.wikimedia.org/wiki/File:Xiao_long_bao_closeup_in_Shanghai.jpg" target="_blank" rel="noopener" style="color:#5B6272">Wikimedia Commons ↗</a> · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener" style="color:#5B6272">CC BY 2.0 ↗</a> · 원본 미수정. 예약 식당이나 만찬 메뉴 사진이 아닙니다.</p>
+      <p style="margin:8px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.55;text-wrap:wrap">찜기 뚜껑을 열면 시작되는, 상하이의 맛.</p>
+      <p class="photo-location">샤오롱바오 · 예약 식당이나 확정 만찬 메뉴의 사진은 아닙니다.</p>
     </div>
   </div>
   <h3 style="margin:28px 0 10px;font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">끼니별 계획 예산</h3>
@@ -326,7 +355,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="07 예산" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">07 · 예산</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">표준형, 열 명에 약 1,824만원</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">1인 평균 약 182만원. 예약 견적이 아니라 결정을 돕는 계획값이며, 쇼핑·선물비는 들어 있지 않습니다. 환율은 1위안 = 205원으로 계산했습니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">1인 평균 약 182만원. 예약 견적이 아니라 결정을 돕는 계획값이며, 쇼핑·선물비는 들어 있지 않습니다. 환율은 1위안 = 205원으로 계산했습니다.</p>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px">
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 12px"><div style="font-size:11.5px;font-weight:700;color:#5B6272">경제형</div><div style="margin-top:6px;font-family:'Instrument Serif',serif;font-size:22px;line-height:1">1,249<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;margin-left:2px">만</span></div><div style="font-size:11.5px;color:#5B6272;margin-top:4px">디즈니 제외 · 실속 호텔</div></div>
     <div style="background:#1E2536;color:#F4EFE5;border-radius:16px;padding:14px 12px"><div style="font-size:11.5px;font-weight:700;color:#E0B46A">표준형 · 권장</div><div style="margin-top:6px;font-family:'Instrument Serif',serif;font-size:22px;line-height:1">1,824<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;margin-left:2px">만</span></div><div style="font-size:11.5px;color:rgba(244,239,229,.7);margin-top:4px">디즈니 6명 · 전용차 · 만찬</div></div>
@@ -352,7 +381,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="08 예약 순서" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">08 · 예약 순서 · 타임라인</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">호텔 → 항공 → 전용차 → 만찬 → 디즈니·유람선</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">2월 말은 대학 일정과 가까워서, 최저가보다 <b style="color:#1E2536">일정 변경 조건</b>이 더 중요합니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">2월 말은 대학 일정과 가까워서, 최저가보다 <b style="color:#1E2536">일정 변경 조건</b>이 더 중요합니다.</p>
   <div style="margin-top:20px;display:grid;grid-template-columns:14px 1fr;gap:0 16px">
     <div style="display:flex;flex-direction:column;align-items:center"><div style="width:12px;height:12px;border-radius:50%;background:#C4462E;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
     <div style="padding-bottom:22px"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E">지금 — 2026. 10</div><div style="font-weight:700;font-size:16px;margin-top:2px">가족 정보 확정</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">10명 영문 성명·생년월일·실제 거주지·여권 만료일, 조부모 보행 상태, 디즈니 희망자. 여권번호는 가족 문서에 올리지 않습니다.</div></div>
@@ -372,7 +401,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">차고 습한 늦겨울</h2>
   <div style="margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
     <div style="font-family:'Instrument Serif',serif;font-size:44px;line-height:1">3<span style="font-size:24px;color:#5B6272">~</span>11<span style="font-size:22px;color:#C4462E">°C</span></div>
-    <p style="margin:0;font-size:14px;line-height:1.7;text-wrap:pretty">겨울 평균 기온. 눈은 드물지만 북풍과 습도 때문에 체감온도가 낮습니다. 와이탄·유람선·디즈니 만족도는 기온보다 <b>바람과 비</b>가 좌우하므로, 출발 7~10일 전 예보를 보고 야외 순서를 조정합니다.</p>
+    <p style="margin:0;font-size:14px;line-height:1.7;text-wrap:wrap">겨울 평균 기온. 눈은 드물지만 북풍과 습도 때문에 체감온도가 낮습니다. 와이탄·유람선·디즈니 만족도는 기온보다 <b>바람과 비</b>가 좌우하므로, 출발 7~10일 전 예보를 보고 야외 순서를 조정합니다.</p>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
     <span style="padding:7px 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:13px;font-weight:600">방풍·방수 외투</span><span style="padding:7px 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:13px;font-weight:600">목도리</span><span style="padding:7px 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:13px;font-weight:600">장갑</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">얇은 옷 여러 겹</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">편한 방수 신발</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">핫팩</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">접이식 우산</span>
@@ -424,7 +453,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="12 함께 정할 것" style="padding:46px 20px 0">
   <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">12 · 함께 정할 것</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">가족회의에서 결정할 여섯 가지</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:pretty">붉은 표시가 제안하는 1순위입니다. 금액은 표준형 예산 대비 증감입니다.</p>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">붉은 표시가 제안하는 1순위입니다. 금액은 표준형 예산 대비 증감입니다.</p>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px">
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:16px 18px">
       <div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:'Instrument Serif',serif;font-size:20px;color:#C4462E">1</span><span style="font-weight:700;font-size:16px">날짜</span></div>
@@ -467,10 +496,22 @@ a{color:#1E2536}a:hover{color:#C4462E}
 <section data-screen-label="마무리" style="padding:46px 20px 0">
   <div style="background:radial-gradient(120% 90% at 15% 110%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;border-radius:24px;padding:28px 24px">
     <div style="font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#E0B46A">설계 기준</div>
-    <p style="margin:14px 0 0;font-family:'Gowun Batang',serif;font-size:21px;line-height:1.55;text-wrap:pretty">많이 보는 것보다,<br>열 명이 좋은 컨디션으로<br>함께 기억할 장면을 만드는 것.</p>
+    <p style="margin:14px 0 0;font-family:'Gowun Batang',serif;font-size:21px;line-height:1.55;text-wrap:wrap">많이 보는 것보다,<br>열 명이 좋은 컨디션으로<br>함께 기억할 장면을 만드는 것.</p>
     <p style="margin:16px 0 0;font-size:13.5px;line-height:1.7;color:rgba(244,239,229,.7)">이 여행에서 가장 아까운 지출은 비싼 호텔비가 아니라, 조금 아끼려다 열 명이 지쳐 서로를 기다리는 시간입니다.</p>
   </div>
   <p style="margin:22px 0 0;font-size:12px;line-height:1.7;color:#5B6272;text-align:center">2026. 9. 24 조사 기준 · 가격·정책은 계획값이며 예약 전 재확인합니다.</p>
+</section>
+
+<section id="photo-credits" class="photo-credits" aria-label="사진 출처">
+  <details>
+    <summary>사진 출처</summary>
+    <ul>
+      <li><b>1일차 · 난징동루 야경</b><br><span class="work-title">南京路步行街夜景</span><br>EditQ · <a href="https://commons.wikimedia.org/wiki/File:南京路步行街夜景.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a><br>Wikimedia 제공 축소본 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
+      <li><b>3일차 A팀 · 상하이 디즈니랜드</b><br><span class="work-title">Enchanted Storybook Castle of Shanghai Disneyland</span><br>Fayhoo · <a href="https://commons.wikimedia.org/wiki/File:Enchanted_Storybook_Castle_of_Shanghai_Disneyland.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a><br>원본 파일 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
+      <li><b>4일차 · 상하이박물관</b><br><span class="work-title">Shanghai Museum 20240512</span><br>Simon Wade · <a href="https://commons.wikimedia.org/wiki/File:Shanghai_Museum_20240512.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a><br>Wikimedia 제공 축소본 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
+      <li><b>식사 안내 · 샤오롱바오</b><br><span class="work-title">Xiao long bao closeup in Shanghai</span><br>MR+G · <a href="https://commons.wikimedia.org/wiki/File:Xiao_long_bao_closeup_in_Shanghai.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a><br>원본 파일 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
+    </ul>
+  </details>
 </section>
 
 </div>
@@ -490,19 +531,6 @@ class Component extends DCLogic {
     if (i < 0 || i > 4 || i === this.state.day) return;
     this.setState({ day: i });
   }
-  onTouchStart = (e) => {
-    const t = e.touches && e.touches[0];
-    if (!t) return;
-    this.sx = t.clientX; this.sy = t.clientY;
-  };
-  onTouchEnd = (e) => {
-    if (this.sx == null) return;
-    const t = e.changedTouches && e.changedTouches[0];
-    if (!t) return;
-    const dx = t.clientX - this.sx, dy = t.clientY - this.sy;
-    this.sx = null;
-    if (Math.abs(dx) > 56 && Math.abs(dy) < 70) this.setDay(this.state.day + (dx < 0 ? 1 : -1));
-  };
   toggle(id) {
     this.setState((s) => {
       const checked = { ...s.checked, [id]: !s.checked[id] };
@@ -523,9 +551,10 @@ class Component extends DCLogic {
       const on = i === day;
       return {
         ...d,
+        selected: on,
         go: () => this.setDay(i),
         style: {
-          flex: '0 0 auto', minWidth: 100, padding: '11px 14px 10px', borderRadius: 14, textAlign: 'left',
+          minWidth: 0, width: '100%', minHeight: 60, padding: '10px 3px', borderRadius: 12, textAlign: 'center',
           appearance: 'none', cursor: 'pointer', font: 'inherit',
           border: '1px solid ' + (on ? '#1E2536' : 'rgba(30,37,54,.12)'),
           background: on ? '#1E2536' : '#FFFDF9', color: on ? '#F4EFE5' : '#1E2536',
@@ -585,8 +614,6 @@ class Component extends DCLogic {
       goPrev: () => this.setDay(day - 1),
       goNext: () => this.setDay(day + 1),
       dayCounter: (day + 1) + ' / 5',
-      onTouchStart: this.onTouchStart,
-      onTouchEnd: this.onTouchEnd,
       hotel, otherHotels,
       checks, doneCount, totalCount,
       progressStyle: { width: Math.round((doneCount / totalCount) * 100) + '%', height: '100%', background: '#C4462E', borderRadius: 3, transition: 'width .25s' },
