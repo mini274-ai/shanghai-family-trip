@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
 <style>
 body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 *{box-sizing:border-box}
@@ -51,21 +51,103 @@ a{color:#1E2536}a:hover{color:#C4462E}
   .photo-credits{margin-left:16px;margin-right:16px}
 }
 
+
+/* The original layout remains the mobile baseline. */
+.responsive-group{display:contents}
+.timeline-number{display:none}
+@media(min-width:768px){
+  .trip-page{padding:clamp(12px,3vw,40px) clamp(14px,5vw,64px) 88px}
+  .trip-shell{max-width:1120px!important;padding-bottom:0!important}
+  .trip-page [data-screen-label]{padding:clamp(44px,5vw,72px) 0 0!important}
+  .trip-page .trip-hero{padding:clamp(26px,4vw,52px)!important;border-radius:clamp(22px,2.5vw,32px)!important}
+  .hero-copy,.hero-visual{display:block;min-width:0}
+  .hero-copy h1{font-size:clamp(34px,2.6vw + 16px,54px)!important;line-height:1.22!important}
+  .hero-description{font-size:clamp(15px,.4vw + 12px,17px)!important;max-width:520px}
+  .hero-date{font-size:clamp(30px,1.6vw + 18px,44px)!important;margin-top:26px!important}
+  .hero-stats{max-width:520px}
+  .section-header{display:flex;flex-wrap:wrap;gap:12px 40px;align-items:flex-end;margin-bottom:clamp(18px,2.5vw,28px)}
+  .section-title{display:block;flex:1 1 280px;min-width:0}
+  .section-header>.section-description{flex:2 1 360px;max-width:640px;min-width:0}
+  .trip-page h2{font-size:clamp(26px,1.2vw + 18px,34px)!important;margin-bottom:0!important}
+  .section-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.5vw,20px);align-items:stretch}
+  .section-columns>*{min-width:0;margin-top:0!important}
+  .section-columns .responsive-group{display:block;min-width:0}
+  .section-columns .option-side{display:flex;flex-direction:column;gap:10px}
+  .option-side>*{margin-top:0!important;min-width:0}
+  .section-columns h3:first-child{margin-top:0!important}
+  .overview-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;margin-top:0!important}
+  .overview-grid>div{padding:16px 16px 14px!important;min-width:0}
+  .overview-columns,.secondary-columns{margin-top:clamp(14px,1.5vw,20px)}
+  .roomy-card,.featured-card,.booking-principle,.ordering-tips,.weather-card,.packing-card,.practical-grid>div{padding:clamp(18px,2vw,28px)!important}
+  .featured-card{display:flex;flex-direction:column;justify-content:center}
+  .featured-card>a{align-self:flex-start}
+  .booking-principle{align-self:start;border-radius:18px!important}
+  .itinerary-intro,.itinerary-priorities{padding:0!important}
+  .itinerary-body{padding:10px 0 0!important}
+  .itinerary-tabs{padding:2px 2px 6px;gap:10px}
+  .itinerary-tabs button{min-height:76px!important;padding:12px 16px!important;border-radius:14px!important;text-align:left!important}
+  .day-tab-num{font-size:24px}
+  .day-tab-date{font-size:13px}
+  .day-card{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);grid-template-rows:auto auto 1fr;column-gap:clamp(18px,2.5vw,36px);row-gap:14px;padding:clamp(18px,2.5vw,32px)!important;border-radius:22px!important}
+  .day-heading{grid-column:1/-1;grid-row:1;min-width:0}
+  .day-heading h3{font-size:clamp(22px,.8vw + 16px,28px)!important}
+  .day-photos{display:block;grid-column:2;grid-row:2;min-width:0}
+  .day-photos>.photo-frame,.day-photos>.photo-pair{margin-top:0!important}
+  .day-schedule{display:block;grid-column:1;grid-row:2/4;min-width:0}
+  .day-schedule>div:first-child{padding-top:0!important}
+  .day-note{grid-column:2;grid-row:3;align-self:start;margin-top:0!important;min-width:0}
+  .photo-pair{gap:12px}
+  .disney-columns>div:first-child{margin-top:0!important}
+  .ordering-tips,.packing-card{background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px}
+  .budget-options{margin-top:0!important;gap:clamp(8px,1.2vw,16px)!important}
+  .budget-options>div{padding:clamp(18px,2vw,28px)!important;min-width:0}
+  .budget-card{padding:12px clamp(18px,2vw,28px) 20px!important}
+  .budget-breakdown{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px)}
+  .booking-timeline{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))!important;gap:10px!important;margin-top:0!important}
+  .timeline-marker{display:none!important}
+  .timeline-card{background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px!important;min-width:0}
+  .timeline-card>div:first-child{display:flex;align-items:center;gap:8px}
+  .timeline-card>div:nth-child(2){margin-top:12px!important}
+  .timeline-number{display:inline-flex;flex:0 0 26px;height:26px;align-items:center;justify-content:center;border-radius:50%;background:#1E2536;color:#F4EFE5;font-size:15px}
+  .timeline-card:nth-child(2) .timeline-number{background:#C4462E}
+  .weather-card{grid-template-columns:1fr!important;align-content:center;gap:16px!important}
+  .packing-card{align-content:center}
+  .practical-grid,.checklist-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.5vw,20px)!important;margin-top:0!important}
+  .checklist-grid{gap:0 clamp(16px,3vw,40px)!important;margin-top:12px!important}
+  .checklist-grid button{min-width:0}
+  .decisions-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.5vw,16px)!important;margin-top:0!important}
+  .priorities-grid{gap:clamp(10px,1.5vw,16px)!important}
+  .closing-card{display:flex;flex-wrap:wrap;align-items:center;gap:20px 48px;padding:clamp(28px,4vw,56px) clamp(24px,4vw,64px)!important}
+  .closing-title{display:block;flex:1.3 1 360px;min-width:0}
+  .closing-title>p{font-size:clamp(21px,1vw + 16px,30px)!important}
+  .closing-card>p{flex:1 1 280px;min-width:0;margin:0!important;font-size:15px!important}
+  .photo-credits{margin-left:0;margin-right:0}
+}
+@media(min-width:1024px){
+  .trip-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;column-gap:clamp(24px,3vw,44px);row-gap:26px;align-items:center}
+  .hero-copy{grid-column:1;grid-row:1}
+  .hero-visual{grid-column:2;grid-row:1/3}
+  .hero-visual>.photo-frame{margin-top:0!important}
+  .hero-stats{grid-column:1;grid-row:2;margin-top:0!important;align-self:start}
+  .options-columns{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+  .decisions-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .weather-card{grid-template-columns:auto minmax(0,1fr)!important}
+}
 </style>
 </helmet>
 <div class="trip-page" style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:normal;overflow-wrap:break-word">
-<div style="max-width:600px;margin:0 auto;padding-bottom:64px">
+<div style="max-width:600px;margin:0 auto;padding-bottom:64px" class="trip-shell">
 
-<div data-screen-label="표지" style="background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;padding:32px 22px 26px;border-radius:0 0 30px 30px">
-  <div style="font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#E0B46A">FAMILY TRIP · SHANGHAI</div>
+<div data-screen-label="표지" style="background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;padding:32px 22px 26px;border-radius:0 0 30px 30px" class="trip-hero">
+  <div class="responsive-group hero-copy"><div style="font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#E0B46A">FAMILY TRIP · SHANGHAI</div>
   <h1 style="margin:14px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:36px;line-height:1.25;letter-spacing:-.01em;text-wrap:wrap">상하이,<br>우리 가족의 4박 5일</h1>
-  <p style="margin:14px 0 0;font-size:15px;line-height:1.75;color:rgba(244,239,229,.8);text-wrap:wrap">수능을 마친 딸의 새로운 출발을 축하하며, 할아버지 할머니부터 고등학생까지 열 명이 함께 떠나는 여행입니다.</p>
-  <div style="margin:24px 0 0;font-family:'Instrument Serif',serif;font-size:32px;line-height:1.1">2027. 2. 23 <span style="color:#E0B46A">—</span> 2. 27</div>
+  <p style="margin:14px 0 0;font-size:15px;line-height:1.75;color:rgba(244,239,229,.8);text-wrap:wrap" class="hero-description">수능을 마친 딸의 새로운 출발을 축하하며, 할아버지 할머니부터 고등학생까지 열 명이 함께 떠나는 여행입니다.</p>
+  <div style="margin:24px 0 0;font-family:'Instrument Serif',serif;font-size:32px;line-height:1.1" class="hero-date">2027. 2. 23 <span style="color:#E0B46A">—</span> 2. 27</div>
   <div style="margin-top:6px;font-size:13px;color:rgba(244,239,229,.7)">화요일 출국 · 토요일 귀국 · 4박 5일</div>
-  <div class="photo-frame" style="margin-top:22px;aspect-ratio:3/2;width:100%;border-radius:20px"><img id="v2-hero-photo" class="travel-photo" src="./01-shanghai-skyline.jpg" alt="와이탄에서 바라본 루자쭈이 스카이라인의 야경" draggable="false" decoding="async" loading="eager" fetchpriority="high"></div>
+  </div><div class="responsive-group hero-visual"><div class="photo-frame" style="margin-top:22px;aspect-ratio:3/2;width:100%;border-radius:20px"><img id="v2-hero-photo" class="travel-photo" src="./01-shanghai-skyline.jpg" alt="와이탄에서 바라본 루자쭈이 스카이라인의 야경" draggable="false" decoding="async" loading="eager" fetchpriority="high"></div>
   <p style="margin:12px 0 0;font-family:'Gowun Batang',serif;font-size:15px;line-height:1.6;color:#F4EFE5;text-wrap:wrap">첫날 저녁, 우리 가족이 함께 마주할 상하이의 불빛.</p>
   <p style="margin:6px 0 0;font-size:11.5px;line-height:1.6;color:rgba(244,239,229,.62)">와이탄에서 바라본 루자쭈이<br>사진은 여행지 분위기 참고용이며 계절·날씨·장식은 방문 시점과 다를 수 있습니다.</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px">
+  </div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px" class="hero-stats">
     <div style="padding:12px 12px 10px;border:1px solid rgba(244,239,229,.14);border-radius:14px;background:rgba(255,255,255,.04)"><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1">10<span style="font-family:'Pretendard Variable',sans-serif;font-size:13px;margin-left:2px">명</span></div><div style="margin-top:6px;font-size:12px;color:rgba(244,239,229,.7)">세 가족이 함께</div></div>
     <div style="padding:12px 12px 10px;border:1px solid rgba(244,239,229,.14);border-radius:14px;background:rgba(255,255,255,.04)"><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1">4<span style="font-family:'Pretendard Variable',sans-serif;font-size:13px;margin-left:2px">박</span> 5<span style="font-family:'Pretendard Variable',sans-serif;font-size:13px;margin-left:2px">일</span></div><div style="margin-top:6px;font-size:12px;color:rgba(244,239,229,.7)">한 호텔 연박</div></div>
     <div style="padding:12px 12px 10px;border:1px solid rgba(244,239,229,.14);border-radius:14px;background:rgba(255,255,255,.04)"><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1">PUS<span style="color:#E0B46A">→</span>PVG</div><div style="margin-top:6px;font-size:12px;color:rgba(244,239,229,.7)">김해 → 푸둥 직항</div></div>
@@ -73,10 +155,10 @@ a{color:#1E2536}a:hover{color:#C4462E}
 </div>
 
 <section data-screen-label="01 개요" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">01 · 개요</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">01 · 개요</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">한눈에 보기</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">관광지를 많이 채우는 대신, 이동 피로·추위·휴식·젊은 세대의 재미를 균형 있게 맞춘 일정입니다.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">관광지를 많이 채우는 대신, 이동 피로·추위·휴식·젊은 세대의 재미를 균형 있게 맞춘 일정입니다.</p>
+  </div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px" class="overview-grid">
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 14px 12px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#5B6272">여행 기간</div><div style="margin-top:6px;font-weight:700;font-size:15px;line-height:1.45">2/23(화) → 2/27(토)</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">4박 5일</div></div>
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 14px 12px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#5B6272">출발 공항</div><div style="margin-top:6px;font-weight:700;font-size:15px;line-height:1.45">김해 PUS</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">울산권 집결 · 대안 인천</div></div>
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 14px 12px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#5B6272">숙소</div><div style="margin-top:6px;font-weight:700;font-size:15px;line-height:1.45">{{ hotel.short }}</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">난징동루·인민광장권 · 5객실</div></div>
@@ -84,7 +166,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 14px 12px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#5B6272">하이라이트</div><div style="margin-top:6px;font-weight:700;font-size:15px;line-height:1.45">황푸강 야경 유람선</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">10인 기념 만찬</div></div>
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 14px 12px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#5B6272">하루의 리듬</div><div style="margin-top:6px;font-weight:700;font-size:15px;line-height:1.45">야외 60~90분</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">→ 실내·식사 → 휴식</div></div>
   </div>
-  <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
+  <div class="responsive-group section-columns overview-columns"><div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px" class="roomy-card">
     <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#C4462E">왜 2월 23일인가</div>
     <p style="margin:8px 0 0;font-size:14.5px;line-height:1.7;text-wrap:wrap">상하이 학교들이 2월 22일 개학하고, 춘절(2월 6일) 본시즌도 지난 뒤입니다. 관광 핵심일을 화~금에 두어 주말 혼잡을 피합니다. 2월 29일은 2027년에 존재하지 않으므로 25~29일안은 제외했습니다.</p>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
@@ -93,20 +175,20 @@ a{color:#1E2536}a:hover{color:#C4462E}
       <span style="display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:12px;font-weight:600">대안 · 2/25~3/1</span>
     </div>
   </div>
-  <h3 style="margin:28px 0 10px;font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">함께 가는 열 명</h3>
+  <div class="responsive-group family-details"><h3 style="margin:28px 0 10px;font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">함께 가는 열 명</h3>
   <div style="display:flex;flex-direction:column;gap:8px">
     <div style="display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#C4462E">2</div><div><div style="font-weight:700;font-size:15px">할아버지 · 할머니</div><div style="font-size:13px;color:#5B6272;margin-top:2px">오래 걷기·계단·추위 속 대기는 줄이는 방향으로</div></div></div>
     <div style="display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#C4462E">4</div><div><div style="font-weight:700;font-size:15px">형 가족</div><div style="font-size:13px;color:#5B6272;margin-top:2px">형 · 형수 · 대학생 조카 · 고등학생 조카</div></div></div>
     <div style="display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#C4462E">4</div><div><div style="font-weight:700;font-size:15px">우리 가족</div><div style="font-size:13px;color:#5B6272;margin-top:2px">부부 · 딸(이번 여행의 주인공) · 고등학생 아들</div></div></div>
   </div>
   <p style="margin:12px 0 0;font-size:13px;line-height:1.65;color:#5B6272">성인 7명 · 고등학생 3명. 항공·디즈니·관광지의 연령 요금 기준이 다르므로 고등학생에게 어린이 요금이 자동 적용되지 않습니다.</p>
-</section>
+</div></div></section>
 
 <section data-screen-label="02 항공" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">02 · 항공 · 공항 이동</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">02 · 항공 · 공항 이동</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">김해에서 바로, 약 두 시간</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">울산에서 김해공항은 리무진으로 1시간대, 인천공항은 5시간 이상입니다. 집 문을 나서서 호텔에 도착하기까지의 총시간이 김해가 훨씬 짧습니다.</p>
-  <div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">울산에서 김해공항은 리무진으로 1시간대, 인천공항은 5시간 이상입니다. 집 문을 나서서 호텔에 도착하기까지의 총시간이 김해가 훨씬 짧습니다.</p>
+  </div><div class="responsive-group section-columns options-columns"><div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px" class="featured-card">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">1순위</span><span style="font-size:12px;color:#5B6272">대한항공 직항</span></div>
     <div style="display:flex;align-items:center;gap:12px;margin-top:14px">
       <div><div style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1">PUS</div><div style="font-size:12px;color:#5B6272">김해</div></div>
@@ -115,7 +197,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
     </div>
     <p style="margin:14px 0 0;font-size:14px;line-height:1.7">현재 2027년 2월 성인 왕복 <b>443,100원부터</b> 표시됩니다. 다만 이것은 한 사람의 최저 운임이라 10석 동일 운임을 뜻하지 않습니다. 같은 편 10석을 한 번에 조회해 총액·수하물·변경 조건을 확인하고, 가족이 다른 편으로 나뉘지 않게 먼저 확보합니다.</p>
   </div>
-  <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+  <div class="responsive-group option-side"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">인천 ICN → 푸둥 <span style="font-weight:500;color:#5B6272;font-size:13px">아시아나·대한항공</span></div><div style="font-size:13px;color:#5B6272;margin-top:2px">하루 여러 편이라 시간 선택 폭이 넓지만 울산→인천 이동이 부담</div></div><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700">2순위</span></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">김포 GMP → 훙차오 SHA</div><div style="font-size:13px;color:#5B6272;margin-top:2px">서울에 사는 가족이 있을 때만 의미 있음 · 도심 접근은 훙차오가 좋음</div></div><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700">보조안</span></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">경유편</div><div style="font-size:13px;color:#5B6272;margin-top:2px">4~8시간 이상 · 4박 5일 10인에게 시간 손실이 큼</div></div><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700">비추천</span></div>
@@ -126,26 +208,26 @@ a{color:#1E2536}a:hover{color:#C4462E}
     <p style="margin:6px 0 0;font-size:14px;line-height:1.7;color:rgba(244,239,229,.8)">10명과 겨울 캐리어가 한 번에 타야 하니 명목상 11인승보다 수하물 공간이 우선입니다. 첫날·마지막날은 지하철 대신 전용차로 움직입니다.</p>
     <div style="display:flex;gap:8px;margin-top:14px;font-size:12.5px;color:rgba(244,239,229,.75)"><span style="padding:5px 10px;border:1px solid rgba(244,239,229,.18);border-radius:999px">참고 · 지하철 2호선 약 1시간 · 7위안</span><span style="padding:5px 10px;border:1px solid rgba(244,239,229,.18);border-radius:999px">택시 약 50분 · 180위안</span></div>
   </div>
-</section>
+</div></div></section>
 
 <section data-screen-label="03 숙소" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">03 · 숙소 · 객실 배정</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">03 · 숙소 · 객실 배정</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">난징동루·인민광장에서 4박 연박</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">와이탄·난징루·인민광장·예원·신톈디에 모두 가깝고, 매번 지하철을 갈아타지 않아도 택시로 일정을 운영하기 쉬운 곳입니다. 호텔을 옮길 이유가 없습니다.</p>
-  <div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">와이탄·난징루·인민광장·예원·신톈디에 모두 가깝고, 매번 지하철을 갈아타지 않아도 택시로 일정을 운영하기 쉬운 곳입니다. 호텔을 옮길 이유가 없습니다.</p>
+  </div><div class="responsive-group section-columns options-columns"><div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px" class="featured-card">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">{{ hotel.tag }}</span><span style="font-size:12px;color:#5B6272">{{ hotel.kind }}</span></div>
     <div style="margin-top:12px;font-family:'Gowun Batang',serif;font-weight:700;font-size:21px;line-height:1.3">{{ hotel.name }}</div>
     <p style="margin:8px 0 0;font-size:14px;line-height:1.7">{{ hotel.why }}</p>
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(30,37,54,.08)"><span style="font-size:12.5px;color:#5B6272">5객실 × 4박 계획가격</span><span style="font-weight:700;font-size:14px">{{ hotel.price }}</span></div>
-    <a href="{{ hotel.map }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">지도 보기 ↗</a>
+    <a href="{{%20hotel.map%20}}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">지도 보기 ↗</a>
   </div>
-  <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+  <div class="responsive-group option-side"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
     <sc-for list="{{ otherHotels }}" as="h" hint-placeholder-count="2">
       <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">{{ h.name }}</div><div style="font-size:13px;color:#5B6272;margin-top:2px">{{ h.kind }} · {{ h.price }}</div></div><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700;white-space:nowrap">{{ h.tag }}</span></div>
     </sc-for>
   </div>
   <p style="margin:12px 0 0;font-size:13px;line-height:1.65;color:#5B6272">가격은 2027년 실제 재고가가 아닌 계획 범위입니다. 세금·조식·환불조건은 예약 화면에서 다시 확인합니다. 신톈디 인접 서비스드 레지던스(Ascott Huai Hai Road)도 거실·세탁기가 있어 매력적이지만, 조부모·두 부부의 독립 침실 조합을 세밀히 봐야 합니다.</p>
-  <h3 style="margin:28px 0 10px;font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">객실 배정 · 5객실</h3>
+  </div></div><div class="responsive-group section-columns secondary-columns"><div class="responsive-group rooms-list"><h3 style="margin:28px 0 10px;font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">객실 배정 · 5객실</h3>
   <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:6px 18px">
     <div style="display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:20px;color:#C4462E">1</div><div style="font-weight:600;font-size:15px">할아버지 · 할머니</div><div style="font-size:12.5px;color:#5B6272">2인</div></div>
     <div style="display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:20px;color:#C4462E">2</div><div style="font-weight:600;font-size:15px">형 · 형수</div><div style="font-size:12.5px;color:#5B6272">2인</div></div>
@@ -153,15 +235,15 @@ a{color:#1E2536}a:hover{color:#C4462E}
     <div style="display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:20px;color:#C4462E">4</div><div style="font-weight:600;font-size:15px">조카 둘</div><div style="font-size:12.5px;color:#5B6272">2인</div></div>
     <div style="display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:12px 0"><div style="font-family:'Instrument Serif',serif;font-size:20px;color:#C4462E">5</div><div><div style="font-weight:600;font-size:15px">딸 · 아들</div><div style="font-size:12.5px;color:#5B6272;margin-top:2px">부모 객실과 연결(connecting) 또는 바로 옆방 요청</div></div><div style="font-size:12.5px;color:#5B6272">2인</div></div>
   </div>
-  <div style="margin-top:10px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65"><b>예약 원칙</b> · 청소년 객실은 성인 보호자 명의로 예약(체크인 최소 연령 18세인 호텔이 있음). 환불 가능 요금제를 고르고, 객실별 부분취소가 가능한지도 확인합니다. 4객실안은 30~90만원 절약되지만, 3인실 침구가 성인이 편히 잘 수 있는지 서면 확인한 뒤에만 전환합니다.</div>
-</section>
+  </div><div style="margin-top:10px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65" class="booking-principle"><b>예약 원칙</b> · 청소년 객실은 성인 보호자 명의로 예약(체크인 최소 연령 18세인 호텔이 있음). 환불 가능 요금제를 고르고, 객실별 부분취소가 가능한지도 확인합니다. 4객실안은 30~90만원 절약되지만, 3인실 침구가 성인이 편히 잘 수 있는지 서면 확인한 뒤에만 전환합니다.</div>
+</div></section>
 
 <section data-screen-label="04 일정" style="padding:46px 0 0">
   <div class="itinerary-intro" style="padding:0 20px">
-    <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">04 · 일별 일정</div>
+    <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">04 · 일별 일정</div>
     <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">닷새의 흐름</h2>
-    <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">매일 <b style="color:#1E2536">야외 60~90분 → 실내·식사 → 호텔 휴식</b>을 반복합니다. 날짜 버튼을 눌러 하루씩 살펴보세요.</p>
-  </div>
+    </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">매일 <b style="color:#1E2536">야외 60~90분 → 실내·식사 → 호텔 휴식</b>을 반복합니다. 날짜 버튼을 눌러 하루씩 살펴보세요.</p>
+  </div></div>
   <div class="itinerary-tabs" role="group" aria-label="여행 날짜 선택">
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
       <button type="button" onClick="{{ t.go }}" aria-pressed="{{ t.selected }}" style="{{ t.style }}"><span class="day-tab-num">{{ t.num }}</span><span class="day-tab-date">{{ t.date }}</span></button>
@@ -171,47 +253,47 @@ a{color:#1E2536}a:hover{color:#C4462E}
 
     <sc-if value="{{ isDay1 }}" hint-placeholder-val="{{ true }}">
       <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px" class="day-heading">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 23 · TUE</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">도착, 그리고 첫 야경</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">4~6천 보</b></div>
         </div>
-        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day1-photo" class="travel-photo" src="./06-nanjing-road-night.jpg" alt="네온 간판이 켜진 상하이 난징동루 보행자 거리" draggable="false" decoding="async" loading="lazy"></div>
+        <div class="responsive-group day-photos"><div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day1-photo" class="travel-photo" src="./06-nanjing-road-night.jpg" alt="네온 간판이 켜진 상하이 난징동루 보행자 거리" draggable="false" decoding="async" loading="lazy"></div>
         <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">네온이 켜진 난징동루에서, 상하이의 첫 저녁을 시작합니다.</p>
         <p class="photo-location">난징동루 보행자 거리의 밤</p>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">오전</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">울산권 집결 → 김해공항 → 푸둥</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">국내 이동 후 약 2시간 비행. 공항에서 간단히 식사.</div><a href="https://www.google.com/maps/search/?api=1&query=Gimhae+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">김해공항 지도 ↗</a></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">14:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">입국 · 전용차로 호텔 이동</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">50~70분. 체크인 후 <b style="color:#1E2536">90분 휴식</b>이 이 날의 핵심 일정입니다.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Pudong+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">푸둥공항 지도 ↗</a></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">17:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">난징동루 짧은 산책 · 이른 저녁</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">평지 위주의 보행자 거리. 저녁은 현장에서 컨디션 보고 선택.</div><a href="https://www.google.com/maps/search/?api=1&query=Nanjing+Road+East+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">난징동루 지도 ↗</a></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">19:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">와이탄 야경</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">야외 45~60분만. 끝까지 걷지 않고, 추우면 바로 호텔로 돌아옵니다. 무료.</div><a href="https://www.google.com/maps/search/?api=1&query=The+Bund+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">와이탄 지도 ↗</a></div></div>
-        <div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65"><b>이 날의 원칙</b> · 비행 후 피로가 있는 날입니다. 비나 추위가 심하면 난징루 실내 쇼핑몰과 호텔 라운지로 대체합니다.</div>
+        </div><div class="responsive-group day-schedule"><div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">오전</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">울산권 집결 → 김해공항 → 푸둥</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">국내 이동 후 약 2시간 비행. 공항에서 간단히 식사.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Gimhae+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">김해공항 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">14:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">입국 · 전용차로 호텔 이동</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">50~70분. 체크인 후 <b style="color:#1E2536">90분 휴식</b>이 이 날의 핵심 일정입니다.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Pudong+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">푸둥공항 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">17:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">난징동루 짧은 산책 · 이른 저녁</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">평지 위주의 보행자 거리. 저녁은 현장에서 컨디션 보고 선택.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Nanjing+Road+East+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">난징동루 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">19:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">와이탄 야경</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">야외 45~60분만. 끝까지 걷지 않고, 추우면 바로 호텔로 돌아옵니다. 무료.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Bund+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">와이탄 지도 ↗</a></div></div>
+        </div><div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65" class="day-note"><b>이 날의 원칙</b> · 비행 후 피로가 있는 날입니다. 비나 추위가 심하면 난징루 실내 쇼핑몰과 호텔 라운지로 대체합니다.</div>
       </div>
     </sc-if>
 
     <sc-if value="{{ isDay2 }}" hint-placeholder-val="{{ false }}">
       <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px" class="day-heading">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 24 · WED</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">예원, 그리고 황푸강 위에서</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">7천~1만 보</b></div>
         </div>
-        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day2-photo" class="travel-photo" src="./02-yuyuan-huxinting.jpg" alt="연못과 전통 건축이 어우러진 예원 주변 호심정" draggable="false" decoding="async" loading="lazy"></div>
+        <div class="responsive-group day-photos"><div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day2-photo" class="travel-photo" src="./02-yuyuan-huxinting.jpg" alt="연못과 전통 건축이 어우러진 예원 주변 호심정" draggable="false" decoding="async" loading="lazy"></div>
         <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">굽이진 처마와 연못을 따라, 오래된 상하이를 만나는 오전.</p>
         <p class="photo-location">예원 주변·호심정 일대</p>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">예원 정원 · 구시가지</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">보행 2~3km. 정원 관람과 주변 상업지구 식사는 별개의 공간이라 나눠서 움직입니다. 정원 입장권은 사전 확인.</div><a href="https://www.google.com/maps/search/?api=1&query=Yu+Garden+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">예원 지도 ↗</a></div></div>
+        </div><div class="responsive-group day-schedule"><div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">예원 정원 · 구시가지</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">보행 2~3km. 정원 관람과 주변 상업지구 식사는 별개의 공간이라 나눠서 움직입니다. 정원 입장권은 사전 확인.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Yu+Garden+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">예원 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">12:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">점심 · 샤오롱바오와 중식</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">향이 약한 메뉴를 섞어 주문. 10인 자리가 되는 곳으로.</div></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">14:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">호텔 휴식 두 시간</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">카페·낮잠. 저녁 유람선을 위해 체력을 비축합니다.</div></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">16:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">루자쭈이</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">택시로 이동, 몰 안에서 휴식. 전망대는 맑은 날 한 곳만(상하이타워·진마오·동방명주 중 택1).</div><a href="https://www.google.com/maps/search/?api=1&query=Lujiazui+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">루자쭈이 지도 ↗</a></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">18:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">황푸강 야경 유람선 <span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700;vertical-align:middle;margin-left:4px">하이라이트</span></div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">와이탄과 루자쭈이 스카이라인을 앉아서 한 번에. 10인 사전구매, 바람 대비. 현재 비수기(~2/25) 야간 120위안 기준.</div><a href="https://www.google.com/maps/search/?api=1&query=Shiliupu+Wharf+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">십육포 부두 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">16:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">루자쭈이</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">택시로 이동, 몰 안에서 휴식. 전망대는 맑은 날 한 곳만(상하이타워·진마오·동방명주 중 택1).</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Lujiazui+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">루자쭈이 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">18:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">황푸강 야경 유람선 <span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700;vertical-align:middle;margin-left:4px">하이라이트</span></div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">와이탄과 루자쭈이 스카이라인을 앉아서 한 번에. 10인 사전구매, 바람 대비. 현재 비수기(~2/25) 야간 120위안 기준.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Shiliupu+Wharf+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">십육포 부두 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">19:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">저녁 후 택시로 귀관</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">일찍 마무리합니다.</div></div></div>
-        <div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65"><b>이 날의 원칙</b> · 예원 야간 프로그램은 주말 위주 운영이라 수요일 밤은 기대하지 않습니다. 유람선을 타면 고층 전망대는 하나로 충분합니다.</div>
+        </div><div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65" class="day-note"><b>이 날의 원칙</b> · 예원 야간 프로그램은 주말 위주 운영이라 수요일 밤은 기대하지 않습니다. 유람선을 타면 고층 전망대는 하나로 충분합니다.</div>
       </div>
     </sc-if>
 
     <sc-if value="{{ isDay3 }}" hint-placeholder-val="{{ false }}">
       <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px" class="day-heading">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 25 · THU</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">두 팀으로 나눠 즐기는 날</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">A팀 <b style="color:#1E2536">1.5~2.5만 보</b><br>B팀 <b style="color:#1E2536">4~6천 보</b></div>
         </div>
-        <div class="photo-pair">
+        <div class="responsive-group day-photos"><div class="photo-pair">
           <div>
             <div class="photo-frame" style="width:100%;border-radius:16px"><img id="day3a-photo" class="travel-photo" src="./03-shanghai-disneyland.jpg" alt="상하이 디즈니랜드의 인챈티드 스토리북 캐슬" draggable="false" decoding="async" loading="lazy"></div>
             <div style="display:flex;align-items:center;gap:6px;margin-top:10px"><span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">A팀</span></div>
@@ -225,48 +307,48 @@ a{color:#1E2536}a:hover{color:#C4462E}
             <p class="photo-location">신톈디 카페 거리</p>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;margin-top:14px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">A팀 · 6명</span><span style="font-weight:700;font-size:15px">상하이 디즈니랜드</span></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:12px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">07:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">전용밴 또는 호출차 2대로 출발</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">종일 파크, 식사는 파크 안이나 디즈니타운에서. 저녁까지 머문 뒤 귀관. 날짜 지정권 필수, 여권 원본 지참.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Disneyland" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">디즈니랜드 지도 ↗</a></div></div>
+        </div><div class="responsive-group day-schedule"><div style="display:flex;align-items:center;gap:8px;margin-top:14px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">A팀 · 6명</span><span style="font-weight:700;font-size:15px">상하이 디즈니랜드</span></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:12px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">07:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">전용밴 또는 호출차 2대로 출발</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">종일 파크, 식사는 파크 안이나 디즈니타운에서. 저녁까지 머문 뒤 귀관. 날짜 지정권 필수, 여권 원본 지참.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Disneyland" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">디즈니랜드 지도 ↗</a></div></div>
         <div style="display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:14px;border-top:1px solid rgba(30,37,54,.08)"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:11px;font-weight:700">B팀 · 4명</span><span style="font-weight:700;font-size:15px">느린 시내 일정</span></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:12px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#1E2536">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">느린 조식 → 인민광장 문화시설</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">10:30 박물관·전시. 택시 중심으로 계단·환승을 줄입니다.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Museum+People%27s+Square" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">인민광장 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:12px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#1E2536">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">느린 조식 → 인민광장 문화시설</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">10:30 박물관·전시. 택시 중심으로 계단·환승을 줄입니다.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Museum+People%27s+Square" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">인민광장 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:12px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#1E2536">12:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">점심 → 14:00 호텔에서 긴 휴식</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">호텔식 또는 상하이식 점심. 날씨가 나쁘면 이것만으로 충분합니다.</div></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:12px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#1E2536">16:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">신톈디 카페 · 쇼핑 → 18:00 이른 저녁</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">A팀과 재합류 연락 체계를 정해 둡니다.</div><a href="https://www.google.com/maps/search/?api=1&query=Xintiandi+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">신톈디 지도 ↗</a></div></div>
-        <div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65"><b>이 날의 원칙</b> · 조부모가 숙소에 하루 종일 남지 않되, 디즈니팀과 경쟁하듯 관광하지 않습니다. 팀 구성과 비용은 아래 05에서.</div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:12px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#1E2536">16:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">신톈디 카페 · 쇼핑 → 18:00 이른 저녁</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">A팀과 재합류 연락 체계를 정해 둡니다.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Xintiandi+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">신톈디 지도 ↗</a></div></div>
+        </div><div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65" class="day-note"><b>이 날의 원칙</b> · 조부모가 숙소에 하루 종일 남지 않되, 디즈니팀과 경쟁하듯 관광하지 않습니다. 팀 구성과 비용은 아래 05에서.</div>
       </div>
     </sc-if>
 
     <sc-if value="{{ isDay4 }}" hint-placeholder-val="{{ false }}">
       <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px" class="day-heading">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 26 · FRI</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">함께 보내는 날, 그리고 기념 만찬</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">느리게</b></div>
         </div>
-        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day4-photo" class="travel-photo" src="./07-shanghai-museum.jpg" alt="둥근 지붕이 특징인 상하이박물관 인민광장관" draggable="false" decoding="async" loading="lazy"></div>
+        <div class="responsive-group day-photos"><div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day4-photo" class="travel-photo" src="./07-shanghai-museum.jpg" alt="둥근 지붕이 특징인 상하이박물관 인민광장관" draggable="false" decoding="async" loading="lazy"></div>
         <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">인민광장에서 느긋하게 시작해, 저녁에는 모두 함께 기념 만찬을 즐기는 날.</p>
         <p class="photo-location">상하이박물관 · 인민광장관 외관</p>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">인민광장 · 실내 관광</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">전날 디즈니 피로를 회복하는 느린 오전. 상하이 박물관 계열 전시는 예약 여부 확인.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Museum+People%27s+Square" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">인민광장 지도 ↗</a></div></div>
+        </div><div class="responsive-group day-schedule"><div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">09:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">인민광장 · 실내 관광</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">전날 디즈니 피로를 회복하는 느린 오전. 상하이 박물관 계열 전시는 예약 여부 확인.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Museum+People%27s+Square" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">인민광장 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">12:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">점심 · 짧은 이동</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">중식 또는 양식, 컨디션대로.</div></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">14:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">호텔 휴식 두 시간 · 필수</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">저녁을 위해 모두 쉽니다.</div></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">16:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">신톈디 산책 · 카페</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">1.5~2km 안에서 쇼핑과 사진.</div><a href="https://www.google.com/maps/search/?api=1&query=Xintiandi+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">신톈디 지도 ↗</a></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">18:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">열 명의 기념 만찬 <span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700;vertical-align:middle;margin-left:4px">하이라이트</span></div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">별실에서 딸의 수능과 새 출발을 축하합니다. 여행 전 예약.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Marriott+Marquis+City+Centre" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">만찬 장소 지도 ↗</a></div></div>
-        <div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65"><b>이 날의 원칙</b> · 관광지를 채우기보다 열 명이 정식으로 모이는 것이 이 여행의 목적에 가장 부합합니다.</div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">16:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">신톈디 산책 · 카페</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">1.5~2km 안에서 쇼핑과 사진.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Xintiandi+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">신톈디 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">18:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">열 명의 기념 만찬 <span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700;vertical-align:middle;margin-left:4px">하이라이트</span></div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">별실에서 딸의 수능과 새 출발을 축하합니다. 여행 전 예약.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Marriott+Marquis+City+Centre" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">만찬 장소 지도 ↗</a></div></div>
+        </div><div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65" class="day-note"><b>이 날의 원칙</b> · 관광지를 채우기보다 열 명이 정식으로 모이는 것이 이 여행의 목적에 가장 부합합니다.</div>
       </div>
     </sc-if>
 
     <sc-if value="{{ isDay5 }}" hint-placeholder-val="{{ false }}">
       <div class="day-card" style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:20px;padding:20px 18px">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px" class="day-heading">
           <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E;letter-spacing:.02em">2027. 2. 27 · SAT</div><h3 style="margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:22px;line-height:1.3">여유로운 마무리</h3></div>
           <div style="text-align:right;font-size:12px;line-height:1.4;color:#5B6272;white-space:nowrap">오늘의 걷기<br><b style="color:#1E2536;font-size:14px">자유</b></div>
         </div>
-        <div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day5-photo" class="travel-photo" src="./08-nanjing-road-day.jpg" alt="상점과 고층 건물이 늘어선 낮의 난징동루" draggable="false" decoding="async" loading="lazy"></div>
+        <div class="responsive-group day-photos"><div class="photo-frame" style="margin:16px 0 0;aspect-ratio:3/2;width:100%;border-radius:16px"><img id="v2-day5-photo" class="travel-photo" src="./08-nanjing-road-day.jpg" alt="상점과 고층 건물이 늘어선 낮의 난징동루" draggable="false" decoding="async" loading="lazy"></div>
         <p style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-size:14.5px;line-height:1.6;text-wrap:wrap">마지막 오전은 난징루에서, 기념품과 함께 여행의 여운을 챙깁니다.</p>
         <p class="photo-location">난징동루의 낮 풍경</p>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">08:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">늦은 조식</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">여유롭게. 짐은 체크아웃 전에 정리.</div></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">10:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">난징루 쇼핑 · 기념품</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">한 곳만. 할아버지 할머니는 카페에서 쉬셔도 좋습니다.</div><a href="https://www.google.com/maps/search/?api=1&query=Nanjing+Road+East+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">난징루 지도 ↗</a></div></div>
-        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">12:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">호텔 → 푸둥공항 전용차</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">국제선 출발 3시간 전 도착 목표. 공항에서 식사.</div><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Pudong+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">푸둥공항 지도 ↗</a></div></div>
+        </div><div class="responsive-group day-schedule"><div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">08:30</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">늦은 조식</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">여유롭게. 짐은 체크아웃 전에 정리.</div></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">10:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">난징루 쇼핑 · 기념품</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">한 곳만. 할아버지 할머니는 카페에서 쉬셔도 좋습니다.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Nanjing+Road+East+Shanghai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">난징루 지도 ↗</a></div></div>
+        <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">12:00</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">호텔 → 푸둥공항 전용차</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">국제선 출발 3시간 전 도착 목표. 공항에서 식사.</div><a href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Pudong+International+Airport" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">푸둥공항 지도 ↗</a></div></div>
         <div style="display:grid;grid-template-columns:58px 1fr;gap:0 12px;padding:14px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;color:#C4462E">오후</div><div><div style="font-weight:700;font-size:16px;line-height:1.45">푸둥 → 김해 귀국</div><div style="margin-top:4px;font-size:13.5px;line-height:1.6;color:#5B6272">약 2시간 비행 후 울산으로.</div></div></div>
-        <div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65"><b>이 날의 원칙</b> · 마지막 날 관광 욕심은 버립니다. 10인 단체는 공항에서 시간이 더 걸립니다.</div>
+        </div><div style="margin-top:6px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65" class="day-note"><b>이 날의 원칙</b> · 마지막 날 관광 욕심은 버립니다. 10인 단체는 공항에서 시간이 더 걸립니다.</div>
       </div>
     </sc-if>
 
@@ -278,7 +360,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
       <sc-if value="{{ noNext }}" hint-placeholder-val="{{ false }}"><span></span></sc-if>
     </div>
   </div>
-  <div style="padding:0 20px">
+  <div style="padding:0 20px" class="itinerary-priorities">
     <div style="margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:13.5px;line-height:1.6">
       <div style="font-weight:700;color:#C4462E">최우선</div><div>와이탄 · 예원·구시가지 · 황푸강 유람선 · 신톈디 · 인민광장 실내 문화시설</div>
       <div style="font-weight:700;color:#5B6272">선택</div><div>루자쭈이 전망대 한 곳 · 난징동루 쇼핑</div>
@@ -289,15 +371,15 @@ a{color:#1E2536}a:hover{color:#C4462E}
 </section>
 
 <section data-screen-label="05 디즈니 A팀 B팀" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">05 · 디즈니 A팀 / 시내 B팀</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">05 · 디즈니 A팀 / 시내 B팀</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">전원보다 '일부 참가'가 낫습니다</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">디즈니는 하루 1.5~2.5만 보를 걷고 추위 속에서 기다리는 곳입니다. 젊은 가족의 만족도는 높이고, 조부모는 보호하는 구성입니다.</p>
-  <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">디즈니는 하루 1.5~2.5만 보를 걷고 추위 속에서 기다리는 곳입니다. 젊은 가족의 만족도는 높이고, 조부모는 보호하는 구성입니다.</p>
+  </div><div class="responsive-group section-columns disney-columns"><div style="display:flex;flex-direction:column;gap:8px;margin-top:20px">
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#1E2536;color:#F4EFE5;border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">6명 참가 <span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700;vertical-align:middle;margin-left:4px">추천</span></div><div style="font-size:13px;color:rgba(244,239,229,.75);margin-top:2px">청년층 만족 · 조부모 보호 · 가족이 하루만 분리</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap">90~160만+</div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">10명 전원</div><div style="font-size:13px;color:#5B6272;margin-top:2px">하루 종일 함께 · 조부모 대기·추위·도보 부담 큼</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap;color:#5B6272">120~220만+</div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px"><div><div style="font-weight:700;font-size:15px">전원 미방문</div><div style="font-size:13px;color:#5B6272;margin-top:2px">가장 저렴 · 공동시간 최대 · 젊은 세대는 아쉬울 수 있음</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap;color:#5B6272">0</div></div>
   </div>
-  <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
+  <div class="responsive-group option-side"><div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
     <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#C4462E">A팀 구성 예시</div>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
       <span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">대학생 조카</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">고등학생 조카</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">딸</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">아들</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">나</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">형</span>
@@ -310,21 +392,21 @@ a{color:#1E2536}a:hover{color:#C4462E}
     <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div style="font-size:14px"><b>입장</b> · 티켓 구매에 쓴 여권 원본 지참</div><div style="font-size:12px;color:#5B6272;white-space:nowrap">실명제</div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:12px 0"><div style="font-size:14px"><b>Premier Access</b> · 공식 앱·웹·WeChat에서만 구매</div><div style="font-size:12px;color:#5B6272;white-space:nowrap">체험 보장 아님</div></div>
   </div>
-  <p style="margin:12px 0 0;font-size:13px;line-height:1.65;color:#5B6272">디즈니를 빼기로 하면, 그 하루는 주자자오 수향마을(도심에서 전용 미니버스 약 60분)이 대안입니다. 2월 말 수변 바람과 돌길 때문에 조부모 만족도는 날씨에 따라 갈립니다.</p>
+  </div></div><p style="margin:12px 0 0;font-size:13px;line-height:1.65;color:#5B6272">디즈니를 빼기로 하면, 그 하루는 주자자오 수향마을(도심에서 전용 미니버스 약 60분)이 대안입니다. 2월 말 수변 바람과 돌길 때문에 조부모 만족도는 날씨에 따라 갈립니다.</p>
 </section>
 
 <section data-screen-label="06 식사" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">06 · 식사 · 기념 만찬</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">06 · 식사 · 기념 만찬</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">열 명이 한 공간에 앉는 저녁</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">10인 가족에게는 '가장 유명한 소형 맛집'보다 예약 가능한 중대형 식당이 중요합니다. 기념 만찬 한 번만 미리 확정하고, 나머지 끼니는 컨디션에 따라 정합니다.</p>
-  <div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">10인 가족에게는 '가장 유명한 소형 맛집'보다 예약 가능한 중대형 식당이 중요합니다. 기념 만찬 한 번만 미리 확정하고, 나머지 끼니는 컨디션에 따라 정합니다.</p>
+  </div><div class="responsive-group section-columns options-columns"><div style="margin-top:20px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px" class="featured-card">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">기념 만찬 1순위</span><span style="font-size:12px;color:#5B6272">Marriott Marquis City Centre</span></div>
     <div style="margin-top:12px;font-family:'Gowun Batang',serif;font-weight:700;font-size:21px;line-height:1.3">Man Bao Lou 滿寶樓</div>
     <p style="margin:8px 0 0;font-size:14px;line-height:1.7">중국요리 레스토랑. 별실 10개, 가장 큰 별실은 최대 20명. 저녁 17:30~21:00 운영. 10명이 한 공간에서 딸의 수능과 진학을 축하하기에 가장 알맞습니다.</p>
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(30,37,54,.08)"><span style="font-size:12.5px;color:#5B6272">1인 ¥300~500 · 10인 계획</span><span style="font-weight:700;font-size:14px">¥3,000~5,000 ≈ 60~100만원</span></div>
-    <a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Marriott+Marquis+City+Centre" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">지도 보기 ↗</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai+Marriott+Marquis+City+Centre" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);color:#1E2536;font-size:12px;font-weight:600;text-decoration:none">지도 보기 ↗</a>
   </div>
-  <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px;margin-top:8px"><div><div style="font-weight:700;font-size:15px">Regents Restaurant <span style="font-weight:500;color:#5B6272;font-size:13px">Crowne Plaza Nanjing Road</span></div><div style="font-size:13px;color:#5B6272;margin-top:2px">상하이·광둥·차오저우·쓰촨 요리, 별실 보유. 이 호텔에 묵으면 이동이 전혀 없음</div></div><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700;white-space:nowrap">2순위</span></div>
+  <div class="responsive-group option-side"><div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 16px;margin-top:8px"><div><div style="font-weight:700;font-size:15px">Regents Restaurant <span style="font-weight:500;color:#5B6272;font-size:13px">Crowne Plaza Nanjing Road</span></div><div style="font-size:13px;color:#5B6272;margin-top:2px">상하이·광둥·차오저우·쓰촨 요리, 별실 보유. 이 호텔에 묵으면 이동이 전혀 없음</div></div><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:rgba(30,37,54,.07);color:#5B6272;font-size:11px;font-weight:700;white-space:nowrap">2순위</span></div>
   <div style="display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:14px;margin-top:14px">
     <div class="photo-frame" style="width:104px;height:104px;border-radius:14px"><img id="food-xiaolongbao" class="travel-photo" src="./05-xiaolongbao.jpg" alt="찜기 안에 담긴 샤오롱바오" draggable="false" decoding="async" loading="lazy"></div>
     <div style="min-width:0">
@@ -333,7 +415,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
       <p class="photo-location">샤오롱바오 · 예약 식당이나 확정 만찬 메뉴의 사진은 아닙니다.</p>
     </div>
   </div>
-  <h3 style="margin:28px 0 10px;font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">끼니별 계획 예산</h3>
+  </div></div><div class="responsive-group section-columns secondary-columns"><div class="responsive-group meal-budget"><h3 style="margin:28px 0 10px;font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">끼니별 계획 예산</h3>
   <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:6px 18px">
     <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div><div style="font-weight:600;font-size:14.5px">호텔 조식</div><div style="font-size:12.5px;color:#5B6272">숙박 포함 요금과 비교</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap">포함 우선</div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div><div style="font-weight:600;font-size:14.5px">상하이식 점심</div><div style="font-size:12.5px;color:#5B6272">샤오롱바오·볶음밥·면·채소</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap">¥80~150<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;color:#5B6272;margin-left:3px">1인</span></div></div>
@@ -342,27 +424,27 @@ a{color:#1E2536}a:hover{color:#C4462E}
     <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div><div style="font-weight:600;font-size:14.5px">디즈니 간단식</div><div style="font-size:12.5px;color:#5B6272">파크·디즈니타운, 참가자만</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap">¥100~200<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;color:#5B6272;margin-left:3px">1인</span></div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:12px 0"><div><div style="font-weight:600;font-size:14.5px">한식 대체 1회</div><div style="font-size:12.5px;color:#5B6272">컨디션이 떨어질 때, 숙소 주변 검색</div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap">¥100~180<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;color:#5B6272;margin-left:3px">1인</span></div></div>
   </div>
-  <div style="margin-top:14px">
+  </div><div style="margin-top:14px" class="ordering-tips">
     <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#C4462E">주문할 때</div>
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
       <span style="padding:6px 11px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">매운 음식 없이</span><span style="padding:6px 11px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">고수는 따로</span><span style="padding:6px 11px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">해산물 없는 메뉴 포함</span><span style="padding:6px 11px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">흰밥 또는 볶음밥</span><span style="padding:6px 11px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">계란·닭·돼지·채소 요리</span>
     </div>
     <p style="margin:12px 0 0;font-size:13px;line-height:1.65;color:#5B6272">추운 날에는 가족 체력에 따라 호텔식·몰 식당으로 바로 바꿀 수 있어야 합니다. 디즈니타운에도 1인 51~100위안대 아시아식 테이블 서비스 식당이 있습니다.</p>
   </div>
-</section>
+</div></section>
 
 <sc-if value="{{ showBudget }}" hint-placeholder-val="{{ true }}">
 <section data-screen-label="07 예산" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">07 · 예산</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">07 · 예산</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">표준형, 열 명에 약 1,824만원</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">1인 평균 약 182만원. 예약 견적이 아니라 결정을 돕는 계획값이며, 쇼핑·선물비는 들어 있지 않습니다. 환율은 1위안 = 205원으로 계산했습니다.</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">1인 평균 약 182만원. 예약 견적이 아니라 결정을 돕는 계획값이며, 쇼핑·선물비는 들어 있지 않습니다. 환율은 1위안 = 205원으로 계산했습니다.</p>
+  </div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px" class="budget-options">
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 12px"><div style="font-size:11.5px;font-weight:700;color:#5B6272">경제형</div><div style="margin-top:6px;font-family:'Instrument Serif',serif;font-size:22px;line-height:1">1,249<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;margin-left:2px">만</span></div><div style="font-size:11.5px;color:#5B6272;margin-top:4px">디즈니 제외 · 실속 호텔</div></div>
     <div style="background:#1E2536;color:#F4EFE5;border-radius:16px;padding:14px 12px"><div style="font-size:11.5px;font-weight:700;color:#E0B46A">표준형 · 권장</div><div style="margin-top:6px;font-family:'Instrument Serif',serif;font-size:22px;line-height:1">1,824<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;margin-left:2px">만</span></div><div style="font-size:11.5px;color:rgba(244,239,229,.7);margin-top:4px">디즈니 6명 · 전용차 · 만찬</div></div>
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:16px;padding:14px 12px"><div style="font-size:11.5px;font-weight:700;color:#5B6272">프리미엄</div><div style="margin-top:6px;font-family:'Instrument Serif',serif;font-size:22px;line-height:1">2,965<span style="font-family:'Pretendard Variable',sans-serif;font-size:11px;margin-left:2px">만</span></div><div style="font-size:11.5px;color:#5B6272;margin-top:4px">5성급 · 전용차 확대</div></div>
   </div>
-  <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:8px 18px 18px">
-    <div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600">왕복 항공 10인</div><div style="font-family:'Instrument Serif',serif;font-size:18px;white-space:nowrap">500<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:100%;height:100%;background:#1E2536;border-radius:3px"></div></div></div>
+  <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:8px 18px 18px" class="budget-card">
+    <div class="responsive-group budget-breakdown"><div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600">왕복 항공 10인</div><div style="font-family:'Instrument Serif',serif;font-size:18px;white-space:nowrap">500<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:100%;height:100%;background:#1E2536;border-radius:3px"></div></div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600">숙박 4박 · 5객실</div><div style="font-family:'Instrument Serif',serif;font-size:18px;white-space:nowrap">470<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:94%;height:100%;background:#1E2536;border-radius:3px"></div></div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600">식비</div><div style="font-family:'Instrument Serif',serif;font-size:18px;white-space:nowrap">280<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:56%;height:100%;background:#1E2536;border-radius:3px"></div></div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600">입장 · 체험 <span style="font-weight:500;color:#5B6272;font-size:12.5px">디즈니 6명 · 유람선 · 예원</span></div><div style="font-family:'Instrument Serif',serif;font-size:18px;white-space:nowrap">140<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:28%;height:100%;background:#1E2536;border-radius:3px"></div></div></div>
@@ -372,46 +454,46 @@ a{color:#1E2536}a:hover{color:#C4462E}
     <div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600">여행자보험</div><div style="font-family:'Instrument Serif',serif;font-size:18px;white-space:nowrap">35<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:7%;height:100%;background:#1E2536;border-radius:3px"></div></div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600">통신</div><div style="font-family:'Instrument Serif',serif;font-size:18px;white-space:nowrap">18<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:4%;height:100%;background:#1E2536;border-radius:3px"></div></div></div>
     <div style="display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;padding-top:12px"><div style="font-size:14px;font-weight:600;color:#5B6272">예비비 약 10%</div><div style="font-family:'Instrument Serif',serif;font-size:18px;color:#5B6272;white-space:nowrap">166<span style="font-family:'Pretendard Variable',sans-serif;font-size:11.5px;color:#5B6272;margin-left:2px">만원</span></div><div style="grid-column:1/-1;height:6px;border-radius:3px;background:rgba(30,37,54,.07);overflow:hidden"><div style="width:33%;height:100%;background:#E0B46A;border-radius:3px"></div></div></div>
-    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(30,37,54,.12)"><div style="font-weight:700;font-size:15px">계획 총액</div><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1;white-space:nowrap">약 1,824<span style="font-family:'Pretendard Variable',sans-serif;font-size:12px;color:#5B6272;margin-left:3px">만원</span></div></div>
+    </div><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(30,37,54,.12)"><div style="font-weight:700;font-size:15px">계획 총액</div><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1;white-space:nowrap">약 1,824<span style="font-family:'Pretendard Variable',sans-serif;font-size:12px;color:#5B6272;margin-left:3px">만원</span></div></div>
   </div>
   <div style="margin-top:10px;background:rgba(196,70,46,.07);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.65"><b>별도로 둘 것</b> · 비자가 필요해지면 60~100만원 예비비. 항공·호텔·전용차·보험은 10인 실제 재고와 조부모 연령 확인 후 다시 계산합니다.</div>
 </section>
 </sc-if>
 
 <section data-screen-label="08 예약 순서" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">08 · 예약 순서 · 타임라인</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">08 · 예약 순서 · 타임라인</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">호텔 → 항공 → 전용차 → 만찬 → 디즈니·유람선</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">2월 말은 대학 일정과 가까워서, 최저가보다 <b style="color:#1E2536">일정 변경 조건</b>이 더 중요합니다.</p>
-  <div style="margin-top:20px;display:grid;grid-template-columns:14px 1fr;gap:0 16px">
-    <div style="display:flex;flex-direction:column;align-items:center"><div style="width:12px;height:12px;border-radius:50%;background:#C4462E;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
-    <div style="padding-bottom:22px"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E">지금 — 2026. 10</div><div style="font-weight:700;font-size:16px;margin-top:2px">가족 정보 확정</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">10명 영문 성명·생년월일·실제 거주지·여권 만료일, 조부모 보행 상태, 디즈니 희망자. 여권번호는 가족 문서에 올리지 않습니다.</div></div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
-    <div style="padding-bottom:22px"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E">2026. 10 — 11</div><div style="font-weight:700;font-size:16px;margin-top:2px">무료취소 호텔 5객실 먼저 홀딩</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">4객실안은 3인실 정원·침구를 호텔이 서면으로 확인해줄 때만 전환.</div></div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
-    <div style="padding-bottom:22px"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E">딸의 대학 일정 확인 후</div><div style="font-weight:700;font-size:16px;margin-top:2px">항공 10석 결제</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">등록·추가합격·오리엔테이션 가능일을 확인한 뒤. 같은 편 10석 총액과 변경·환불 조건을 봅니다.</div></div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
-    <div style="padding-bottom:22px"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E">2026. 12 — 2027. 1</div><div style="font-weight:700;font-size:16px;margin-top:2px">정책 재확인</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">2027년 중국 무비자 정책, 춘절 연휴·대체근무일, 예원 등불축제, 디즈니 가격 캘린더.</div></div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div></div>
-    <div><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E">출발 30 — 45일 전</div><div style="font-weight:700;font-size:16px;margin-top:2px">현지 예약 확정</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">공항 전용차 → 기념 만찬 별실 → 디즈니 날짜권 → 유람선 순서. 디즈니는 취소 대신 48시간 전 날짜 변경만 되는 상품이 있으니 구매 화면 문구를 기준으로.</div></div>
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">2월 말은 대학 일정과 가까워서, 최저가보다 <b style="color:#1E2536">일정 변경 조건</b>이 더 중요합니다.</p>
+  </div><div style="margin-top:20px;display:grid;grid-template-columns:14px 1fr;gap:0 16px" class="booking-timeline">
+    <div style="display:flex;flex-direction:column;align-items:center" class="timeline-marker"><div style="width:12px;height:12px;border-radius:50%;background:#C4462E;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
+    <div style="padding-bottom:22px" class="timeline-card"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E"><span class="timeline-number">1</span><span>지금 — 2026. 10</span></div><div style="font-weight:700;font-size:16px;margin-top:2px">가족 정보 확정</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">10명 영문 성명·생년월일·실제 거주지·여권 만료일, 조부모 보행 상태, 디즈니 희망자. 여권번호는 가족 문서에 올리지 않습니다.</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center" class="timeline-marker"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
+    <div style="padding-bottom:22px" class="timeline-card"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E"><span class="timeline-number">2</span><span>2026. 10 — 11</span></div><div style="font-weight:700;font-size:16px;margin-top:2px">무료취소 호텔 5객실 먼저 홀딩</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">4객실안은 3인실 정원·침구를 호텔이 서면으로 확인해줄 때만 전환.</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center" class="timeline-marker"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
+    <div style="padding-bottom:22px" class="timeline-card"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E"><span class="timeline-number">3</span><span>딸의 대학 일정 확인 후</span></div><div style="font-weight:700;font-size:16px;margin-top:2px">항공 10석 결제</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">등록·추가합격·오리엔테이션 가능일을 확인한 뒤. 같은 편 10석 총액과 변경·환불 조건을 봅니다.</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center" class="timeline-marker"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div><div style="flex:1;width:2px;background:rgba(30,37,54,.12)"></div></div>
+    <div style="padding-bottom:22px" class="timeline-card"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E"><span class="timeline-number">4</span><span>2026. 12 — 2027. 1</span></div><div style="font-weight:700;font-size:16px;margin-top:2px">정책 재확인</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">2027년 중국 무비자 정책, 춘절 연휴·대체근무일, 예원 등불축제, 디즈니 가격 캘린더.</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center" class="timeline-marker"><div style="width:12px;height:12px;border-radius:50%;background:#1E2536;margin-top:6px"></div></div>
+    <div class="timeline-card"><div style="font-family:'Instrument Serif',serif;font-size:15px;color:#C4462E"><span class="timeline-number">5</span><span>출발 30 — 45일 전</span></div><div style="font-weight:700;font-size:16px;margin-top:2px">현지 예약 확정</div><div style="font-size:13.5px;line-height:1.65;color:#5B6272;margin-top:4px">공항 전용차 → 기념 만찬 별실 → 디즈니 날짜권 → 유람선 순서. 디즈니는 취소 대신 48시간 전 날짜 변경만 되는 상품이 있으니 구매 화면 문구를 기준으로.</div></div>
   </div>
 </section>
 
 <section data-screen-label="09 날씨" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">09 · 날씨 · 옷차림</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">09 · 날씨 · 옷차림</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">차고 습한 늦겨울</h2>
-  <div style="margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
+  </div></div><div class="responsive-group section-columns weather-columns"><div style="margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px" class="weather-card">
     <div style="font-family:'Instrument Serif',serif;font-size:44px;line-height:1">3<span style="font-size:24px;color:#5B6272">~</span>11<span style="font-size:22px;color:#C4462E">°C</span></div>
     <p style="margin:0;font-size:14px;line-height:1.7;text-wrap:wrap">겨울 평균 기온. 눈은 드물지만 북풍과 습도 때문에 체감온도가 낮습니다. 와이탄·유람선·디즈니 만족도는 기온보다 <b>바람과 비</b>가 좌우하므로, 출발 7~10일 전 예보를 보고 야외 순서를 조정합니다.</p>
   </div>
-  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px" class="packing-card">
     <span style="padding:7px 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:13px;font-weight:600">방풍·방수 외투</span><span style="padding:7px 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:13px;font-weight:600">목도리</span><span style="padding:7px 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:13px;font-weight:600">장갑</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">얇은 옷 여러 겹</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">편한 방수 신발</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">핫팩</span><span style="padding:7px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.14);font-size:13px;font-weight:600">접이식 우산</span>
   </div>
-</section>
+</div></section>
 
 <section data-screen-label="10 비자 결제 통신" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">10 · 비자 · 결제 · 통신</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">10 · 비자 · 결제 · 통신</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">출발 전에 알아둘 것</h2>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px">
+  </div></div><div style="display:flex;flex-direction:column;gap:10px;margin-top:20px" class="practical-grid">
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:18px">
       <div style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;background:#C4462E;color:#fff;font-size:11px;font-weight:700">비자 · 재확인 필수</span></div>
       <p style="margin:10px 0 0;font-size:14px;line-height:1.7">한국 일반여권의 30일 무비자는 현재 <b>2026년 12월 31일까지</b>로 안내되어 있어, 2027년 2월에 자동 적용된다고 볼 수 없습니다. 12월 말~1월 초 중국대사관 안내를 다시 확인하고, 연장이 없으면 관광비자(온라인 신청 가능)를 준비합니다. 여권 만료가 가까운 가족은 미리 갱신합니다.</p>
@@ -432,14 +514,14 @@ a{color:#1E2536}a:hover{color:#C4462E}
 </section>
 
 <section data-screen-label="11 체크리스트" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">11 · 출발 전 체크리스트</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">11 · 출발 전 체크리스트</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">하나씩 지워 나가기</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272">체크한 내용은 이 기기에 저장됩니다.</p>
-  <div style="margin-top:18px;display:flex;align-items:center;gap:12px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272" class="section-description">체크한 내용은 이 기기에 저장됩니다.</p>
+  </div><div style="margin-top:18px;display:flex;align-items:center;gap:12px">
     <div style="flex:1;height:6px;border-radius:3px;background:rgba(30,37,54,.08);overflow:hidden"><div style="{{ progressStyle }}"></div></div>
     <div style="font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap">{{ doneCount }} / {{ totalCount }}</div>
   </div>
-  <div style="margin-top:12px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:4px 6px">
+  <div style="margin-top:12px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:4px 6px" class="checklist-grid">
     <sc-for list="{{ checks }}" as="c" hint-placeholder-count="10">
       <button type="button" onClick="{{ c.toggle }}" style="display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;width:100%;text-align:left;appearance:none;border:0;background:none;padding:13px 12px;font:inherit;color:inherit;cursor:pointer;border-bottom:1px solid rgba(30,37,54,.06)">
         <span style="{{ c.boxStyle }}">{{ c.mark }}</span>
@@ -451,10 +533,10 @@ a{color:#1E2536}a:hover{color:#C4462E}
 
 <sc-if value="{{ showDecisions }}" hint-placeholder-val="{{ true }}">
 <section data-screen-label="12 함께 정할 것" style="padding:46px 20px 0">
-  <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">12 · 함께 정할 것</div>
+  <div class="responsive-group section-header"><div class="responsive-group section-title"><div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#C4462E">12 · 함께 정할 것</div>
   <h2 style="margin:8px 0 8px;font-family:'Gowun Batang',serif;font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em">가족회의에서 결정할 여섯 가지</h2>
-  <p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap">붉은 표시가 제안하는 1순위입니다. 금액은 표준형 예산 대비 증감입니다.</p>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px">
+  </div><p style="margin:0;font-size:15px;line-height:1.75;color:#5B6272;text-wrap:wrap" class="section-description">붉은 표시가 제안하는 1순위입니다. 금액은 표준형 예산 대비 증감입니다.</p>
+  </div><div style="display:flex;flex-direction:column;gap:10px;margin-top:20px" class="decisions-grid">
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:16px 18px">
       <div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:'Instrument Serif',serif;font-size:20px;color:#C4462E">1</span><span style="font-weight:700;font-size:16px">날짜</span></div>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"><span style="padding:6px 11px;border-radius:999px;background:#C4462E;color:#fff;font-size:13px;font-weight:600">2/23~27 화~토</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">2/22~26 월~금</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">2/24~28 수~일</span><span style="padding:6px 11px;border-radius:999px;background:rgba(30,37,54,.06);font-size:13px;font-weight:600">2/25~3/1 목~월</span></div>
@@ -486,7 +568,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
       <p style="margin:10px 0 0;font-size:13px;line-height:1.6;color:#5B6272">조부모 편안함에는 효과가 크지만, 시내 짧은 구간은 택시 3대가 더 유연합니다.</p>
     </div>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px" class="priorities-grid">
     <div style="background:#1E2536;color:#F4EFE5;border-radius:18px;padding:16px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#E0B46A">지킬 것</div><div style="margin-top:8px;font-size:13.5px;line-height:1.7">5객실의 수면 품질<br>공항 왕복 단체차량<br>조부모 택시 이동<br>오후 호텔 휴식<br>여행자보험<br>기념 만찬 한 번</div></div>
     <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:16px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#5B6272">줄여도 되는 것</div><div style="margin-top:8px;font-size:13.5px;line-height:1.7;color:#5B6272">5성급 업그레이드<br>유료 전망대<br>디즈니 Premier Access<br>종일 전용차<br>고급 식사 여러 번</div></div>
   </div>
@@ -494,10 +576,10 @@ a{color:#1E2536}a:hover{color:#C4462E}
 </sc-if>
 
 <section data-screen-label="마무리" style="padding:46px 20px 0">
-  <div style="background:radial-gradient(120% 90% at 15% 110%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;border-radius:24px;padding:28px 24px">
-    <div style="font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#E0B46A">설계 기준</div>
+  <div style="background:radial-gradient(120% 90% at 15% 110%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;border-radius:24px;padding:28px 24px" class="closing-card">
+    <div class="responsive-group closing-title"><div style="font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#E0B46A">설계 기준</div>
     <p style="margin:14px 0 0;font-family:'Gowun Batang',serif;font-size:21px;line-height:1.55;text-wrap:wrap">많이 보는 것보다,<br>열 명이 좋은 컨디션으로<br>함께 기억할 장면을 만드는 것.</p>
-    <p style="margin:16px 0 0;font-size:13.5px;line-height:1.7;color:rgba(244,239,229,.7)">이 여행에서 가장 아까운 지출은 비싼 호텔비가 아니라, 조금 아끼려다 열 명이 지쳐 서로를 기다리는 시간입니다.</p>
+    </div><p style="margin:16px 0 0;font-size:13.5px;line-height:1.7;color:rgba(244,239,229,.7)">이 여행에서 가장 아까운 지출은 비싼 호텔비가 아니라, 조금 아끼려다 열 명이 지쳐 서로를 기다리는 시간입니다.</p>
   </div>
   <p style="margin:22px 0 0;font-size:12px;line-height:1.7;color:#5B6272;text-align:center">2026. 9. 24 조사 기준 · 가격·정책은 계획값이며 예약 전 재확인합니다.</p>
 </section>
@@ -506,7 +588,7 @@ a{color:#1E2536}a:hover{color:#C4462E}
   <details>
     <summary>사진 출처</summary>
     <ul>
-      <li><b>1일차 · 난징동루 야경</b><br><span class="work-title">南京路步行街夜景</span><br>EditQ · <a href="https://commons.wikimedia.org/wiki/File:南京路步行街夜景.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a><br>Wikimedia 제공 축소본 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
+      <li><b>1일차 · 난징동루 야경</b><br><span class="work-title">南京路步行街夜景</span><br>EditQ · <a href="https://commons.wikimedia.org/wiki/File:%E5%8D%97%E4%BA%AC%E8%B7%AF%E6%AD%A5%E8%A1%8C%E8%A1%97%E5%A4%9C%E6%99%AF.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a><br>Wikimedia 제공 축소본 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
       <li><b>3일차 A팀 · 상하이 디즈니랜드</b><br><span class="work-title">Enchanted Storybook Castle of Shanghai Disneyland</span><br>Fayhoo · <a href="https://commons.wikimedia.org/wiki/File:Enchanted_Storybook_Castle_of_Shanghai_Disneyland.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a><br>원본 파일 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
       <li><b>4일차 · 상하이박물관</b><br><span class="work-title">Shanghai Museum 20240512</span><br>Simon Wade · <a href="https://commons.wikimedia.org/wiki/File:Shanghai_Museum_20240512.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a><br>Wikimedia 제공 축소본 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
       <li><b>식사 안내 · 샤오롱바오</b><br><span class="work-title">Xiao long bao closeup in Shanghai</span><br>MR+G · <a href="https://commons.wikimedia.org/wiki/File:Xiao_long_bao_closeup_in_Shanghai.jpg" target="_blank" rel="noopener">원본 사진</a> · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a><br>원본 파일 사용. 화면 비율에 맞춰 일부 영역만 표시.</li>
