@@ -150,5 +150,81 @@
       688
     ],
     "sha256": "d215a46fc19f14610890f45008eaf14bb00860fcfdd3128376f8b4fcbd836034"
+  },
+  {
+    "file": "gallery-lantern.jpg",
+    "slot_id": "v3-place-lantern",
+    "place": "예원 등불축제",
+    "alt": "예원 등불축제의 보름달 등불과 건물 모양 등불",
+    "title": "豫园庙会04037.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:%E8%B1%AB%E5%9B%AD%E5%BA%99%E4%BC%9A04037.jpg",
+    "author": "Augusthaiho",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/%E8%B1%AB%E5%9B%AD%E5%BA%99%E4%BC%9A04037.jpg/1920px-%E8%B1%AB%E5%9B%AD%E5%BA%99%E4%BC%9A04037.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "date": "2019-02-06 18:50:06",
+    "changes": "Wikimedia에서 제공한 1600px 축소본. 화면 비율에 맞춰 일부 영역만 표시.",
+    "dimensions": [
+      1920,
+      1281
+    ],
+    "sha256": "566dbbc8b483c68d76a4672c61edb2d7b66c9cf33f8bd50697f1043033f0e50b"
+  },
+  {
+    "file": "gallery-wukang.jpg",
+    "slot_id": "v3-place-wukang",
+    "place": "우캉루 · 프랑스조계",
+    "alt": "해질녘 우캉대루의 삼각형 정면과 교차로",
+    "title": "Wukang Mansion (20191114161507).jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Wukang_Mansion_(20191114161507).jpg",
+    "author": "N509FZ",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Wukang_Mansion_%2820191114161507%29.jpg/1920px-Wukang_Mansion_%2820191114161507%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "date": "2019-11-14 16:15:07",
+    "changes": "Wikimedia에서 제공한 1600px 축소본. 화면 비율에 맞춰 일부 영역만 표시.",
+    "dimensions": [
+      1920,
+      1280
+    ],
+    "sha256": "ed41c57e966e2ae1d0f2047c13e8f4c133b9e9d6b0011eeeb5b391fbbe2ac05a"
+  },
+  {
+    "file": "gallery-kpg.jpg",
+    "slot_id": "v3-place-kpg",
+    "place": "대한민국 임시정부청사",
+    "alt": "대한민국 임시정부 구지 입구 벽의 현판",
+    "title": "Entrance wall of Provisional Government of ROK in Shanghai.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File:Entrance_wall_of_Provisional_Government_of_ROK_in_Shanghai.JPG",
+    "author": "Ericmetro",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Entrance_wall_of_Provisional_Government_of_ROK_in_Shanghai.JPG/1920px-Entrance_wall_of_Provisional_Government_of_ROK_in_Shanghai.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "date": "2010-10-02 17:03:41",
+    "changes": "Wikimedia에서 제공한 1600px 축소본. 화면 비율에 맞춰 일부 영역만 표시.",
+    "dimensions": [
+      1920,
+      1280
+    ],
+    "sha256": "7e7cf023cd119f2ba97cd3a3762197b35b5fedf2c739cc5864e0b6d24465c33d"
+  },
+  {
+    "file": "09-dinner-private-room.jpg",
+    "slot_id": "v3-day4-photo",
+    "place": "기념 만찬 (참고 사진)",
+    "alt": "중식당 별실의 큰 원탁과 샹들리에",
+    "title": "Michelin two-starred Shang Palace grand private dining room.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Michelin_two-starred_Shang_Palace_grand_private_dining_room.jpg",
+    "author": "Ksl.communications",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Michelin_two-starred_Shang_Palace_grand_private_dining_room.jpg/1920px-Michelin_two-starred_Shang_Palace_grand_private_dining_room.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "date": "2012-09-11 16:02:53",
+    "changes": "Wikimedia에서 제공한 1600px 축소본. 화면 비율에 맞춰 일부 영역만 표시.",
+    "dimensions": [
+      1920,
+      1273
+    ],
+    "sha256": "88eb61feea8eb9d4709855be7ceca50fff7a89f86e5db3a9cea7e9e805b108dd"
   }
 ]
