@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>집에서 집까지 · 상세 시간표 — 상하이 가족여행</title>
+<meta name="description" content="상하이 가족여행 · 집에서 집까지 상세 시간표 · 2027. 2. 18 — 2. 22">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script>window.__resources=window.__resources||{};</script>
+<script src="./support.js"></script>
+<script src="./shanghai-v4-data.js"></script>
+<script src="./schedule-data.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="상하이 가족여행 · 집에서 집까지 상세 시간표 · 2027. 2. 18 — 2. 22">
+<title>집에서 집까지 · 상세 시간표 — 상하이 가족여행</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
+[data-scroll]::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
+
+<div style="position:sticky;top:0;z-index:30;background:rgba(244,239,229,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
+  <nav ref="{{ navRef }}" aria-label="여행 안내 · 날짜 바로가기" style="max-width:1120px;margin:0 auto;display:flex;align-items:stretch;gap:clamp(6px,3.4vw - 6px,28px);overflow-x:auto;scrollbar-width:none">
+    <a href="{{ backHref }}" aria-label="여행 안내로 돌아가기" style="flex:none;display:flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>여행 안내</span></a><span aria-hidden="true" style="flex:none;align-self:center;width:1px;height:16px;background:rgba(30,37,54,.2)"></span>
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" aria-current="{{ n.cur }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:{{ n.bb }};font-size:14px;font-weight:600;line-height:1.2;color:{{ n.c }};text-decoration:none;white-space:nowrap;transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent" style-hover="color:#1E2536">{{ n.num }}<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><span style="margin-left:5px;font-size:12px;font-weight:500">{{ n.date }}</span></sc-if></a></sc-for>
+  </nav>
+</div>
+
+<div style="padding:0 clamp(14px,5vw,64px)">
+<div style="max-width:1120px;margin:0 auto">
+
+<header data-screen-label="표지" style="margin-top:clamp(14px,2.5vw,28px);background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:clamp(20px,2.4vw,28px);padding:clamp(24px,3.4vw,48px)">
+  <div style="font-size:14px;font-weight:700;letter-spacing:.04em;color:#E0B46A">상하이 가족여행 · 2027. 2. 18 — 2. 22</div>
+  <h1 style="margin:8px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(30px,1.4vw + 24px,44px);line-height:1.25;letter-spacing:-.01em;text-wrap:balance">집에서 집까지 · 상세 시간표</h1>
+  <p style="margin:8px 0 0;max-width:820px;font-size:clamp(15px,.2vw + 14px,16px);line-height:1.7;color:rgba(244,239,229,.95);text-wrap:pretty">4박 5일 · 가족 10명 · 숙소 크라운플라자 난징로드</p>
+</header>
+
+<p style="margin:14px 0 0;padding:14px 18px;border-radius:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);font-size:15.5px;line-height:1.7;text-wrap:pretty">시각은 이 계획의 기준 시각입니다. 현지에서는 가이드 안내를 따릅니다. 중국은 한국보다 1시간 느립니다.</p>
+
+<sc-for list="{{ days }}" as="d" hint-placeholder-count="1">
+<section id="{{ d.id }}" data-screen-label="{{ d.label }}" style="scroll-margin-top:76px;padding:clamp(40px,4.6vw,64px) 0 0">
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;padding-bottom:14px;border-bottom:2px solid #1E2536">
+    <div style="flex:1 1 380px;min-width:0">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px">
+        <span style="font-family:'Instrument Serif',serif;font-size:clamp(38px,2vw + 26px,54px);line-height:.95;color:#85622A;margin-right:clamp(2px,1.4vw - 6px,10px)">{{ d.num }}</span>
+        <span style="font-size:16px;font-weight:700">{{ d.date }}</span>
+        <sc-if value="{{ d.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;background:#1E2536;color:#E0B46A;font-size:12.5px;font-weight:700;line-height:1.5">{{ d.badge }}</span></sc-if>
+      </div>
+      <h2 style="margin:10px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,30px);line-height:1.3;letter-spacing:-.01em;text-wrap:pretty">{{ d.title }}</h2>
+    </div>
+    <span style="flex:0 0 auto;display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;border:1px solid rgba(30,37,54,.25);background:#FFFDF9;color:#1E2536;font-size:13.5px;font-weight:700">{{ d.tz }}</span>
+  </div>
+
+  <sc-for list="{{ d.secs }}" as="sec" hint-placeholder-count="2">
+    <div style="margin-top:16px">
+      <sc-if value="{{ sec.par }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:4px 0 10px">
+          <span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;border:1px solid #1E2536;font-size:12.5px;font-weight:700">동시 진행</span>
+          <span style="font-weight:700;font-size:16px">{{ sec.title }}</span>
+        </div>
+      </sc-if>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <sc-for list="{{ sec.blocks }}" as="b" hint-placeholder-count="1">
+          <div style="flex:1 1 380px;min-width:0;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:clamp(16px,2vw,24px) clamp(16px,2vw,26px) 8px">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px">
+              <sc-if value="{{ b.red }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;padding:3px 11px;border-radius:999px;background:#1E2536;color:#E0B46A;font-size:12.5px;font-weight:700">{{ b.who }}</span></sc-if>
+              <sc-if value="{{ b.navy }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;border:1px solid rgba(30,37,54,.3);background:#F4EFE5;color:#1E2536;font-size:12.5px;font-weight:700">{{ b.who }}</span></sc-if>
+              <sc-if value="{{ b.plain }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;border:1px solid rgba(30,37,54,.22);background:#FFFDF9;font-size:12.5px;font-weight:700">{{ b.who }}</span></sc-if>
+              <h3 style="flex:1 1 200px;min-width:0;margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(17px,.4vw + 15px,20px);line-height:1.4;text-wrap:pretty">{{ b.title }}</h3>
+              <sc-if value="{{ b.hasTz }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;border:1px solid rgba(30,37,54,.25);background:#FFFDF9;color:#1E2536;font-size:12.5px;font-weight:700">{{ b.tz }}</span></sc-if>
+            </div>
+
+            <sc-if value="{{ b.hasOpts }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));align-items:start;gap:10px;margin-top:14px">
+                <sc-for list="{{ b.opts }}" as="o" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;border-radius:14px;overflow:hidden;background:#F4EFE5">
+                    <sc-if value="{{ o.hasPh }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ o.p.open }}" aria-label="{{ o.p.zoom }}" style="display:block;padding:0;border:0;background:#E9E2D4;cursor:zoom-in"><img src="{{ o.p.src }}" alt="{{ o.p.label }}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"></button></sc-if>
+                    <div style="padding:10px 12px 12px">
+                      <div style="font-weight:700;font-size:16px;line-height:1.45">{{ o.k }}</div>
+                      <sc-if value="{{ o.hasT }}" hint-placeholder-val="{{ false }}"><div style="margin-top:2px;font-size:15px;font-weight:600;line-height:1.5;font-variant-numeric:tabular-nums;white-space:nowrap;color:#1E2536">{{ o.t }}</div></sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <div style="margin-top:10px">
+              <sc-for list="{{ b.rows }}" as="r" hint-placeholder-count="6">
+                <sc-if value="{{ r.isRow }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex;flex-wrap:wrap;gap:2px 18px;padding:12px 0;border-top:1px solid rgba(30,37,54,.08)">
+                    <div style="flex:0 0 112px;font-size:15px;font-weight:600;line-height:1.6;font-variant-numeric:tabular-nums;color:#1E2536"><span style="white-space:nowrap">{{ r.tNum }}</span><sc-if value="{{ r.hasSuf }}" hint-placeholder-val="{{ false }}"> <span style="font-size:13px;font-weight:600;color:#5B6272;white-space:nowrap">{{ r.tSuf }}</span></sc-if></div>
+                    <div style="flex:1 1 220px;min-width:0">
+                      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px;font-size:16px;line-height:1.6">
+                        <sc-if value="{{ r.hasPlace }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700">{{ r.place }}</span></sc-if>
+                        <span>{{ r.todo }}</span>
+                      </div>
+                      <sc-if value="{{ r.hasPh }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px;max-width:520px;margin-top:10px">
+                          <sc-for list="{{ r.ph }}" as="p" hint-placeholder-count="0">
+                            <figure style="margin:0;min-width:0">
+                              <button type="button" onClick="{{ p.open }}" aria-label="{{ p.zoom }}" style="display:block;width:100%;padding:0;border:0;border-radius:10px;overflow:hidden;background:#E9E2D4;cursor:zoom-in"><img src="{{ p.src }}" alt="{{ p.label }}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover"></button>
+                              <figcaption style="margin-top:6px;font-size:13.5px;font-weight:600;line-height:1.45">{{ p.label }}</figcaption>
+                            </figure>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ r.isFl }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin:6px 0 12px;padding:14px 16px;border-radius:14px;background:#1E2536;color:#F4EFE5">
+                    <span style="font-size:16px;font-weight:600;line-height:1.5;font-variant-numeric:tabular-nums;color:#E0B46A">{{ r.t }}</span>
+                    <span style="font-weight:700;font-size:16px;line-height:1.5">{{ r.todo }}</span>
+                  </div>
+                </sc-if>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-top:16px">
+    <a href="{{ d.mainHref }}" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(30,37,54,.16);background:#FFFDF9;color:#1E2536;font-size:14px;font-weight:700;text-decoration:none">← {{ d.mainLabel }}</a>
+    <sc-if value="{{ d.hasNext }}" hint-placeholder-val="{{ true }}"><a href="{{ d.nextHref }}" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:14px;font-weight:700;text-decoration:none">{{ d.nextLabel }}</a></sc-if>
+  </div>
+</section>
+</sc-for>
+
+<footer style="margin-top:clamp(36px,4vw,56px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
+  <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
+    <a href="{{ backHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536"><span aria-hidden="true">←</span><span>여행 안내</span></a>
+    <span aria-current="page" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#1E2536">상세 시간표</span>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">식당 안내</a>
+    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">갈 곳 안내</a>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">현지 정보·연락처</a>
+  </nav>
+  <div style="margin-top:14px;font-size:14px;color:#5B6272">상세 시간표 · 2026. 11. 1</div>
+  <div style="margin-top:8px;font-size:12px;line-height:1.7;color:#5B6272">{{ creditLead }}<sc-for list="{{ credits }}" as="c" hint-placeholder-count="0"><span>{{ c.label }} <a href="{{ c.srcUrl }}" target="_blank" rel="noopener" style="color:#5B6272">{{ c.author }}</a> (<a href="{{ c.licUrl }}" target="_blank" rel="noopener" style="color:#5B6272">{{ c.lic }}</a>){{ c.sep }}</span></sc-for></div>
+</footer>
+
+</div>
+</div>
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="사진 크게 보기" onClick="{{ lbClose }}" style="position:fixed;inset:0;z-index:100;background:rgba(14,17,27,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:64px clamp(12px,3vw,40px) clamp(16px,3vw,32px)">
+    <button type="button" onClick="{{ lbClose }}" style="position:absolute;top:12px;right:12px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(244,239,229,.35);background:rgba(244,239,229,.08);color:#F4EFE5;font:inherit;font-size:14px;font-weight:700;cursor:pointer">닫기 ✕</button>
+    <img src="{{ lb.src }}" alt="{{ lb.label }}" loading="lazy" decoding="async" style="display:block;max-width:100%;max-height:calc(100vh - 180px);object-fit:contain;border-radius:10px">
+    <div onClick="{{ lbStop }}" style="max-width:760px;text-align:center;color:#F4EFE5">
+      <div style="font-weight:700;font-size:15px">{{ lb.label }}</div>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPhotos&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;}}">
+class Component extends DCLogic {
+  navRef = React.createRef();
+  state = { ready: false, active: 0, wide: true, lb: null };
+  NAV = [['day1', 1, '2/18 목', '2/18'], ['day2', 2, '2/19 금', '2/19'], ['day3', 3, '2/20 토', '2/20'], ['day4', 4, '2/21 일', '2/21'], ['day5', 5, '2/22 월', '2/22']];
+  BLANK = { id: '', src: '', label: '', author: '', site: '', srcUrl: '', lic: '', licUrl: '', w: 0, h: 0, zoom: '', open: null };
+  componentDidMount() {
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+    this.onResize = () => {
+      const w = window.innerWidth >= 760;
+      if (w !== this.state.wide) this.setState({ wide: w });
+    };
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => { this.raf = 0; this.spy(); });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onHash = () => this.jump();
+    window.addEventListener('hashchange', this.onHash);
+    this.onKey = (e) => { if (e.key === 'Escape' && this.state.lb) this.closePh(); };
+    window.addEventListener('keydown', this.onKey);
+    let n = 0;
+    const wait = () => {
+      if (window.SH_SCHED && window.SH_V4) {
+        this.setState({ ready: true }, () => {
+          this.jump();
+          this.t2 = setTimeout(() => {
+            if (this.jumpY != null && Math.abs(window.scrollY - this.jumpY) <= 4) this.jump();
+            this.spyOn = true;
+            this.spy();
+          }, 450);
+        });
+      } else if (n++ < 240) this.waitT = setTimeout(wait, 25);
+    };
+    wait();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('hashchange', this.onHash);
+    window.removeEventListener('keydown', this.onKey);
+    clearTimeout(this.waitT);
+    clearTimeout(this.t2);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    try { document.body.style.overflow = ''; } catch (e) {}
+  }
+  hashDay() {
+    const m = /^#day([1-5])$/.exec(window.location.hash || '');
+    return m ? Number(m[1]) : 0;
+  }
+  jump() {
+    const n = this.hashDay();
+    if (!n) return;
+    requestAnimationFrame(() => {
+      const el = document.getElementById('day' + n);
+      if (!el) return;
+      window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 76));
+      this.jumpY = window.scrollY;
+      this.spy();
+    });
+  }
+  spy() {
+    let a = 0;
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById('day' + i);
+      if (el && el.getBoundingClientRect().top <= 140) a = i;
+    }
+    if (a !== this.state.active) this.setState({ active: a });
+    if (!this.spyOn) return;
+    const h = window.location.hash || '';
+    if (h && !/^#day[1-5]$/.test(h) && !a) return;
+    const want = a ? '#day' + a : '';
+    if (h !== want && (/^#day[1-5]$/.test(h) || !h || a)) {
+      try { window.history.replaceState(null, '', want || (window.location.pathname + window.location.search)); } catch (e) {}
+    }
+  }
+  links() {
+    let p = window.location.pathname || '';
+    try { p = decodeURIComponent(p); } catch (e) {}
+    const dc = /\.dc\.html$/i.test(p);
+    const f = (a, b) => './' + (dc ? encodeURIComponent(a) : b);
+    return { main: f('상하이 가족여행 계획서 확정안.dc.html', 'index.html'), dining: f('상하이 식당 안내.dc.html', 'dining.html'),
+      places: f('상하이 갈 곳 안내.dc.html', 'places.html'), prep: f('출발 전 준비.dc.html', 'prep.html'), info: f('현지 정보·연락처.dc.html', 'info.html') };
+  }
+  openPh(id) {
+    this.setState({ lb: id });
+    try { document.body.style.overflow = 'hidden'; } catch (e) {}
+  }
+  closePh() {
+    this.setState({ lb: null });
+    try { document.body.style.overflow = ''; } catch (e) {}
+  }
+  ph(id) {
+    const V = window.SH_V4, S = window.SH_SCHED;
+    const p = V && V.photos && V.photos[id];
+    if (!p) return null;
+    const label = (S && S.labels && S.labels[id]) || p.title;
+    return {
+      id, src: './' + p.file, label, author: p.author, site: p.site, srcUrl: p.src, lic: p.lic, licUrl: p.licUrl,
+      w: p.w, h: p.h, zoom: label + ' 사진 크게 보기', open: () => this.openPh(id),
+    };
+  }
+  blk(b, show) {
+    const rows = b.rows.map((r) => {
+      const ph = show ? (r.ph || []).map((id) => this.ph(id)).filter(Boolean) : [];
+      const t = String(r.t || ''), sp = t.indexOf(' ');
+      return { isRow: !r.fl, isFl: !!r.fl, t: r.t, tNum: sp > 0 ? t.slice(0, sp) : t, tSuf: sp > 0 ? t.slice(sp + 1) : '', hasSuf: sp > 0, place: r.place || '', hasPlace: !!r.place, todo: r.todo, ph, hasPh: ph.length > 0 };
+    });
+    const opts = (b.opts || []).map((o) => {
+      const p = show && o.ph ? this.ph(o.ph) : null;
+      return { k: o.k, t: o.t || '', hasT: !!o.t, hasPh: !!p, p: p || this.BLANK };
+    });
+    return {
+      who: b.who || '', red: b.tone === 'red', navy: b.tone === 'navy', plain: !!b.who && !b.tone,
+      title: b.title, tz: b.tz || '', hasTz: !!b.tz, rows, opts, hasOpts: opts.length > 0,
+    };
+  }
+  componentDidUpdate() {
+    if (this.lastActive === this.state.active) return;
+    this.lastActive = this.state.active;
+    const nav = this.navRef.current;
+    if (!nav || nav.scrollWidth <= nav.clientWidth + 1) return;
+    const a = nav.querySelector('a[aria-current="true"]');
+    if (!a) return;
+    const r = a.getBoundingClientRect(), nr = nav.getBoundingClientRect();
+    nav.scrollTo({ left: nav.scrollLeft + (r.left - nr.left) - (nr.width - r.width) / 2, behavior: 'smooth' });
+  }
+  renderVals() {
+    const S = window.SH_SCHED && window.SH_V4 ? window.SH_SCHED : null;
+    const { active, wide, lb } = this.state;
+    const show = this.props.showPhotos ?? true;
+    const L = this.links();
+    const nav = this.NAV.map(([id, n, date, md]) => {
+      const on = active === n;
+      return {
+        num: 'Day ' + n, date, href: '#' + id, cur: on ? 'true' : undefined, c: on ? '#1E2536' : '#5B6272', bb: on ? '#85622A' : 'transparent',
+        style: {
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minWidth: 0, minHeight: 48,
+          padding: '6px 3px', borderRadius: 12, textDecoration: 'none', textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden',
+          border: '1px solid ' + (on ? '#1E2536' : 'rgba(30,37,54,.14)'),
+          background: on ? '#1E2536' : '#FFFDF9', color: on ? '#F4EFE5' : '#1E2536',
+          transition: 'background .2s, color .2s', WebkitTapHighlightColor: 'transparent',
+        },
+      };
+    });
+    const D = S ? S.days : [];
+    const days = D.map((d, i) => {
+      const next = D[i + 1];
+      return {
+        id: d.id, label: 'Day ' + d.n, num: 'Day ' + d.n, date: d.date, badge: d.badge || '', hasBadge: !!d.badge,
+        title: d.title, tz: d.tz,
+        secs: d.secs.map((s) => ({ par: !!s.par, title: s.title || '', blocks: s.blocks.map((b) => this.blk(b, show)) })),
+        mainHref: L.main + '#' + d.id, mainLabel: '메인 안내에서 Day ' + d.n + ' 보기',
+        hasNext: !!next, nextHref: next ? '#' + next.id : '', nextLabel: next ? 'Day ' + next.n + ' →' : '',
+      };
+    });
+    const ids = [], seen = {};
+    if (show) D.forEach((d) => d.secs.forEach((s) => s.blocks.forEach((b) => {
+      b.rows.forEach((r) => (r.ph || []).forEach((id) => ids.push(id)));
+      (b.opts || []).forEach((o) => { if (o.ph) ids.push(o.ph); });
+    })));
+    const credits = ids.filter((id) => !seen[id] && (seen[id] = true)).map((id) => this.ph(id)).filter(Boolean);
+    credits.forEach((c, i) => { c.sep = i < credits.length - 1 ? ' · ' : ''; });
+    const lp = lb ? this.ph(lb) : null;
+    return { navRef: this.navRef,
+      wide, narrow: !wide,
+      backHref: L.main + (active ? '#day' + active : ''),
+      mainHref: L.main, diningHref: L.dining, placesHref: L.places, prepHref: L.prep, infoHref: L.info,
+      nav, days, credits, creditLead: credits.length ? '사진 ' : '',
+      lbOpen: !!lp, lb: lp || this.BLANK,
+      lbClose: () => this.closePh(),
+      lbStop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
+    };
+  }
+}
+</script>
+</body>
+</html>

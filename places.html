@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>갈 곳 안내 — 상하이 가족여행</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script>window.__resources=window.__resources||{};</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>갈 곳 안내 — 상하이 가족여행</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
+nav::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
+
+<div style="position:sticky;top:0;z-index:30;background:rgba(244,239,229,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
+  <nav ref="{{ navRef }}" aria-label="여행 안내 · 이 페이지 바로가기" style="max-width:1120px;margin:0 auto;display:flex;align-items:stretch;gap:clamp(6px,2.4vw - 4px,24px);overflow-x:auto;scrollbar-width:none">
+    <a href="{{ mainHref }}" aria-label="여행 안내로 돌아가기" style="flex:none;display:flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>여행 안내</span></a><span aria-hidden="true" style="flex:none;align-self:center;width:1px;height:16px;background:rgba(30,37,54,.2)"></span>
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="11"><a href="{{ n.href }}" aria-current="{{ n.cur }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:{{ n.bb }};font-size:14px;font-weight:600;line-height:1.2;color:{{ n.c }};text-decoration:none;white-space:nowrap;transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent" style-hover="color:#1E2536">{{ n.top }}</a></sc-for>
+  </nav>
+</div>
+
+<div style="padding:0 clamp(14px,5vw,64px)">
+<main style="max-width:1120px;margin:0 auto">
+
+<header data-screen-label="갈 곳 안내" style="margin-top:clamp(14px,2.5vw,28px);background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;border-radius:clamp(20px,2.4vw,28px);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch">
+  <div style="flex:4 1 340px;min-width:0;padding:clamp(24px,3.4vw,48px);display:flex;flex-direction:column;justify-content:center">
+  <div style="font-size:14px;font-weight:700;letter-spacing:.04em;color:#E0B46A">상하이 가족여행 · 2027. 2. 18 — 2. 22</div>
+  <h1 style="margin:12px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(34px,2.6vw + 16px,54px);line-height:1.25;letter-spacing:-.01em;text-wrap:balance">우리가 가는 곳</h1>
+  <p style="margin:16px 0 0;max-width:520px;font-size:16px;line-height:1.75;color:rgba(244,239,229,.95);text-wrap:pretty">이번 여행에서 가는 곳을 한곳씩 모았습니다. 어떤 곳인지, 가서 무엇을 보면 좋은지, 알아 두면 편한 것만 적었습니다. 시각은 <a href="{{ schedHref }}" style="color:#F4EFE5;font-weight:600;text-decoration:underline;text-decoration-color:#E0B46A;text-underline-offset:4px" style-hover="color:#E0B46A">상세 시간표</a>, 식당은 <a href="{{ diningHref }}" style="color:#F4EFE5;font-weight:600;text-decoration:underline;text-decoration-color:#E0B46A;text-underline-offset:4px" style-hover="color:#E0B46A">식당 안내</a>에 있습니다.</p>
+  </div>
+  <div style="flex:6 1 420px;min-width:0;min-height:clamp(280px,34vw,460px);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px">
+    <a href="#nanjing" aria-label="난징동루 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/gallery-nanjing.jpg" alt="조명이 켜진 밤의 난징동루" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">난징동루</span></a>
+    <a href="#yuyuan" aria-label="예원 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/gallery-yuyuan.jpg" alt="연못과 정자가 있는 예원 정원" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">예원</span></a>
+    <a href="#disney" aria-label="디즈니랜드 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/03-shanghai-disneyland.jpg" alt="상하이 디즈니랜드의 성" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">디즈니랜드</span></a>
+    <a href="#cruise" aria-label="황푸강 유람선 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/gallery-cruise.jpg" alt="황푸강 위의 야간 유람선" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">황푸강 유람선</span></a>
+  </div>
+</header>
+
+<section id="when" data-screen-label="언제 어디로" style="scroll-margin-top:76px;padding-top:clamp(36px,4.6vw,56px)">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">언제, 어디로 가나요?</h2></div>
+  <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:0 clamp(18px,2.4vw,28px);overflow:hidden">
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;margin-top:-1px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">2/18</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">첫날</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">목요일</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">원하는 사람은 <a href="#nanjing" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">난징동루</a>를 구경하고, 저녁 식사 뒤 모두 함께 <a href="#yuyuan" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">예원 등불</a>을 봅니다.</p></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">2/19</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">팀별 하루</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">금요일</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">디즈니팀은 <a href="#disney" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">상하이 디즈니랜드</a>, 시내팀은 <a href="#museum" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">인민광장·전시관 한 곳</a>, <a href="#nanjing" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">난징동루</a>, <a href="#bund" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">와이탄</a>을 둘러봅니다.</p></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">2/20</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">거리 산책과 기념 만찬</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">토요일</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty"><a href="#wukang" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">우캉루·안푸루</a>, <a href="#xintiandi" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">신톈디</a>, <a href="#kpg" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">대한민국 임시정부청사</a>. 오후에는 각자 활동이나 휴식을 고릅니다. <a href="#xintiandi" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">푸싱공원</a>은 선택 산책입니다.</p></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">2/21</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">정원과 강의 풍경</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">일요일</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">오전에는 <a href="#yuyuan" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">예원 정원·구시가지</a>. 오후 활동조는 <a href="#bund" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">와이탄 남쪽</a>을 거쳐 <a href="#lujiazui" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">페리</a>를 타고 <a href="#lujiazui" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">루자쭈이</a>로 갑니다. 저녁에는 모두 함께 <a href="#cruise" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">황푸강 유람선</a>을 탑니다.</p></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">2/22</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">귀국</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">월요일</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">별도 관광 없이 공항으로 이동합니다.</p></div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:12px;font-size:13px;line-height:1.4;color:#5B6272">
+    <span>장소마다 방문 표시</span>
+    <span style="display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:13px;font-weight:600;white-space:nowrap">가족 모두</span>
+    <span style="display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;border:1px solid rgba(30,37,54,.3);color:#1E2536;font-size:13px;font-weight:600;white-space:nowrap">일부 가족 · 선택</span>
+  </div>
+</section>
+
+<sc-for list="{{ places }}" as="pl" hint-placeholder-count="2">
+<section id="{{ pl.id }}" data-screen-label="{{ pl.label }}" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536">
+    <span style="font-family:'Instrument Serif',serif;font-size:clamp(36px,2vw + 24px,50px);line-height:.95;color:#85622A;margin-right:clamp(2px,1.4vw - 6px,10px)">{{ pl.num }}</span>
+    <h2 style="margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">{{ pl.ko }}</h2>
+    <span lang="{{ pl.zhLang }}" style="font-size:16px;line-height:1.5;color:#5B6272">{{ pl.zh }}</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px">
+    <span style="margin-right:2px;font-size:13px;font-weight:700;letter-spacing:.04em;color:#85622A">가는 날</span>
+    <sc-for list="{{ pl.visits }}" as="v" hint-placeholder-count="1"><sc-if value="{{ v.all }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:14px;font-weight:600;line-height:1.35">{{ v.t }}</span></sc-if><sc-if value="{{ v.some }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;border:1px solid rgba(30,37,54,.3);color:#1E2536;font-size:14px;font-weight:600;line-height:1.35">{{ v.t }}</span></sc-if></sc-for>
+    <sc-if value="{{ pl.hasVisitNote }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;line-height:1.5;color:#5B6272">{{ pl.visitNote }}</span></sc-if>
+  </div>
+  <article style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:18px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px 12px">
+      <sc-for list="{{ pl.photos }}" as="p" hint-placeholder-count="1">
+        <figure style="margin:0;min-width:0;display:flex;flex-direction:column;gap:8px">
+          <button type="button" onClick="{{ p.open }}" aria-label="{{ p.zoom }}" style="display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#E9E2D4;cursor:zoom-in"><img src="{{ p.src }}" alt="{{ p.cap }}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:{{ p.ar }};object-fit:cover;object-position:{{ p.pos }}"></button>
+          <figcaption style="font-size:13px;font-weight:600;line-height:1.45;text-wrap:pretty">{{ p.cap }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+    <sc-if value="{{ pl.hasSubs }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:12px">
+        <sc-for list="{{ pl.subs }}" as="s" hint-placeholder-count="2">
+          <sc-if value="{{ s.or }}" hint-placeholder-val="{{ false }}"><div style="flex:none;align-self:center;margin:0 auto;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(30,37,54,.2);background:#FFFDF9;font-size:13px;font-weight:700;color:#1E2536">또는</div></sc-if>
+          <div style="flex:1 1 300px;min-width:0;background:#F4EFE5;border-radius:14px;padding:clamp(14px,1.8vw,18px);display:flex;flex-direction:column;gap:12px">
+            <div><h3 style="margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(19px,.4vw + 17px,21px);line-height:1.35">{{ s.ko }}</h3><div lang="zh-CN" style="margin-top:2px;font-size:16px;line-height:1.5;color:#5B6272">{{ s.zh }}</div></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px 10px">
+              <sc-for list="{{ s.photos }}" as="p" hint-placeholder-count="1">
+                <figure style="margin:0;min-width:0;display:flex;flex-direction:column;gap:8px">
+                  <button type="button" onClick="{{ p.open }}" aria-label="{{ p.zoom }}" style="display:block;width:100%;padding:0;border:0;border-radius:10px;overflow:hidden;background:#E9E2D4;cursor:zoom-in"><img src="{{ p.src }}" alt="{{ p.cap }}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:{{ p.ar }};object-fit:cover;object-position:{{ p.pos }}"></button>
+                  <figcaption style="font-size:13px;font-weight:600;line-height:1.45;text-wrap:pretty">{{ p.cap }}</figcaption>
+                </figure>
+              </sc-for>
+            </div>
+            <p style="margin:0;font-size:16px;line-height:1.7;text-wrap:pretty">{{ s.text }}</p>
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:2px;font-size:16px;line-height:1.7"><sc-for list="{{ s.bullets }}" as="b" hint-placeholder-count="1"><li>{{ b.t }}</li></sc-for></ul>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <div style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px 16px;align-items:baseline;font-size:16px;line-height:1.7">
+      <sc-if value="{{ pl.hasWhat }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">어떤 곳</span><span style="text-wrap:pretty">{{ pl.what }}</span></sc-if>
+      <sc-if value="{{ pl.hasSee }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">가서 볼 것</span><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:2px"><sc-for list="{{ pl.see }}" as="it" hint-placeholder-count="2"><li style="text-wrap:pretty"><sc-for list="{{ it.seg }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ sg.href }}" style="font-weight:600;color:#1E2536;text-decoration:underline;text-decoration-color:rgba(133,98,42,.55);text-underline-offset:4px" style-hover="color:#85622A">{{ sg.t }}</a></sc-if><sc-if value="{{ sg.isText }}" hint-placeholder-val="{{ true }}"><span>{{ sg.t }}</span></sc-if></sc-for></li></sc-for></ul></sc-if>
+      <sc-if value="{{ pl.hasKnow }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">알아 둘 것</span><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:2px"><sc-for list="{{ pl.know }}" as="it" hint-placeholder-count="2"><li style="text-wrap:pretty"><sc-for list="{{ it.seg }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ sg.href }}" style="font-weight:600;color:#1E2536;text-decoration:underline;text-decoration-color:rgba(133,98,42,.55);text-underline-offset:4px" style-hover="color:#85622A">{{ sg.t }}</a></sc-if><sc-if value="{{ sg.isText }}" hint-placeholder-val="{{ true }}"><span>{{ sg.t }}</span></sc-if></sc-for></li></sc-for></ul></sc-if>
+      <sc-for list="{{ pl.rows }}" as="r" hint-placeholder-count="0"><span style="font-size:14px;color:#5B6272">{{ r.k }}</span><span style="text-wrap:pretty">{{ r.v }}</span></sc-for>
+      <span style="font-size:14px;color:#5B6272">중국어</span><span lang="zh-CN">{{ pl.zhn }}</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px">
+      <sc-for list="{{ pl.maps }}" as="mp" hint-placeholder-count="1"><a href="{{ mp.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(30,37,54,.07);color:#1E2536;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap" style-hover="background:rgba(30,37,54,.12)">{{ mp.label }}</a></sc-for>
+      <sc-if value="{{ pl.oneMap }}" hint-placeholder-val="{{ true }}"><span style="font-size:13px;color:#5B6272">검색어 {{ pl.mapQ }}</span></sc-if>
+    </div>
+  </article>
+</section>
+</sc-for>
+
+<p style="margin:clamp(44px,5vw,64px) 0 0;font-size:13px;line-height:1.6;color:#5B6272;text-align:center;text-wrap:pretty">사진은 장소의 분위기를 보여 주는 참고 사진입니다. 계절·날씨·장식은 실제와 다를 수 있습니다.</p>
+<details id="photo-credits" style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:0 clamp(18px,2.4vw,28px)">
+  <summary style="cursor:pointer;padding:12px 0;font-size:14px;font-weight:600;line-height:1.6">사진 출처</summary>
+  <div style="padding:0 0 10px">
+    <sc-for list="{{ credits }}" as="c" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;gap:1px;padding:10px 0;border-top:1px solid rgba(30,37,54,.08);font-size:13px;line-height:1.55">
+        <span style="font-weight:600">{{ c.what }}</span>
+        <span style="color:#5B6272">{{ c.by }} · <a href="{{ c.url }}" target="_blank" rel="noopener" style="color:#5B6272">{{ c.site }}</a> · {{ c.lic }}</span>
+      </div>
+    </sc-for>
+  </div>
+</details>
+
+<footer style="margin-top:clamp(40px,5vw,64px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
+  <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
+    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536"><span aria-hidden="true">←</span><span>여행 안내</span></a>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">식당 안내</a>
+    <span aria-current="page" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#1E2536">갈 곳 안내</span>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">현지 정보·연락처</a>
+  </nav>
+  <div style="margin-top:14px;font-size:14px;color:#5B6272">갈 곳 안내 · 2026. 11. 1</div>
+</footer>
+
+</main>
+</div>
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="{{ lb.cap }}" onClick="{{ closeLb }}" style="position:fixed;inset:0;z-index:100;background:rgba(21,26,40,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:56px clamp(12px,3vw,32px) 24px">
+    <img src="{{ lb.src }}" alt="{{ lb.cap }}" loading="lazy" style="display:block;max-width:100%;max-height:78vh;object-fit:contain;border-radius:8px">
+    <div style="max-width:880px;font-size:14px;line-height:1.6;color:#F4EFE5;text-align:center;text-wrap:pretty">{{ lb.cap }}</div>
+    <button type="button" onClick="{{ closeLb }}" style="position:absolute;top:10px;right:12px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(244,239,229,.4);background:transparent;color:#F4EFE5;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">닫기</button>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: -1, lb: -1 };
+  navRef = React.createRef();
+  NAV = [['when', '한눈에'], ['nanjing', '난징동루'], ['yuyuan', '예원'], ['disney', '디즈니'], ['museum', '전시관'], ['bund', '와이탄'], ['wukang', '우캉루'], ['xintiandi', '신톈디'], ['kpg', '임시정부'], ['lujiazui', '루자쭈이'], ['cruise', '유람선']];
+  POS = { 'gallery-nanjing.jpg': '50% 30%', '03-shanghai-disneyland.jpg': '50% 12%', 'gallery-wukang.jpg': '50% 22%', 'shanghai-history-museum.jpg': '50% 18%', 'kpg-entrance.jpg': '50% 62%', 'shanghai-ferry-entrance.jpg': '50% 30%' };
+  PL = [
+    { id: 'nanjing', num: '01', ko: '난징동루', zh: '南京东路',
+      visits: [['2/18(목) 체크인 뒤 원하는 사람', 0], ['2/19(금) 오후 시내팀', 0]],
+      photos: [['gallery-nanjing.jpg', '난징동루의 밤 풍경 · 참고 사진']],
+      what: '호텔 정문 앞에서 와이탄 쪽으로 이어지는 상하이의 대표 쇼핑 거리입니다. 차가 다니지 않는 보행자 거리이고, 100년 안팎 된 백화점과 오래된 가게가 늘어서 있습니다.',
+      see: ['옛 백화점 건물과 밤의 네온사인', "호텔 정문 거의 맞은편 '제일식품상점(第一食品商店)': 상하이 과자·사탕 같은 간식 기념품", '거리 동쪽 끝까지 가면 와이탄'],
+      know: ['사람이 많아 가방은 앞으로 멥니다.', '길에서 낯선 사람이 사진을 찍어 달라며 말을 걸고 찻집이나 전시에 같이 가자고 하면 따라가지 않습니다. 관광객에게 바가지를 씌우는 수법으로 알려져 있습니다.'],
+      zhn: '南京东路步行街 · 第一食品商店', maps: [['', 'Nanjing Road Pedestrian Street Shanghai']] },
+    { id: 'yuyuan', num: '02', ko: '예원', zh: '豫园',
+      visits: [['2/18(목) 저녁 등불 전원', 1], ['2/21(일) 오전 정원 전원', 1]],
+      photos: [['gallery-lantern.jpg', '지난 예원 등불축제 · 올해 장식은 다를 수 있습니다'], ['gallery-yuyuan.jpg', '예원 정원 안의 연못과 건물'], ['02-yuyuan-huxinting.jpg', '정원 밖 호심정과 구곡교 일대']],
+      what: "명나라 관리 반윤단(潘允端)이 1559년부터 부모님을 위해 지은 정원입니다. '豫(예)'는 편안하고 즐겁다는 뜻으로, 부모님이 편히 지내시라는 마음을 담은 이름입니다. 정원 바깥은 옛 거리 모양으로 꾸민 상가입니다. 첫날 밤에는 등불을, 일요일 아침에는 정원을 봅니다.",
+      see: ['첫날 밤: 설 무렵부터 정월대보름까지 상가 거리와 연못 위에 거는 큰 등불', '일요일 아침: 정원 안의 큰 돌산과 연못, 강남 3대 명석으로 꼽히는 옥령롱(玉玲珑)', '정원 밖: 지그재그로 꺾인 다리 구곡교(九曲桥)와 연못 가운데 찻집 호심정(湖心亭)'],
+      know: ['등불축제와 정원은 입장권이 따로 있습니다. 둘 다 여행사가 준비합니다.', '등불축제는 사람이 아주 많습니다. 들어가기 전에 다시 모일 곳을 정해 둡니다.', '정원 바닥이 돌이라 비가 오면 미끄럽습니다.'],
+      zhn: '豫园 · 豫园灯会(등불축제)', maps: [['', 'Yu Garden Shanghai']] },
+    { id: 'disney', num: '03', ko: '상하이 디즈니랜드', zh: '上海迪士尼乐园',
+      visits: [['2/19(금) 하루 디즈니팀', 0]],
+      photos: [['03-shanghai-disneyland.jpg', '상하이 디즈니랜드 성']],
+      what: '2016년에 문을 연 중국 본토의 첫 디즈니랜드입니다. 가운데 있는 성은 세계 디즈니 성 가운데 가장 큽니다.',
+      see: ['밤에 성 앞에서 하는 야간쇼', '세계에서 처음 생긴 주토피아 구역(2023년)', '상하이에서 처음 선보인 트론 라이트사이클, 상하이에만 있는 캐리비안의 해적(보물 전투)'],
+      know: ['티켓이 여권과 연결돼 있어 여권 원본을 꼭 가져갑니다.', '포장된 간식은 가져갈 수 있고, 유리병과 데워야 하는 음식은 안 됩니다.', [['티켓·차량·연락은 여행 안내 06, 파크 안 식사는 '], ['식당 안내', 'DINING_DISNEY'], ['에 있습니다.']]],
+      zhn: '上海迪士尼乐园', maps: [['', 'Shanghai Disneyland']] },
+    { id: 'museum', num: '04', ko: '인민광장 전시관', zh: '둘 중 한 곳', zhLang: 'ko',
+      visits: [['2/19(금) 오전 시내팀', 0]], visitNote: '18일 저녁에 시내팀이 한 곳을 고릅니다',
+      photos: [['gallery-museum.jpg', '인민광장과 주변 도심 · 전시관 건물 사진은 아닙니다']],
+      subs: [
+        { ko: '상하이역사박물관', zh: '上海市历史博物馆', photos: [['shanghai-history-museum.jpg', '상하이역사박물관 외관']],
+          text: '1930년대 경마클럽 건물을 고쳐 2018년에 연 박물관입니다. 시계탑이 서 있는 건물입니다. 항구가 열린 뒤 상하이 사람들이 어떻게 살았는지, 옛 거리와 생활 모습을 보여 줍니다.',
+          bullets: ['무료이고 여권으로 실명 예약을 합니다(가이드가 전날 밤에).', '월요일은 쉽니다.'] },
+        { ko: '상하이 도시계획전시관', zh: '上海城市规划展示馆', photos: [['urban-planning-hall.jpg', '도시계획전시관 외관'], ['urban-planning-model-archive.jpg', '도시계획전시관의 도시 모형 · 2007년 사진이라 지금 전시와 다를 수 있습니다']],
+          text: '상하이가 어떻게 커 왔고 앞으로 어떻게 바뀌는지 보여 주는 전시관입니다. 도심 전체를 줄여 만든 커다란 도시 모형이 대표 볼거리입니다.',
+          bullets: ['입장료는 1인 30위안 안팎(실비)입니다.'] }],
+      rows: [['고르는 법', '옛 상하이 이야기가 궁금하면 역사박물관, 도시가 바뀌어 온 모습과 큰 모형이 궁금하면 도시계획전시관.'], ['구분해두기', '이름이 비슷한 상하이박물관(上海博物馆)은 다른 곳입니다. 이번에 가는 곳은 위 두 곳 중 한 곳입니다.']],
+      zhn: '上海市历史博物馆 · 上海城市规划展示馆', maps: [['상하이역사박물관', 'Shanghai History Museum'], ['도시계획전시관', 'Shanghai Urban Planning Exhibition Center']] },
+    { id: 'bund', num: '05', ko: '와이탄', zh: '外滩',
+      visits: [['2/19(금) 오후 시내팀', 0], ['2/21(일) 오후 활동조(남쪽 끝 산책)', 0], ['2/21(일) 저녁 유람선에서 전원', 1]],
+      photos: [['gallery-bund.jpg', '와이탄 건물 야경'], ['01-shanghai-skyline.jpg', '와이탄에서 본 강 건너 루자쭈이 야경']],
+      what: "황푸강 서쪽 강변 1.5km에 100년 안팎 된 서양식 건물이 늘어선 곳입니다. 은행·세관·호텔로 지은 건물이 모여 있어 '만국 건축 박람회'라고 부릅니다.",
+      see: ['시계탑이 있는 옛 세관 건물(海关大楼)', '초록 피라미드 지붕의 화평호텔(和平饭店)', '강 건너 루자쭈이의 고층 빌딩'],
+      know: ['강변 산책로는 찻길보다 높은 둑 위에 있습니다.', '강바람이 차서 모자와 장갑이 있으면 좋습니다.'],
+      zhn: '外滩', maps: [['', 'The Bund Shanghai']] },
+    { id: 'wukang', num: '06', ko: '우캉루 · 안푸루', zh: '武康路 · 安福路',
+      visits: [['2/20(토) 오전 전원', 1]],
+      photos: [['gallery-wukang.jpg', '우캉대루와 주변 거리 · 잎이 있는 계절의 사진']],
+      what: '프랑스 조계 시절에 지은 100년 안팎 된 서양식 주택과 아파트가 남아 있는 거리입니다. 길 양쪽 플라타너스로 유명합니다.',
+      see: ['우캉대루(武康大楼): 1924년에 지은, 배 앞머리처럼 뾰족한 아파트. 상하이의 손꼽히는 사진 명소', '안푸루: 작은 카페와 가게가 모인 거리'],
+      know: ['2월이라 플라타너스 잎이 없습니다. 사진 속 초록 거리와는 다릅니다.', '우캉대루 앞 교차로는 차가 많은데, 차도에 서서 사진을 찍는 사람이 많습니다. 우리는 인도에서 찍습니다.'],
+      zhn: '武康大楼 · 武康路 · 安福路', maps: [['', 'Wukang Mansion Shanghai']] },
+    { id: 'xintiandi', num: '07', ko: '신톈디 · 푸싱공원', zh: '新天地 · 复兴公园',
+      visits: [['2/20(토) 점심 전원', 1], ['오후 선택시간(원하는 사람)', 0]],
+      photos: [['gallery-xintiandi.jpg', '신톈디 골목'], ['04-xintiandi-cafe.jpg', '신톈디 카페 거리 · 녹음과 야외 좌석은 찍은 계절의 모습'], ['fuxing-park-winter.jpg', '겨울의 푸싱공원 산책로']],
+      what: "신톈디는 상하이 특유의 옛 골목집 '석고문(石库门)'을 고쳐 만든 식당·카페 거리입니다. 회색 벽돌 벽과 돌로 짠 문틀이 석고문의 모양입니다. 푸싱공원은 1909년에 문을 연 옛 프랑스 공원입니다.",
+      see: ['석고문 골목과 카페 거리', '푸싱공원의 플라타너스 산책로'],
+      know: ['임시정부청사까지 걸어서 5분입니다.', '오후 선택시간의 발마사지·카페·푸싱공원은 모두 이 근처입니다.'],
+      zhn: '新天地 · 复兴公园', maps: [['신톈디', 'Xintiandi Shanghai'], ['푸싱공원', 'Fuxing Park Shanghai']] },
+    { id: 'kpg', num: '08', ko: '대한민국 임시정부청사', zh: '大韩民国临时政府旧址',
+      visits: [['2/20(토) 오후 전원', 1]],
+      photos: [['kpg-entrance.jpg', '임시정부청사 입구'], ['gallery-kpg.jpg', '입구 벽의 임시정부청사 표지']],
+      what: '1919년 상하이에서 세운 대한민국 임시정부가 1926년부터 1932년까지 쓴 청사입니다. 3층짜리 석고문 골목집으로, 김구 선생이 일하던 방과 회의실이 남아 있습니다. 1932년 윤봉길 의사의 훙커우공원 의거 뒤 임시정부는 일제의 탄압을 피해 상하이를 떠났습니다.',
+      see: ['회의실과 김구 선생 집무실', '독립운동가들이 지내던 방과 임시정부 자료'],
+      know: ['안에서는 사진을 찍을 수 없습니다. 가족사진은 입구 표지 앞에서 찍습니다.', '좁은 집 안을 한 줄로 따라가며 봅니다. 앞사람을 따라 움직여 오래 멈춰 보기 어려우니, 가기 전에 이 카드를 한 번 읽어 두면 좋습니다.'],
+      zhn: '大韩民国临时政府旧址 · 马当路306弄4号', maps: [['', 'Korean Provisional Government Shanghai']] },
+    { id: 'lujiazui', num: '09', ko: '루자쭈이 · 황푸강 페리', zh: '陆家嘴 · 轮渡',
+      visits: [['2/21(일) 오후 활동조', 0]],
+      photos: [['gallery-lujiazui.jpg', '동방명주에서 내려다본 루자쭈이 · 원형육교에서 찍은 사진은 아닙니다'], ['shanghai-ferry-entrance.jpg', '상하이 페리 승선장 입구 · 참고 사진'], ['dongchang-pier.jpg', '건너편에서 내리는 둥창루 선착장']],
+      what: '황푸강 건너 푸둥의 금융 중심가입니다. 1990년 푸둥 개발이 시작되기 전에는 부두와 창고가 있던 곳에 30여 년 만에 고층 빌딩이 들어섰습니다.',
+      see: ['페리: 진링동루 선착장에서 둥창루 선착장까지 상하이 사람들이 출퇴근에 타는 배. 강을 건너는 동안 와이탄과 루자쭈이를 양쪽으로 봅니다.', '원형육교(陆家嘴环形天桥): 둥근 보행 육교 위에서 동방명주와 고층 빌딩들을 한 번에 봅니다.', '상하이타워(632m, 중국에서 가장 높은 건물), 병따개 모양의 세계금융센터, 진마오타워, 동방명주(468m)', '전망대(희망자): 가장 높은 곳은 상하이타워 118층(546m)'],
+      know: ['페리 요금은 1인 2위안입니다.', '강 위와 육교는 바람이 세서 춥습니다.'],
+      rows: [['구분해두기', '낮에 타는 페리는 강을 건너는 배이고, 저녁 유람선은 야경을 보는 배입니다.']],
+      zhn: '陆家嘴 · 上海中心大厦 · 东昌路渡口 · 金陵东路渡口', maps: [['루자쭈이', 'Lujiazui Shanghai'], ['둥창루 선착장', 'Dongchang Road Ferry']] },
+    { id: 'cruise', num: '10', ko: '황푸강 유람선', zh: '黄浦江游船',
+      visits: [['2/21(일) 저녁 전원', 1]],
+      photos: [['gallery-cruise.jpg', '황푸강 야경 유람선 · 실제로 타는 배와 다를 수 있습니다']],
+      what: '와이탄 남쪽 십육포(十六铺) 부두에서 출발해 와이탄과 루자쭈이 사이를 오가는 야경 유람선입니다. 여행의 마지막 밤을 열 명이 함께 보냅니다.',
+      see: ['강 한가운데서 보는 양쪽 불빛: 서쪽은 100년 안팎 된 와이탄 건물, 동쪽은 루자쭈이 고층 빌딩'],
+      know: ['2월 강바람이 차서 갑판은 춥습니다. 실내석에 앉아 있다가 사진 찍을 때만 갑판에 나갑니다.', '타고 내릴 때 사람이 몰립니다. 내리면 열 명이 다 모일 때까지 한곳에서 기다립니다.'],
+      zhn: '十六铺码头 · 黄浦江游船', maps: [['', 'Shiliupu Wharf Shanghai']] },
+  ];
+  CR = [
+    ['난징동루', 'Chainwit.', 'https://commons.wikimedia.org/wiki/File:2024-Apr_Shanghai_East_Nanjing_Road_at_night_01.jpg', 'CC BY 4.0'],
+    ['예원 등불축제', 'Augusthaiho', 'https://commons.wikimedia.org/wiki/File:%E8%B1%AB%E5%9B%AD%E5%BA%99%E4%BC%9A04037.jpg', 'CC BY-SA 4.0'],
+    ['예원 정원', 'Hans A. Rosbach', 'https://commons.wikimedia.org/wiki/File:Yu_Gardens_20090724-18.JPG', 'CC BY-SA 3.0'],
+    ['예원 호심정 일대', 'Bruna Santos', 'https://unsplash.com/photos/4FkqCVknxk8', 'Unsplash License'],
+    ['디즈니랜드 성', 'Fayhoo', 'https://commons.wikimedia.org/wiki/File:Enchanted_Storybook_Castle_of_Shanghai_Disneyland.jpg', 'CC BY-SA 3.0'],
+    ['인민광장', 'King of Hearts', 'https://commons.wikimedia.org/wiki/File:People%27s_Square_Shanghai_November_2017_002.jpg', 'CC BY-SA 4.0'],
+    ['상하이역사박물관', 'Simon Wade', 'https://commons.wikimedia.org/wiki/File:Shanghai_History_Museum_20181021.jpg', 'CC BY-SA 4.0'],
+    ['도시계획전시관', 'xiquinhosilva', 'https://commons.wikimedia.org/wiki/File:Shanghai_Urban_Planning_Exhibition_Hall.jpg', 'CC BY 4.0'],
+    ['도시계획전시관 모형(2007년)', 'Jordiferrer', 'https://commons.wikimedia.org/wiki/File:Shanghai_2020_-_Urban_Planning_Exhibition_Center_-_01.JPG', 'CC BY-SA 3.0'],
+    ['와이탄', 'Brakeet', 'https://commons.wikimedia.org/wiki/File:Buildings_in_The_Bund_07.jpg', 'CC0'],
+    ['와이탄에서 본 루자쭈이', 'George Dagerotip', 'https://unsplash.com/photos/shanghais-skyline-glows-brightly-at-night-54aEjbImVdY', 'Unsplash License'],
+    ['우캉대루', 'N509FZ', 'https://commons.wikimedia.org/wiki/File:Wukang_Mansion_%2820191114161507%29.jpg', 'CC BY-SA 4.0'],
+    ['신톈디', 'Fabio Achilli', 'https://commons.wikimedia.org/wiki/File:Xintiandi,_Shanghai,_China_%289734263917%29.jpg', 'CC BY 2.0'],
+    ['신톈디 카페 거리', 'Ye Massa', 'https://unsplash.com/photos/0Z8hYPSroQw', 'Unsplash License'],
+    ['푸싱공원', 'J. Patrick Fischer', 'https://commons.wikimedia.org/wiki/File:Fuxing_Park_2226.JPG', 'CC BY-SA 3.0'],
+    ['임시정부청사 입구', 'Ericmetro', 'https://commons.wikimedia.org/wiki/File:Entrance_of_Provisional_Government_of_ROK_in_Shanghai.JPG', 'CC BY-SA 3.0'],
+    ['임시정부청사 표지', 'Ericmetro', 'https://commons.wikimedia.org/wiki/File:Entrance_wall_of_Provisional_Government_of_ROK_in_Shanghai.JPG', 'CC BY-SA 3.0'],
+    ['루자쭈이', 'Bechology', 'https://commons.wikimedia.org/wiki/File:Lujiazui_financial_district_from_Oriental_Pearl_Tower_%28October_1st_2022%29.jpg', 'CC BY 4.0'],
+    ['페리 승선장 입구', 'David Stanley', 'https://commons.wikimedia.org/wiki/File:Shanghai_Ferry_%2840643707811%29.jpg', 'CC BY 2.0'],
+    ['둥창루 선착장', 'WQL', 'https://commons.wikimedia.org/wiki/File:Dongchang_Road_Pier_Building.jpg', 'CC BY-SA 3.0'],
+    ['황푸강 유람선', 'Ding Kezhong', 'https://commons.wikimedia.org/wiki/File:DSC00248%E9%BB%84%E6%B5%A6%E6%B1%9F%E4%B8%8A%E8%A7%82%E5%85%89%E6%B8%B8%E8%88%B9.jpg', 'CC BY-SA 4.0'],
+  ];
+  componentDidMount() {
+    this.onScroll = () => { if (this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = 0; this.spy(); }); };
+    this.onKey = (e) => { if (e.key === 'Escape' && this.state.lb >= 0) this.setState({ lb: -1 }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('keydown', this.onKey);
+    this.spy();
+    const h = window.location.hash;
+    if (h && h.length > 1) {
+      this.jt = setTimeout(() => {
+        const el = document.getElementById(decodeURIComponent(h.slice(1)));
+        if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 72));
+      }, 200);
+    }
+  }
+  componentDidUpdate() {
+    if (this.lastActive === this.state.active) return;
+    this.lastActive = this.state.active;
+    const nav = this.navRef.current;
+    if (!nav || nav.scrollWidth <= nav.clientWidth + 1) return;
+    const a = nav.querySelector('a[aria-current="true"]');
+    if (!a) return;
+    const r = a.getBoundingClientRect(), nr = nav.getBoundingClientRect();
+    nav.scrollTo({ left: nav.scrollLeft + (r.left - nr.left) - (nr.width - r.width) / 2, behavior: 'smooth' });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('keydown', this.onKey);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    clearTimeout(this.jt);
+  }
+  spy() {
+    let a = -1;
+    this.NAV.forEach((x, i) => { const el = document.getElementById(x[0]); if (el && el.getBoundingClientRect().top <= 140) a = i; });
+    if (a !== this.state.active) this.setState({ active: a });
+  }
+  links() {
+    let p = window.location.pathname || '';
+    try { p = decodeURIComponent(p); } catch (e) {}
+    const dc = /\.dc\.html$/i.test(p);
+    const f = (a, b) => './' + (dc ? encodeURIComponent(a) : b);
+    return {
+      main: f('상하이 가족여행 계획서 확정안.dc.html', 'index.html'),
+      sched: f('집에서 집까지 상세 시간표.dc.html', 'schedule.html'),
+      dining: f('상하이 식당 안내.dc.html', 'dining.html'),
+      prep: f('출발 전 준비.dc.html', 'prep.html'),
+      info: f('현지 정보·연락처.dc.html', 'info.html'),
+    };
+  }
+  renderVals() {
+    const L = this.links();
+    const { active, lb } = this.state;
+    const all = [];
+    const ph = (list, ar) => list.map(([f, cap]) => {
+      const i = all.length;
+      const o = { src: './photos/' + f, cap, ar, pos: this.POS[f] || '50% 50%', zoom: cap + ' 크게 보기', open: () => this.setState({ lb: i }) };
+      all.push(o);
+      return o;
+    });
+    const items = (list) => (list || []).map((it) => ({
+      seg: (typeof it === 'string' ? [[it]] : it).map(([t, h]) => ({ t, href: h === 'DINING_DISNEY' ? L.dining + '#d19-disney' : '', isLink: !!h, isText: !h })),
+    }));
+    const maps = (m) => m.map(([name, q]) => ({ url: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q), label: m.length > 1 ? name + ' 지도 ↗' : '지도에서 보기 ↗' }));
+    const places = this.PL.map((p) => ({
+      id: p.id, num: p.num, ko: p.ko, zh: p.zh, zhLang: p.zhLang || 'zh-CN', label: p.num + ' ' + p.ko,
+      visits: p.visits.map(([t, a]) => ({ t, all: !!a, some: !a })),
+      visitNote: p.visitNote || '', hasVisitNote: !!p.visitNote,
+      photos: ph(p.photos, p.photos.length === 1 ? '2 / 1' : '4 / 3'),
+      subs: (p.subs || []).map((s, i) => ({ ko: s.ko, zh: s.zh, or: i > 0, text: s.text, bullets: s.bullets.map((t) => ({ t })), photos: ph(s.photos, s.photos.length === 1 ? '16 / 10' : '4 / 3') })),
+      hasSubs: !!p.subs,
+      what: p.what || '', hasWhat: !!p.what,
+      see: items(p.see), hasSee: !!p.see, know: items(p.know), hasKnow: !!p.know,
+      rows: (p.rows || []).map(([k, v]) => ({ k, v })),
+      zhn: p.zhn, maps: maps(p.maps), oneMap: p.maps.length === 1, mapQ: p.maps[0][1],
+    }));
+    const nav = this.NAV.map(([id, top], i) => {
+      const on = i === active;
+      return { href: '#' + id, top, cur: on ? 'true' : undefined, c: on ? '#1E2536' : '#5B6272', bb: on ? '#85622A' : 'transparent' };
+    });
+    return {
+      nav, navRef: this.navRef, places,
+      mainHref: L.main, schedHref: L.sched, diningHref: L.dining, prepHref: L.prep, infoHref: L.info,
+      credits: this.CR.map(([what, by, url, lic]) => ({ what, by, url, lic, site: /unsplash/.test(url) ? 'Unsplash' : 'Wikimedia Commons' })),
+      lbOpen: lb >= 0 && !!all[lb], lb: all[lb] || { src: '', cap: '' },
+      closeLb: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ lb: -1 }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
