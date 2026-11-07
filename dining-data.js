@@ -63,20 +63,17 @@
         p('sunya-beef.png', '굴소스 소고기 蚝油牛肉', '上观新闻, 2026-10-11', SUNYA_SRC, SUNYA_N),
         p('sunya-fish.jpg', '훈제 병어 沙律烟鲳鱼', '上观新闻, 2026-10-11', SUNYA_SRC, SUNYA_N)
       ] },
-    dtf: { ko: '딘타이펑', zh: '鼎泰丰', branch: '신톈디점', status: '예약',
-      what: '대만에서 시작한 샤오롱바오 전문점. 맵지 않고 깔끔합니다. 사진 메뉴가 있습니다.',
-      price: '¥130 안팎', priceSrc: '',
-      notes: ['10인 예약 · 사진 메뉴라 아이들이 직접 고르기 좋습니다', '임시정부청사까지 도보 5분'],
-      map: 'Din Tai Fung Xintiandi Shanghai',
-      photos: [
-        p('dtf-sign.jpg', '딘타이펑 신톈디점 간판', '上观新闻, 2020-11-16', 'https://sghexport.shobserver.com/html/toutiao/2020/11/16/298264.html', '2020년 재개장 기사 사진. 현재 간판은 다를 수 있음.'),
-        p('dtf-1.jpg', '샤오롱바오', YT, YOMO, '여행사 제공, 촬영 지점 미확인 (신천지점 — 요모 설명)')
-      ] },
+    ddd: { ko: '점도덕', zh: '点都德', branch: '환위후이(环宇荟)점 · 지하철 9·13호선 마당루(马当路)역 위 · 신톈디 남쪽, 임시정부청사까지 걸어서 10분 안팎', status: '예약',
+      what: '1933년 광저우에서 시작한 광둥 딤섬 전문점. 새우 딤섬(虾饺皇)·차슈빠오·샤오마이·창펀·죽이 대표 메뉴이고, 맵지 않아 아이들과 어르신 모두 먹기 편합니다. 종일 딤섬을 냅니다.',
+      price: '¥100 안팎', priceSrc: '',
+      notes: ['10인 예약'],
+      map: '点都德 环宇荟店 上海',
+      photos: [] },
     mbl: { ko: '만보루', zh: '满宝楼 · Man Bao Lou Chinese Restaurant', status: '기념 만찬',
       branch: 'Shanghai Marriott Marquis City Centre (上海雅居乐万豪侯爵酒店) 4층 · 西藏中路555号 · 우리 호텔에서 도보 5분',
       occasion: '아린이의 수능과 대학 입학을 축하하는 저녁. 열 명이 별실 한 방에.',
       what: '중국요리(광둥·상하이). 별실 10개, 가장 큰 별실 20명. 저녁 17:30~21:00.',
-      price: '단품 ¥300 안팎', priceSrc: '봉사료 별도',
+      price: '단품 ¥500 안팎', priceSrc: '봉사료 포함 · 별실 최소 ¥5,000',
       notes: ['코스가 아니라 단품으로 10인분. 아린이가 두 접시를 고릅니다. 아이들 몫으로 볶음밥·새우튀김·탕수육·계란탕을 넣습니다', '17:25 호텔 로비에서 가족사진을 찍고 걸어서 갑니다(5분)'],
       map: 'Shanghai Marriott Marquis City Centre',
       photos: [
@@ -125,7 +122,7 @@
         { meal: '저녁', items: [{ team: '시내팀', name: '라오정싱 / 신야', status: '자유식', href: '#d19' }, { team: '디즈니팀', name: '파크 안', status: '자유식', href: '#d19-disney' }] }] },
       { date: '2/20 토', cells: [
         { meal: '아침', items: [{ name: '호텔 조식', href: '#breakfast' }] },
-        { meal: '점심', items: [{ name: '딘타이펑 신톈디점', status: '예약', href: '#d20' }] },
+        { meal: '점심', items: [{ name: '점도덕 环宇荟점', status: '예약', href: '#d20' }] },
         { meal: '저녁', items: [{ name: '만보루 별실', status: '기념 만찬', href: '#d20-dinner' }] }] },
       { date: '2/21 일', cells: [
         { meal: '아침', items: [{ name: '호텔 조식', href: '#breakfast' }] },
@@ -155,7 +152,7 @@
         { title: '시내팀 · 저녁', time: '17:30~18:30', who: '시내팀', area: '호텔 도보권', status: '자유식',
           lines: ['아래 두 곳 중 하나를 그날 오후에 골라 가이드가 전화로 예약합니다'],
           groups: [{ cards: [R.lzx, R.sunya] }] },
-        { id: 'd19-disney', title: '디즈니팀 · 점심·저녁', time: '점심 12:00 · 저녁 17:15', who: '디즈니팀 · 전용차 07:15 출발, 22:00 호텔', area: '상하이 디즈니랜드 파크 안', status: '자유식',
+        { id: 'd19-disney', title: '디즈니팀 · 점심·저녁', time: '점심 12:00 · 저녁 17:15', who: '디즈니팀 · 버스 07:15 출발, 22:00 호텔', area: '상하이 디즈니랜드 파크 안', status: '자유식',
           lines: ['두 끼 모두 파크 안 퀵서비스, 그때 있는 구역에서 현장 선택. 예약 없음'],
           groups: [{ cards: [{ label: '파크 안 · 참고 4곳', ko: '상하이 디즈니랜드', zh: '上海迪士尼乐园', status: '',
             spots: [
@@ -177,7 +174,7 @@
             ],
             notes: [] }] }] }] },
       { id: 'd20', date: '2월 20일 토요일', meals: [
-        { title: '점심', time: '12:15~13:15', who: '10인', area: '신톈디', status: '예약', groups: [{ cards: [R.dtf] }] },
+        { title: '점심', time: '12:15~13:15', who: '10인', area: '신톈디', status: '예약', groups: [{ cards: [R.ddd] }] },
         { id: 'd20-dinner', title: '기념 만찬', time: '18:00~20:00', who: '10인 별실', area: '메리어트 마르퀴스 4층', status: '기념 만찬', groups: [{ cards: [R.mbl] }] }] },
       { id: 'd21', date: '2월 21일 일요일', meals: [
         { title: '점심', time: '11:30~12:30', who: '10인', area: '예원', status: '예약',
