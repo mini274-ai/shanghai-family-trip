@@ -38,19 +38,25 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
 [data-scroll]::-webkit-scrollbar{display:none}
 </style>
 </helmet>
-<div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding:clamp(12px,3vw,40px) clamp(14px,5vw,64px) 88px">
+<div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
+
+<div style="background:rgba(244,239,229,.95);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
+  <nav aria-label="안내 페이지" style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
+    <span aria-current="page" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid #85622A;color:#1E2536">홈</span>
+    <a href="{{ roomsHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">객실 안내</a>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">동선 지도</a>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">식당 안내</a>
+    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">갈 곳 안내</a>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">현지 정보</a>
+  </nav>
+</div>
+
+<div style="padding:0 clamp(14px,5vw,64px)">
 <div style="max-width:1120px;margin:0 auto">
 
-<nav aria-label="안내 페이지" data-scroll style="display:flex;gap:clamp(18px,2.4vw,32px);flex-wrap:wrap;margin:0 0 clamp(4px,.8vw,10px);padding:0 4px">
-  <a href="{{ roomsHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap;color:#1E2536;text-decoration:none;text-underline-offset:6px" style-hover="color:#85622A;text-decoration:underline solid #E0B46A 2px">객실 안내</a>
-  <a href="{{ schedHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap;color:#1E2536;text-decoration:none;text-underline-offset:6px" style-hover="color:#85622A;text-decoration:underline solid #E0B46A 2px">상세 시간표</a>
-  <a href="{{ mapHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap;color:#1E2536;text-decoration:none;text-underline-offset:6px" style-hover="color:#85622A;text-decoration:underline solid #E0B46A 2px">동선 지도</a>
-  <a href="{{ diningHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap;color:#1E2536;text-decoration:none;text-underline-offset:6px" style-hover="color:#85622A;text-decoration:underline solid #E0B46A 2px">식당 안내</a>
-  <a href="{{ placesHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap;color:#1E2536;text-decoration:none;text-underline-offset:6px" style-hover="color:#85622A;text-decoration:underline solid #E0B46A 2px">갈 곳 안내</a>
-  <a href="{{ prepHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap;color:#1E2536;text-decoration:none;text-underline-offset:6px" style-hover="color:#85622A;text-decoration:underline solid #E0B46A 2px">출발 전 준비</a>
-  <a href="{{ infoHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap;color:#1E2536;text-decoration:none;text-underline-offset:6px" style-hover="color:#85622A;text-decoration:underline solid #E0B46A 2px">현지 정보·연락처</a>
-</nav>
-<div data-screen-label="표지" style="background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;border-radius:clamp(22px,2.5vw,32px);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch">
+<div data-screen-label="표지" style="margin-top:clamp(14px,2.5vw,28px);background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;border-radius:clamp(22px,2.5vw,32px);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch">
   <div style="flex:4 1 300px;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(26px,4vw,52px) clamp(22px,2.5vw,32px) clamp(26px,4vw,52px) clamp(22px,4vw,52px)">
     <div style="font-size:13px;font-weight:700;letter-spacing:.18em;color:#E0B46A">FAMILY TRIP · SHANGHAI</div>
     <h1 style="margin:14px 0 0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(34px,2.6vw + 16px,54px);line-height:1.22;letter-spacing:-.01em;text-wrap:pretty">상하이,<br>우리 가족의 4박 5일</h1>
@@ -580,6 +586,21 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
   </div>
 </section>
 
+<footer style="margin-top:clamp(40px,5vw,64px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
+  <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
+    <span aria-current="page" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid #85622A;color:#1E2536">홈</span>
+    <a href="{{ roomsHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">객실 안내</a>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">동선 지도</a>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">식당 안내</a>
+    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">갈 곳 안내</a>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">현지 정보</a>
+  </nav>
+  <div style="margin-top:14px;font-size:14px;color:#5B6272">여행 안내 · 2026. 11. 7</div>
+</footer>
+
+</div>
 </div>
 </div>
 </x-dc>

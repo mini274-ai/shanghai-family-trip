@@ -26,10 +26,9 @@ nav::-webkit-scrollbar{display:none}
 </helmet>
 <div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
 
-<div style="position:sticky;top:0;z-index:30;background:rgba(244,239,229,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
-  <nav ref="{{ navRef }}" aria-label="여행 안내 · 이 페이지 바로가기" style="max-width:1120px;margin:0 auto;display:flex;align-items:stretch;gap:clamp(6px,2.4vw - 4px,24px);overflow-x:auto;scrollbar-width:none">
-    <a href="{{ mainHref }}" aria-label="여행 안내로 돌아가기" style="flex:none;display:flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>여행 안내</span></a><span aria-hidden="true" style="flex:none;align-self:center;width:1px;height:16px;background:rgba(30,37,54,.2)"></span>
-    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="11"><a href="{{ n.href }}" aria-current="{{ n.cur }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:{{ n.bb }};font-size:14px;font-weight:600;line-height:1.2;color:{{ n.c }};text-decoration:none;white-space:nowrap;transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent" style-hover="color:#1E2536">{{ n.top }}</a></sc-for>
+<div style="background:rgba(244,239,229,.95);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
+  <nav aria-label="돌아가기" style="max-width:1120px;margin:0 auto;display:flex">
+    <a href="{{ mainHref }}" aria-label="홈으로 돌아가기" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>홈</span></a>
   </nav>
 </div>
 
@@ -50,7 +49,11 @@ nav::-webkit-scrollbar{display:none}
   </div>
 </header>
 
-<section id="when" data-screen-label="언제 어디로" style="scroll-margin-top:76px;padding-top:clamp(36px,4.6vw,56px)">
+<nav aria-label="이 페이지 바로가기" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(14px,2vw,20px)">
+  <sc-for list="{{ nav }}" as="n" hint-placeholder-count="11"><a href="{{ n.href }}" style="display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;background:#FFFDF9;border:1px solid rgba(30,37,54,.14);color:#1E2536;font-size:14px;font-weight:600;line-height:1.2;text-decoration:none;white-space:nowrap;transition:border-color .2s,color .2s;-webkit-tap-highlight-color:transparent" style-hover="border-color:rgba(133,98,42,.55);color:#85622A">{{ n.top }}</a></sc-for>
+</nav>
+
+<section id="when" data-screen-label="언제 어디로" style="scroll-margin-top:12px;padding-top:clamp(36px,4.6vw,56px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">언제, 어디로 가나요?</h2></div>
   <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:0 clamp(18px,2.4vw,28px);overflow:hidden">
     <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;margin-top:-1px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'WK Han','Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">2/18</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">첫날</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">목요일</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">원하는 사람은 <a href="#nanjing" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">난징동루</a>를 구경하고, 저녁 식사 뒤 모두 함께 <a href="#yuyuan" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">예원 등불</a>을 봅니다.</p></div>
@@ -67,7 +70,7 @@ nav::-webkit-scrollbar{display:none}
 </section>
 
 <sc-for list="{{ places }}" as="pl" hint-placeholder-count="2">
-<section id="{{ pl.id }}" data-screen-label="{{ pl.label }}" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+<section id="{{ pl.id }}" data-screen-label="{{ pl.label }}" style="scroll-margin-top:12px;padding-top:clamp(56px,8vw,76px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536">
     <span style="font-family:'WK Han','Instrument Serif',serif;font-size:clamp(36px,2vw + 24px,50px);line-height:.95;color:#85622A;margin-right:clamp(2px,1.4vw - 6px,10px)">{{ pl.num }}</span>
     <h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">{{ pl.ko }}</h2>
@@ -137,14 +140,14 @@ nav::-webkit-scrollbar{display:none}
 
 <footer style="margin-top:clamp(40px,5vw,64px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
   <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
-    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536"><span aria-hidden="true">←</span><span>여행 안내</span></a>
-    <a href="{{ roomsHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">객실 안내</a>
-    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">상세 시간표</a>
-    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">동선 지도</a>
-    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">식당 안내</a>
-    <span aria-current="page" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#1E2536">갈 곳 안내</span>
-    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">출발 전 준비</a>
-    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">현지 정보·연락처</a>
+    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">홈</a>
+    <a href="{{ roomsHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">객실 안내</a>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">동선 지도</a>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">식당 안내</a>
+    <span aria-current="page" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid #85622A;color:#1E2536">갈 곳 안내</span>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">현지 정보</a>
   </nav>
   <div style="margin-top:14px;font-size:14px;color:#5B6272">갈 곳 안내 · 2026. 11. 1</div>
 </footer>
@@ -163,8 +166,7 @@ nav::-webkit-scrollbar{display:none}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { active: -1, lb: -1 };
-  navRef = React.createRef();
+  state = { lb: -1 };
   NAV = [['when', '한눈에'], ['nanjing', '난징동루'], ['yuyuan', '예원'], ['disney', '디즈니'], ['museum', '전시관'], ['bund', '와이탄'], ['wukang', '우캉루'], ['xintiandi', '신톈디'], ['kpg', '임시정부'], ['lujiazui', '루자쭈이'], ['cruise', '유람선']];
   POS = { 'gallery-nanjing.jpg': '50% 30%', '03-shanghai-disneyland.jpg': '50% 12%', 'gallery-wukang.jpg': '50% 22%', 'shanghai-history-museum.jpg': '50% 18%', 'kpg-entrance.jpg': '50% 62%', 'shanghai-ferry-entrance.jpg': '50% 30%' };
   PL = [
@@ -269,39 +271,19 @@ class Component extends DCLogic {
     ['황푸강 유람선', 'Ding Kezhong', 'https://commons.wikimedia.org/wiki/File:DSC00248%E9%BB%84%E6%B5%A6%E6%B1%9F%E4%B8%8A%E8%A7%82%E5%85%89%E6%B8%B8%E8%88%B9.jpg', 'CC BY-SA 4.0'],
   ];
   componentDidMount() {
-    this.onScroll = () => { if (this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = 0; this.spy(); }); };
     this.onKey = (e) => { if (e.key === 'Escape' && this.state.lb >= 0) this.setState({ lb: -1 }); };
-    window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('keydown', this.onKey);
-    this.spy();
     const h = window.location.hash;
     if (h && h.length > 1) {
       this.jt = setTimeout(() => {
         const el = document.getElementById(decodeURIComponent(h.slice(1)));
-        if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 72));
+        if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 12));
       }, 200);
     }
   }
-  componentDidUpdate() {
-    if (this.lastActive === this.state.active) return;
-    this.lastActive = this.state.active;
-    const nav = this.navRef.current;
-    if (!nav || nav.scrollWidth <= nav.clientWidth + 1) return;
-    const a = nav.querySelector('a[aria-current="true"]');
-    if (!a) return;
-    const r = a.getBoundingClientRect(), nr = nav.getBoundingClientRect();
-    nav.scrollTo({ left: nav.scrollLeft + (r.left - nr.left) - (nr.width - r.width) / 2, behavior: 'smooth' });
-  }
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('keydown', this.onKey);
-    if (this.raf) cancelAnimationFrame(this.raf);
     clearTimeout(this.jt);
-  }
-  spy() {
-    let a = -1;
-    this.NAV.forEach((x, i) => { const el = document.getElementById(x[0]); if (el && el.getBoundingClientRect().top <= 140) a = i; });
-    if (a !== this.state.active) this.setState({ active: a });
   }
   links() {
     let p = window.location.pathname || '';
@@ -318,7 +300,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const L = this.links();
-    const { active, lb } = this.state;
+    const { lb } = this.state;
     const all = [];
     const ph = (list, ar) => list.map(([f, cap]) => {
       const i = all.length;
@@ -342,12 +324,9 @@ class Component extends DCLogic {
       rows: (p.rows || []).map(([k, v]) => ({ k, v })),
       zhn: p.zhn, maps: maps(p.maps), oneMap: p.maps.length === 1, mapQ: p.maps[0][1],
     }));
-    const nav = this.NAV.map(([id, top], i) => {
-      const on = i === active;
-      return { href: '#' + id, top, cur: on ? 'true' : undefined, c: on ? '#1E2536' : '#5B6272', bb: on ? '#85622A' : 'transparent' };
-    });
+    const nav = this.NAV.map(([id, top]) => ({ href: '#' + id, top }));
     return {
-      nav, navRef: this.navRef, places,
+      nav, places,
       mainHref: L.main, roomsHref: L.rooms, mapHref: L.map, schedHref: L.sched, diningHref: L.dining, prepHref: L.prep, infoHref: L.info,
       credits: this.CR.map(([what, by, url, lic]) => ({ what, by, url, lic, site: /unsplash/.test(url) ? 'Unsplash' : 'Wikimedia Commons' })),
       lbOpen: lb >= 0 && !!all[lb], lb: all[lb] || { src: '', cap: '' },

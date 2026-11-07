@@ -26,10 +26,9 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
 </helmet>
 <div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
 
-<div style="position:sticky;top:0;z-index:30;background:rgba(244,239,229,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
-  <nav ref="{{ navRef }}" aria-label="여행 안내 · 날짜 바로가기" style="max-width:1120px;margin:0 auto;display:flex;align-items:stretch;gap:clamp(6px,3.4vw - 6px,28px);overflow-x:auto;scrollbar-width:none">
-    <a href="{{ mainHref }}" aria-label="여행 안내로 돌아가기" style="flex:none;display:flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>여행 안내</span></a><span aria-hidden="true" style="flex:none;align-self:center;width:1px;height:16px;background:rgba(30,37,54,.2)"></span>
-    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" aria-current="{{ n.cur }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:{{ n.bb }};font-size:14px;font-weight:600;line-height:1.2;color:{{ n.c }};text-decoration:none;white-space:nowrap;transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent" style-hover="color:#1E2536">{{ n.top }}<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><span style="margin-left:5px;font-size:12px;font-weight:500">{{ n.bot }}</span></sc-if></a></sc-for>
+<div style="background:rgba(244,239,229,.95);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
+  <nav aria-label="돌아가기" style="max-width:1120px;margin:0 auto;display:flex">
+    <a href="{{ mainHref }}" aria-label="홈으로 돌아가기" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>홈</span></a>
   </nav>
 </div>
 
@@ -51,7 +50,11 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
   </div>
 </header>
 
-<section id="grid" data-screen-label="끼니표" style="scroll-margin-top:76px;padding-top:clamp(36px,4.6vw,56px)">
+<nav aria-label="날짜 바로가기" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(6px,1vw,10px);margin-top:clamp(14px,2vw,20px)">
+  <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:clamp(56px,1.2vw + 50px,66px);padding:8px 4px;border-radius:12px;border:1px solid rgba(30,37,54,.14);background:#FFFDF9;color:#1E2536;text-align:center;line-height:1.2;text-decoration:none;transition:border-color .2s,color .2s;-webkit-tap-highlight-color:transparent" style-hover="border-color:rgba(133,98,42,.55);color:#85622A"><span style="display:block;font-family:'Instrument Serif',serif;font-size:clamp(21px,.6vw + 18px,26px);font-weight:400;line-height:1.15;white-space:nowrap">{{ n.top }}</span><span style="display:block;margin-top:4px;font-size:clamp(12px,.2vw + 11px,13px);font-weight:600;color:#5B6272;white-space:nowrap">{{ n.bot }}</span></a></sc-for>
+</nav>
+
+<section id="grid" data-screen-label="끼니표" style="scroll-margin-top:12px;padding-top:clamp(36px,4.6vw,56px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(24px,1vw + 18px,30px);line-height:1.3">닷새 끼니표</h2><span style="font-size:14px;font-weight:600;color:#5B6272">한눈에 보기</span></div>
   <div style="margin-top:18px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:0 clamp(16px,2.2vw,26px);overflow:hidden">
     <sc-if value="{{ mealWide }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:6px 20px;padding:12px 0 10px;border-bottom:1px solid rgba(30,37,54,.08)"><div style="flex:0 0 72px"></div><div style="flex:1 1 460px;min-width:0;display:grid;grid-template-columns:{{ mealCols }};gap:8px 24px;font-size:13px;font-weight:600;line-height:1.5;color:#5B6272"><span>아침</span><span>점심</span><span>저녁</span></div></div></sc-if>
@@ -80,7 +83,7 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
   </div>
 </section>
 
-<section id="breakfast" data-screen-label="매일 아침" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+<section id="breakfast" data-screen-label="매일 아침" style="scroll-margin-top:12px;padding-top:clamp(56px,8vw,76px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536">
     <h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(24px,1vw + 18px,30px);line-height:1.3">매일 아침</h2>
     <span style="font-size:14px;font-weight:600;color:#5B6272">2/19~2/22 · 포함 여부는 예약내역 확인 예정</span>
@@ -108,7 +111,7 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
 </section>
 
 <sc-for list="{{ days }}" as="d" hint-placeholder-count="1">
-<section id="{{ d.id }}" data-screen-label="{{ d.label }}" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+<section id="{{ d.id }}" data-screen-label="{{ d.label }}" style="scroll-margin-top:12px;padding-top:clamp(56px,8vw,76px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536">
     <span style="font-family:'WK Han','Instrument Serif',serif;font-size:clamp(36px,2vw + 24px,50px);line-height:.95;color:#85622A;margin-right:clamp(2px,1.4vw - 6px,10px)">{{ d.num }}</span>
     <h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">{{ d.date }}</h2>
@@ -116,7 +119,7 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
   </div>
   <div style="display:flex;flex-direction:column;gap:32px;margin-top:22px">
   <sc-for list="{{ d.meals }}" as="m" hint-placeholder-count="1">
-    <div id="{{ m.id }}" style="scroll-margin-top:76px">
+    <div id="{{ m.id }}" style="scroll-margin-top:12px">
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px">
         <span style="font-size:16px;font-weight:600;line-height:1.5;font-variant-numeric:tabular-nums;white-space:nowrap">{{ m.time }}</span>
         <h3 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(19px,.4vw + 17px,21px);line-height:1.35">{{ m.title }}</h3>
@@ -248,14 +251,14 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
 
 <footer style="margin-top:clamp(40px,5vw,64px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
   <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
-    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536"><span aria-hidden="true">←</span><span>여행 안내</span></a>
-    <a href="{{ roomsHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">객실 안내</a>
-    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">상세 시간표</a>
-    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">동선 지도</a>
-    <span aria-current="page" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#1E2536">식당 안내</span>
-    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">갈 곳 안내</a>
-    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">출발 전 준비</a>
-    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">현지 정보·연락처</a>
+    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">홈</a>
+    <a href="{{ roomsHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">객실 안내</a>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">동선 지도</a>
+    <span aria-current="page" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid #85622A;color:#1E2536">식당 안내</span>
+    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">갈 곳 안내</a>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">현지 정보</a>
   </nav>
   <div style="margin-top:14px;font-size:14px;color:#5B6272">식당 안내 · 2026. 11. 1</div>
   <p style="margin:12px 0 0;font-size:12px;line-height:1.7;color:#5B6272">사진은 식당 소개를 위한 참고용입니다. 링크를 아는 가족만 보는 페이지입니다.</p>
@@ -280,45 +283,35 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showPhotos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;사진&quot;}}">
 class Component extends DCLogic {
-  navRef = React.createRef();
-  state = { ready: false, lb: null, active: -1, wide: true, mw: true };
+  state = { ready: false, lb: null, wide: true, mw: true };
   TONE = { '기념 만찬': 'dec', '예약': 'prog', '자유식': 'ref' };
   NAV = [['d18', 'Day 1', '2/18 목'], ['d19', 'Day 2', '2/19 금'], ['d20', 'Day 3', '2/20 토'], ['d21', 'Day 4', '2/21 일'], ['d22', 'Day 5', '2/22 월']];
   BLANK = { src: '', d: '', s: '', u: '', n: '' };
   componentDidMount() {
     let n = 0;
     const wait = () => {
-      if (window.SH_DINING) this.setState({ ready: true }, () => { this.jump(); this.spy(); });
+      if (window.SH_DINING) this.setState({ ready: true }, () => this.jump());
       else if (n++ < 240) this.t = setTimeout(wait, 25);
     };
     wait();
     this.onKey = (e) => { if (e.key === 'Escape' && this.state.lb) this.close(); };
     this.onResize = () => { const w = window.innerWidth >= 760, m = window.innerWidth >= 860; if (w !== this.state.wide || m !== this.state.mw) this.setState({ wide: w, mw: m }); };
-    this.onScroll = () => { if (this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = 0; this.spy(); }); };
     window.addEventListener('keydown', this.onKey);
     window.addEventListener('resize', this.onResize);
-    window.addEventListener('scroll', this.onScroll, { passive: true });
     this.onResize();
   }
   componentWillUnmount() {
     clearTimeout(this.t);
     window.removeEventListener('keydown', this.onKey);
     window.removeEventListener('resize', this.onResize);
-    window.removeEventListener('scroll', this.onScroll);
-    if (this.raf) cancelAnimationFrame(this.raf);
     try { document.body.style.overflow = ''; } catch (e) {}
-  }
-  spy() {
-    let a = -1;
-    this.NAV.forEach((x, i) => { const el = document.getElementById(x[0]); if (el && el.getBoundingClientRect().top <= 140) a = i; });
-    if (a !== this.state.active) this.setState({ active: a });
   }
   jump() {
     const h = window.location.hash;
     if (!h || h.length < 2) return;
     requestAnimationFrame(() => {
       const el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 72));
+      if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 12));
     });
   }
   open(p) { this.setState({ lb: p }); try { document.body.style.overflow = 'hidden'; } catch (e) {} }
@@ -357,34 +350,12 @@ class Component extends DCLogic {
       info: f('현지 정보·연락처.dc.html', 'info.html'),
     };
   }
-  componentDidUpdate() {
-    if (this.lastActive === this.state.active) return;
-    this.lastActive = this.state.active;
-    const nav = this.navRef.current;
-    if (!nav || nav.scrollWidth <= nav.clientWidth + 1) return;
-    const a = nav.querySelector('a[aria-current="true"]');
-    if (!a) return;
-    const r = a.getBoundingClientRect(), nr = nav.getBoundingClientRect();
-    nav.scrollTo({ left: nav.scrollLeft + (r.left - nr.left) - (nr.width - r.width) / 2, behavior: 'smooth' });
-  }
   renderVals() {
     const S = window.SH_DINING || null;
     const show = this.props.showPhotos ?? true;
-    const { active, wide } = this.state;
+    const { wide } = this.state;
     const L = this.links();
-    const nav = this.NAV.map(([id, top, bot], i) => {
-      const on = i === active;
-      return {
-        href: '#' + id, top, bot, cur: on ? 'true' : undefined, c: on ? '#1E2536' : '#5B6272', bb: on ? '#85622A' : 'transparent',
-        style: {
-          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minWidth: 0, minHeight: 48,
-          padding: '6px 3px', borderRadius: 12, textDecoration: 'none', textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden',
-          border: '1px solid ' + (on ? '#1E2536' : 'rgba(30,37,54,.14)'),
-          background: on ? '#1E2536' : '#FFFDF9', color: on ? '#F4EFE5' : '#1E2536',
-          transition: 'background .2s, color .2s', WebkitTapHighlightColor: 'transparent',
-        },
-      };
-    });
+    const nav = this.NAV.map(([id, top, bot]) => ({ href: '#' + id, top, bot }));
     const grid = S ? S.grid.map((g) => ({
       date: g.date,
       cells: g.cells.map((c) => ({
@@ -433,7 +404,7 @@ class Component extends DCLogic {
     const credits = cr.map((c, i) => ({ head: c.name + ': ', sep: i < cr.length - 1 ? ' · ' : '', links: c.links.map((l, j) => ({ ...l, sep: j < c.links.length - 1 ? ', ' : '' })) }));
     const lb = this.state.lb;
     const mw = this.state.mw;
-    return { navRef: this.navRef, mealCols: mw ? 'minmax(88px,.5fr) minmax(0,1.15fr) minmax(0,1fr)' : 'minmax(0,1fr)', narrow: !mw, mealWide: mw, bfCols: wide ? 'repeat(4,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))',
+    return { mealCols: mw ? 'minmax(88px,.5fr) minmax(0,1.15fr) minmax(0,1fr)' : 'minmax(0,1fr)', narrow: !mw, mealWide: mw, bfCols: wide ? 'repeat(4,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))',
       mainHref: L.main, roomsHref: L.rooms, mapHref: L.map, schedHref: L.sched, placesHref: L.places, prepHref: L.prep, infoHref: L.info, wide, nav,
       grid, days, breakfast, show, credits, hasCredits: credits.length > 0, creditLead: '사진 출처 — ',
       lbOpen: !!lb, lb: lb || this.BLANK,

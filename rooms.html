@@ -26,10 +26,9 @@ nav::-webkit-scrollbar{display:none}
 </helmet>
 <div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
 
-<div style="position:sticky;top:0;z-index:30;background:rgba(244,239,229,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
-  <nav ref="{{ navRef }}" aria-label="여행 안내 · 이 페이지 바로가기" style="max-width:1120px;margin:0 auto;display:flex;align-items:stretch;gap:clamp(6px,2.4vw - 4px,24px);overflow-x:auto;scrollbar-width:none">
-    <a href="{{ mainHref }}" aria-label="여행 안내로 돌아가기" style="flex:none;display:flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>여행 안내</span></a><span aria-hidden="true" style="flex:none;align-self:center;width:1px;height:16px;background:rgba(30,37,54,.2)"></span>
-    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" aria-current="{{ n.cur }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:{{ n.bb }};font-size:14px;font-weight:600;line-height:1.2;color:{{ n.c }};text-decoration:none;white-space:nowrap;transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent" style-hover="color:#1E2536">{{ n.top }}</a></sc-for>
+<div style="background:rgba(244,239,229,.95);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
+  <nav aria-label="돌아가기" style="max-width:1120px;margin:0 auto;display:flex">
+    <a href="{{ mainHref }}" aria-label="홈으로 돌아가기" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>홈</span></a>
   </nav>
 </div>
 
@@ -50,7 +49,11 @@ nav::-webkit-scrollbar{display:none}
   </div>
 </header>
 
-<section id="overview" data-screen-label="한눈에" style="scroll-margin-top:76px;padding-top:clamp(36px,4.6vw,56px)">
+<nav aria-label="이 페이지 바로가기" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(14px,2vw,20px)">
+  <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" style="display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;background:#FFFDF9;border:1px solid rgba(30,37,54,.14);color:#1E2536;font-size:14px;font-weight:600;line-height:1.2;text-decoration:none;white-space:nowrap;transition:border-color .2s,color .2s;-webkit-tap-highlight-color:transparent" style-hover="border-color:rgba(133,98,42,.55);color:#85622A">{{ n.top }}</a></sc-for>
+</nav>
+
+<section id="overview" data-screen-label="한눈에" style="scroll-margin-top:12px;padding-top:clamp(36px,4.6vw,56px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">어디서, 어떻게 묵나요?</h2><span style="font-size:14px;font-weight:600;color:#5B6272">Crowne Plaza Shanghai Nanjing Road · 난징동루 보행자거리 문 앞</span></div>
   <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:0 clamp(18px,2.4vw,28px);overflow:hidden">
     <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;margin-top:-1px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'WK Han','Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">4박</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">2/18(목) 체크인 → 2/22(월) 체크아웃</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">한 호텔 연박</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">체크인은 15:00부터, 체크아웃은 12:00까지입니다. 우리는 마지막 날 09:00에 체크아웃하고 09:20 로비에 모입니다.</p></div>
@@ -68,7 +71,7 @@ nav::-webkit-scrollbar{display:none}
 </section>
 
 <sc-for list="{{ rooms }}" as="rm" hint-placeholder-count="2">
-<section id="{{ rm.id }}" data-screen-label="{{ rm.label }}" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+<section id="{{ rm.id }}" data-screen-label="{{ rm.label }}" style="scroll-margin-top:12px;padding-top:clamp(56px,8vw,76px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536">
     <span style="font-family:'WK Han','Instrument Serif',serif;font-size:clamp(36px,2vw + 24px,50px);line-height:.95;color:#85622A;margin-right:clamp(2px,1.4vw - 6px,10px)">{{ rm.num }}</span>
     <h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">{{ rm.ko }}</h2>
@@ -99,7 +102,7 @@ nav::-webkit-scrollbar{display:none}
 </section>
 </sc-for>
 
-<section id="compare" data-screen-label="두 객실 비교" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+<section id="compare" data-screen-label="두 객실 비교" style="scroll-margin-top:12px;padding-top:clamp(56px,8vw,76px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">두 객실 비교</h2><span style="font-size:14px;font-weight:600;color:#5B6272">IHG 공식 객실 안내 기준</span></div>
   <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:4px clamp(18px,2.4vw,28px) 6px;overflow:hidden">
     <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:12px 0 10px;border-bottom:2px solid #1E2536;font-size:14px;font-weight:700;line-height:1.5"><span style="color:#5B6272;font-weight:600">구분</span><span>일반 원베드룸 스위트</span><span>WorkLife 트윈</span></div>
@@ -115,7 +118,7 @@ nav::-webkit-scrollbar{display:none}
   <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:#5B6272;text-wrap:pretty">면적·침대·공간 구성은 IHG 객실 상세에서 확인한 내용이고, 색감과 분위기는 공식 사진을 보고 적었습니다. 층수와 리모델링 시기는 확인되지 않았고, 사진 속 전망이나 특정 호실을 보장하는 자료는 아닙니다.</p>
 </section>
 
-<section id="hotel" data-screen-label="호텔 기본 정보" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+<section id="hotel" data-screen-label="호텔 기본 정보" style="scroll-margin-top:12px;padding-top:clamp(56px,8vw,76px)">
   <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">호텔 기본 정보</h2><span style="font-size:14px;font-weight:600;color:#5B6272">IHG 공식 호텔 안내 · 2026. 11. 6 확인</span></div>
   <article style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:18px">
     <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px 16px;align-items:baseline;font-size:16px;line-height:1.7">
@@ -157,14 +160,14 @@ nav::-webkit-scrollbar{display:none}
 
 <footer style="margin-top:clamp(40px,5vw,64px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
   <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
-    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536"><span aria-hidden="true">←</span><span>여행 안내</span></a>
-    <span aria-current="page" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#1E2536">객실 안내</span>
-    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">상세 시간표</a>
-    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">동선 지도</a>
-    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">식당 안내</a>
-    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">갈 곳 안내</a>
-    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">출발 전 준비</a>
-    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">현지 정보·연락처</a>
+    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">홈</a>
+    <span aria-current="page" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid #85622A;color:#1E2536">객실 안내</span>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">동선 지도</a>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">식당 안내</a>
+    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">갈 곳 안내</a>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;min-height:44px;border-top:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none;-webkit-tap-highlight-color:transparent;border-bottom:2px solid transparent;color:#5B6272;transition:color .2s" style-hover="color:#1E2536">현지 정보</a>
   </nav>
   <div style="margin-top:14px;font-size:14px;color:#5B6272">객실 안내 · 가족 전달 기준 · 예약확인서를 받으면 다시 맞춥니다</div>
 </footer>
@@ -183,8 +186,7 @@ nav::-webkit-scrollbar{display:none}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { active: -1, lb: -1 };
-  navRef = React.createRef();
+  state = { lb: -1 };
   NAV = [['overview', '한눈에'], ['suite', '스위트'], ['twin', '트윈'], ['compare', '비교'], ['hotel', '호텔 정보']];
   POS = { 'hotel/01_one_bedroom_suite/01_living_room.webp': '50% 58%', 'hotel/02_twin_premium_worklife/01_bedroom.webp': '50% 56%' };
   ROOMS = [
@@ -219,39 +221,19 @@ class Component extends DCLogic {
     ['WorkLife 트윈 · 욕실용품', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-11261174781-original?resmode=bilin&qlt=70&fmt=webp'],
   ];
   componentDidMount() {
-    this.onScroll = () => { if (this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = 0; this.spy(); }); };
     this.onKey = (e) => { if (e.key === 'Escape' && this.state.lb >= 0) this.setState({ lb: -1 }); };
-    window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('keydown', this.onKey);
-    this.spy();
     const h = window.location.hash;
     if (h && h.length > 1) {
       this.jt = setTimeout(() => {
         const el = document.getElementById(decodeURIComponent(h.slice(1)));
-        if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 72));
+        if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 12));
       }, 200);
     }
   }
-  componentDidUpdate() {
-    if (this.lastActive === this.state.active) return;
-    this.lastActive = this.state.active;
-    const nav = this.navRef.current;
-    if (!nav || nav.scrollWidth <= nav.clientWidth + 1) return;
-    const a = nav.querySelector('a[aria-current="true"]');
-    if (!a) return;
-    const r = a.getBoundingClientRect(), nr = nav.getBoundingClientRect();
-    nav.scrollTo({ left: nav.scrollLeft + (r.left - nr.left) - (nr.width - r.width) / 2, behavior: 'smooth' });
-  }
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('keydown', this.onKey);
-    if (this.raf) cancelAnimationFrame(this.raf);
     clearTimeout(this.jt);
-  }
-  spy() {
-    let a = -1;
-    this.NAV.forEach((x, i) => { const el = document.getElementById(x[0]); if (el && el.getBoundingClientRect().top <= 140) a = i; });
-    if (a !== this.state.active) this.setState({ active: a });
   }
   // 동선 지도로 넘어갈 때 고른 날짜를 잠깐 맡겨 둡니다(편집기에서는 주소의 #day가 전달되지 않을 수 있어서).
   pendMap(n, place) { try { window.localStorage.setItem('sh-route-map-day', JSON.stringify({ day: n, place: place || null, t: Date.now() })); } catch (e) {} }
@@ -272,7 +254,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const L = this.links();
-    const { active, lb } = this.state;
+    const { lb } = this.state;
     const all = [];
     const ph = (list, ar) => list.map(([f, cap, alt]) => {
       const i = all.length;
@@ -288,12 +270,9 @@ class Component extends DCLogic {
       subCols: 'repeat(auto-fit,minmax(min(100%,' + (r.subs.length >= 3 ? '200px' : '260px') + '),1fr))',
       rows: r.rows.map(([k, v, s]) => ({ k, v, strong: !!s, plain: !s })),
     }));
-    const nav = this.NAV.map(([id, top], i) => {
-      const on = i === active;
-      return { href: '#' + id, top, cur: on ? 'true' : undefined, c: on ? '#1E2536' : '#5B6272', bb: on ? '#85622A' : 'transparent' };
-    });
+    const nav = this.NAV.map(([id, top]) => ({ href: '#' + id, top }));
     return {
-      nav, navRef: this.navRef, rooms,
+      nav, rooms,
       mainHref: L.main, schedHref: L.sched, mapHref: L.map, mapHotelHref: L.map + '#day=0&place=hotel', goMapHotel: () => this.pendMap(0, 'hotel'), diningHref: L.dining, placesHref: L.places, prepHref: L.prep, infoHref: L.info, infoCardHref: L.info + '#card',
       credits: this.CR.map(([what, url]) => ({ what, by: 'Crowne Plaza Shanghai Nanjing Road 공식 객실 갤러리', url, site: 'IHG (digital.ihg.com)', lic: '호텔 공식 사진 · 가족 안내용 참고' })),
       lbOpen: lb >= 0 && !!all[lb], lb: all[lb] || { src: '', cap: '', alt: '' },
