@@ -52,6 +52,10 @@ details summary{cursor:pointer}
 .rm-tagwrap{border:0;background:none}
 .rm-tag{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;background:#FFFDF9;border:1px solid rgba(30,37,54,.25);color:#1E2536;font-size:12px;font-weight:700;line-height:16px;white-space:nowrap;font-variant-numeric:tabular-nums;box-shadow:0 1px 2px rgba(30,37,54,.15)}
 .rm-tag i{display:inline-block;width:7px;height:7px;border-radius:50%}
+/* 화면 줄바꿈: 글은 글자 단위로 끊어 줄 끝을 고르게, 제목과 표의 이름·객실 종류는 낱말 단위. 인쇄용 A4는 따로 정함. */
+[style*="keep-all"]{word-break:normal!important}
+h1,h2,h3,h4,[data-words]{word-break:keep-all!important}
+body *:not(h1):not(h2):not(h3):not(h4){text-wrap-style:auto!important}
 </style>
 </helmet>
 <div ref="{{ rootRef }}" style="background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">

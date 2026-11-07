@@ -58,6 +58,10 @@ details summary{cursor:pointer}
 .rm-spot i{position:absolute;inset:0;border-radius:50%;background:#1E2536;border:2px solid #FFFDF9;box-shadow:0 0 0 1px rgba(30,37,54,.35)}
 .rm-lab{position:absolute;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;font-weight:600;line-height:16px;color:#1E2536;text-shadow:0 0 2px #FFFDF9,0 0 2px #FFFDF9,0 0 3px #FFFDF9}
 .rm-lab.rm-r{left:14px}.rm-lab.rm-l{right:14px}
+/* 화면 줄바꿈: 글은 글자 단위로 끊어 줄 끝을 고르게, 제목과 표의 이름·객실 종류는 낱말 단위. 인쇄용 A4는 따로 정함. */
+[style*="keep-all"]{word-break:normal!important}
+h1,h2,h3,h4,[data-words]{word-break:keep-all!important}
+body *:not(h1):not(h2):not(h3):not(h4){text-wrap-style:auto!important}
 </style>
 </helmet>
 <div ref="{{ rootRef }}" style="background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">

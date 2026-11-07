@@ -22,6 +22,12 @@
 body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 *{box-sizing:border-box}
 a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
+/* 화면 줄바꿈: 글은 글자 단위로 끊어 줄 끝을 고르게, 제목과 표의 이름·객실 종류는 낱말 단위. 인쇄용 A4는 따로 정함. */
+[style*="keep-all"]{word-break:normal!important}
+h1,h2,h3,h4,[data-words]{word-break:keep-all!important}
+body *:not(h1):not(h2):not(h3):not(h4){text-wrap-style:auto!important}
+/* 휴대폰: '어떤 곳' 같은 이름표를 설명 위로 올려 설명이 폭을 다 쓰게(인쇄용 A4는 그대로). */
+@media (max-width:600px){[data-kv]{grid-template-columns:minmax(0,1fr)!important;row-gap:2px!important}[data-kv]>:nth-child(odd):not(:first-child){margin-top:12px}}
 </style>
 </helmet>
 <div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
@@ -102,7 +108,7 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
         </sc-for>
       </div>
     </sc-if>
-    <div style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;font-size:16px;line-height:1.65">
+    <div data-kv style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;font-size:16px;line-height:1.65">
       <span style="font-size:14px;color:#5B6272">장소</span><span>Crowne Plaza Shanghai Nanjing Road (<span lang="zh-CN">上海南新雅皇冠假日酒店</span>) 2층</span>
       <span style="font-size:14px;color:#5B6272">시간</span><span><b style="font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap">06:30~10:30</b> (호텔 공식 안내)</span>
     </div>
@@ -155,7 +161,7 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
                       </sc-for>
                     </div>
                   </sc-if>
-                  <div style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;font-size:16px;line-height:1.65">
+                  <div data-kv style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;font-size:16px;line-height:1.65">
                     <sc-if value="{{ c.hasBranch }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">지점</span><span>{{ c.branch }}</span></sc-if>
                     <sc-if value="{{ c.hasOccasion }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;color:#5B6272">어떤 자리</span><span>{{ c.occasion }}</span></sc-if>
                     <sc-if value="{{ c.hasWhat }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">어떤 집</span><span>{{ c.what }}</span></sc-if>
@@ -198,7 +204,7 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
                       </sc-for>
                     </div>
                   </sc-if>
-                  <div style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;font-size:16px;line-height:1.65">
+                  <div data-kv style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;font-size:16px;line-height:1.65">
                     <span style="font-size:14px;color:#5B6272">지점</span><span>{{ c.branch }}</span>
                     <span style="font-size:14px;color:#5B6272">어떤 집</span><span>{{ c.what }}</span>
                     <span style="font-size:14px;color:#5B6272">1인 예상</span><span><b style="font-weight:700;font-variant-numeric:tabular-nums">{{ c.price }}</b><sc-if value="{{ c.hasPriceSrc }}" hint-placeholder-val="{{ false }}"> <span style="font-size:14px;color:#5B6272">· {{ c.priceSrc }}</span></sc-if></span>

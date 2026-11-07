@@ -22,6 +22,12 @@ body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text
 *{box-sizing:border-box}
 a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
 nav::-webkit-scrollbar{display:none}
+/* 화면 줄바꿈: 글은 글자 단위로 끊어 줄 끝을 고르게, 제목과 표의 이름·객실 종류는 낱말 단위. 인쇄용 A4는 따로 정함. */
+[style*="keep-all"]{word-break:normal!important}
+h1,h2,h3,h4,[data-words]{word-break:keep-all!important}
+body *:not(h1):not(h2):not(h3):not(h4){text-wrap-style:auto!important}
+/* 휴대폰: '어떤 곳' 같은 이름표를 설명 위로 올려 설명이 폭을 다 쓰게(인쇄용 A4는 그대로). */
+@media (max-width:600px){[data-kv]{grid-template-columns:minmax(0,1fr)!important;row-gap:2px!important}[data-kv]>:nth-child(odd):not(:first-child){margin-top:12px}}
 </style>
 </helmet>
 <div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
@@ -110,7 +116,7 @@ nav::-webkit-scrollbar{display:none}
         </sc-for>
       </div>
     </sc-if>
-    <div style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px 16px;align-items:baseline;font-size:16px;line-height:1.7">
+    <div data-kv style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px 16px;align-items:baseline;font-size:16px;line-height:1.7">
       <sc-if value="{{ pl.hasWhat }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">어떤 곳</span><span style="text-wrap:pretty">{{ pl.what }}</span></sc-if>
       <sc-if value="{{ pl.hasSee }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">가서 볼 것</span><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:2px"><sc-for list="{{ pl.see }}" as="it" hint-placeholder-count="2"><li style="text-wrap:pretty"><sc-for list="{{ it.seg }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ sg.href }}" style="font-weight:600;color:#1E2536;text-decoration:underline;text-decoration-color:rgba(133,98,42,.55);text-underline-offset:4px" style-hover="color:#85622A">{{ sg.t }}</a></sc-if><sc-if value="{{ sg.isText }}" hint-placeholder-val="{{ true }}"><span>{{ sg.t }}</span></sc-if></sc-for></li></sc-for></ul></sc-if>
       <sc-if value="{{ pl.hasKnow }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6272">알아 둘 것</span><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:2px"><sc-for list="{{ pl.know }}" as="it" hint-placeholder-count="2"><li style="text-wrap:pretty"><sc-for list="{{ it.seg }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ sg.href }}" style="font-weight:600;color:#1E2536;text-decoration:underline;text-decoration-color:rgba(133,98,42,.55);text-underline-offset:4px" style-hover="color:#85622A">{{ sg.t }}</a></sc-if><sc-if value="{{ sg.isText }}" hint-placeholder-val="{{ true }}"><span>{{ sg.t }}</span></sc-if></sc-for></li></sc-for></ul></sc-if>
