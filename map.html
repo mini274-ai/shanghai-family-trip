@@ -308,7 +308,7 @@ details summary{cursor:pointer}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false,"tsType":"boolean","section":"화면"},"mapHeight":{"editor":"int","default":0,"min":0,"max":900,"unit":"px","tsType":"number","section":"화면"}}'>
 class Component extends DCLogic {
-  state = { ready: false, day: 4, team: 'both', viewpoint: 'ifc', museum: 'history', dinner: 'laozhengxing', day1Walk: false, day2Rest: 'hotel', activity: 'cafe', eveningMode: 'foot', highlight: false, view: 'route', selected: null, place: null, narrow: false, stack: false, fitH: 0, optOpen: false, mapMsg: '' };
+  state = { ready: false, day: 0, team: 'both', viewpoint: 'ifc', museum: 'history', dinner: 'laozhengxing', day1Walk: false, day2Rest: 'hotel', activity: 'cafe', eveningMode: 'foot', highlight: false, view: 'route', selected: null, place: null, narrow: false, stack: false, fitH: 0, optOpen: false, mapMsg: '' };
   // 지도 배경: Protomaps 20261105판(OpenStreetMap 데이터)으로 미리 만들어 둔 512px 타일을 묶음 이미지(map/tiles/*.webp)에서 잘라 씁니다.
   // 외부 지도 서버를 쓰지 않으므로 편집기 안에서도 그대로 보입니다. 해당 확대 단계 타일이 없는 곳은 한 단계 위(더 넓은 범위) 타일을 확대해 채웁니다.
   makeBase() {
