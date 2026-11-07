@@ -10,6 +10,10 @@
   var IHG = 'https://www.ihg.com/crowneplaza/hotels/us/en/shanghai/shahd/hoteldetail/photos-tours';
   var L8 = 'https://www.lemon8-app.com/@ssbyae09/7440771281517150721?region=jp';
   var L8_N = '2024년 투숙객 사진, 2027년 메뉴는 다를 수 있음. 원본의 문구·워터마크·콜라주를 그대로 보존.';
+  var TRIPM = 'https://www.trip.com/moments/detail/shanghai-2-124254894/';
+  var TRIPM_N = '2024-09-07 게시된 라오지탕 BFC점(南区 4F S415) 방문 후기 사진. 현재 메뉴 제공 여부는 별도 확인.';
+  var SUNYA_SRC = 'https://www.jfdaily.com/sgh/detail?id=4072185';
+  var SUNYA_N = '2026-10-11 上观新闻 신야 기사 사진(촬영 王勇·闵栋·张静芝·马健). 현재 메뉴 제공 여부는 별도 확인.';
   function p(f, d, s, u, n, lic, licUrl) { return { f: 'dining/' + f, d: d, s: s, u: u, n: n || '', lic: lic || '', licUrl: licUrl || '' }; }
 
   var R = {
@@ -23,11 +27,14 @@
         p('putien-1.jpg', '음식', YT, YOMO, '여행사 제공, 촬영 지점 미확인 (BFC점 — 요모 표기)'),
         p('putien-2.jpg', '음식', YT, YOMO, '여행사 제공, 촬영 지점 미확인 (BFC점 — 요모 표기)')
       ] },
-    laojitang: { ko: '라오지탕', zh: '老吉堂', branch: 'BFC점', status: '',
-      what: '상하이 본방요리. 미쉐린 1스타에 여러 차례 선정.', price: '¥220', priceSrc: '요모 앱 기준', notes: [],
+    laojitang: { ko: '라오지탕', zh: '老吉堂', branch: 'BFC점 · BFC(复星外滩金融中心) 남쪽 동 4층 S415', status: '예약',
+      what: '상하이 본방요리(本帮菜). 베이징 매장이 미쉐린 1스타를 받았던 브랜드의 상하이 첫 매장입니다. 돼지고기 조림(红烧肉)처럼 맵지 않고 달고 짭짤한 요리가 많습니다. 점심 뤼보랑과 겹치지 않게 요리 위주로 주문합니다.', price: '¥220', priceSrc: '요모 앱 기준',
+      notes: ['활동조·휴식조가 17:15 여기서 합류', '식사 뒤 걸어서 유람선 부두로(5분) · 18:45 집결'],
+      map: '老吉堂 外滩金融中心',
       photos: [
-        p('laojitang-sign.jpg', '老吉堂 BFC점', 'BFC 쇼핑몰 공식 매장 소개', 'https://www.bfcsh.com/index.php?a=show&c=Store&id=140&language=zh&m=Mobile', 'BFC 쇼핑몰 공식 매장 소개 사진.'),
-        p('laojitang-1.jpg', '음식', YT, YOMO, '여행사 제공, 촬영 지점 미확인 (BFC점 — 요모 및 BFC 상호 확인)')
+        p('laojitang-sign.jpg', '라오지탕 BFC점 간판', 'BFC 쇼핑몰 공식 매장 소개', 'https://www.bfcsh.com/index.php?a=show&c=Store&id=140&language=zh&m=Mobile', 'BFC 쇼핑몰 공식 매장 소개 사진.'),
+        p('laojitang-pork.jpg', '돼지고기 조림 鸽蛋红烧肉', 'Trip.com Moments · PhenixSolaire555 2024-09-07', TRIPM, TRIPM_N),
+        p('laojitang-eel.jpg', '장어채 볶음 响油鳝糊', 'Trip.com Moments · PhenixSolaire555 2024-09-07', TRIPM, TRIPM_N)
       ] },
     xita: { label: '선택 1', ko: '서탑불고기', zh: '西塔老太太泥炉烤肉', branch: '래플스시티점',
       what: '선양 시타(西塔) 코리아타운에서 시작한 숯불구이 체인. 한국식 고기구이에 가깝습니다.', price: '¥150', priceSrc: '', notes: [],
@@ -51,7 +58,10 @@
     sunya: { label: '선택 2', ko: '신야', zh: '新雅粤菜馆', branch: '南京东路719号 · 우리 호텔 건물 1층',
       what: '1926년 문을 연 광둥요리 노포. 딤섬과 광둥식 볶음, 맵지 않습니다. 호텔 1층이라 비가 오거나 피곤한 날 이동 없이 갑니다.', price: '¥150 안팎', priceSrc: '', notes: [], map: '新雅粤菜馆 南京东路719号',
       photos: [
-        p('sunya-1.jpg', '신야 난징동루점 외관', 'N509FZ / Wikimedia Commons / Sunya Cantonese Restaurant (20260825073154).jpg', 'https://commons.wikimedia.org/wiki/File:Sunya_Cantonese_Restaurant_(20260825073154).jpg', '南京东路719号 — 촬영일 2026-08-25 · 화면용으로 크기를 줄임', 'CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/')
+        p('sunya-1.jpg', '신야 난징동루점 외관', 'N509FZ / Wikimedia Commons / Sunya Cantonese Restaurant (20260825073154).jpg', 'https://commons.wikimedia.org/wiki/File:Sunya_Cantonese_Restaurant_(20260825073154).jpg', '南京东路719号 — 촬영일 2026-08-25 · 화면용으로 크기를 줄임', 'CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'),
+        p('sunya-shrimp.png', '새우살 볶음 新雅滑虾仁', '上观新闻, 2026-10-11', SUNYA_SRC, SUNYA_N),
+        p('sunya-beef.png', '굴소스 소고기 蚝油牛肉', '上观新闻, 2026-10-11', SUNYA_SRC, SUNYA_N),
+        p('sunya-fish.jpg', '훈제 병어 沙律烟鲳鱼', '上观新闻, 2026-10-11', SUNYA_SRC, SUNYA_N)
       ] },
     dtf: { ko: '딘타이펑', zh: '鼎泰丰', branch: '신톈디점', status: '예약',
       what: '대만에서 시작한 샤오롱바오 전문점. 맵지 않고 깔끔합니다. 사진 메뉴가 있습니다.',
@@ -67,7 +77,7 @@
       occasion: '아린이의 수능과 대학 입학을 축하하는 저녁. 열 명이 별실 한 방에.',
       what: '중국요리(광둥·상하이). 별실 10개, 가장 큰 별실 20명. 저녁 17:30~21:00.',
       price: '단품 ¥300 안팎', priceSrc: '봉사료 별도',
-      notes: ['코스가 아니라 단품으로 9인분. 아린이가 두 접시를 고릅니다. 아이들 몫으로 볶음밥·새우튀김·탕수육·계란탕을 넣습니다', '17:25 호텔 로비에서 가족사진을 찍고 걸어서 갑니다(5분)'],
+      notes: ['코스가 아니라 단품으로 10인분. 아린이가 두 접시를 고릅니다. 아이들 몫으로 볶음밥·새우튀김·탕수육·계란탕을 넣습니다', '17:25 호텔 로비에서 가족사진을 찍고 걸어서 갑니다(5분)'],
       map: 'Shanghai Marriott Marquis City Centre',
       photos: [
         p('mbl-room.jpg', '만보루 별실', '新旅行 2019-10-12 보도', 'https://www.xinlvxing.com.cn/news/20191012/560.shtml', '2019년 리뉴얼 보도 사진, 예약된 방과 다를 수 있음.'),
@@ -120,7 +130,7 @@
       { date: '2/21 일', cells: [
         { meal: '아침', items: [{ name: '호텔 조식', href: '#breakfast' }] },
         { meal: '점심', items: [{ name: '뤼보랑 绿波廊', status: '예약', href: '#d21' }] },
-        { meal: '저녁', items: [{ name: '십육포 인근 식당', status: '예약', href: '#d21-dinner' }] }] },
+        { meal: '저녁', items: [{ name: '라오지탕 老吉堂', status: '예약', href: '#d21-dinner' }] }] },
       { date: '2/22 월', cells: [
         { meal: '아침', items: [{ name: '호텔 조식', href: '#breakfast' }] },
         { meal: '점심', items: [{ name: '상하이 푸둥국제공항 간단식', href: '#d22' }] },
@@ -139,7 +149,7 @@
         { title: '저녁', time: '18:00~19:00', who: '10인', area: 'BFC 안', status: '예약',
           groups: [{ cards: [R.putien] }] }] },
       { id: 'd19', date: '2월 19일 금요일', note: '두 팀 분리 · 금요일은 두 팀이 한 끼도 같이 먹지 않습니다', meals: [
-        { title: '시내팀 · 점심', time: '11:30~12:30', who: '조부모 + 디즈니에 안 가는 가족 · 가이드·버스 동행', area: '래플스시티(来福士广场, 西藏中路268号)', status: '자유식',
+        { title: '시내팀 · 점심', time: '11:30~12:30', who: '조부모 + 디즈니에 안 가는 가족 · 가이드 동행', area: '래플스시티(来福士广场, 西藏中路268号)', status: '자유식',
           lines: ['아래 두 곳 중 하나를 그 자리에서 고릅니다 · 예약 없음', '몰 안 다른 식당도 됩니다'],
           groups: [{ cards: [R.xita, R.feidachu] }] },
         { title: '시내팀 · 저녁', time: '17:30~18:30', who: '시내팀', area: '호텔 도보권', status: '자유식',
@@ -165,16 +175,15 @@
               { k: '간식', v: '포장 간식 반입 가능 · 유리병·가열 필요 음식 불가' },
               { k: '안 가는 곳', v: '성 안 캐릭터 다이닝(皇家宴会厅) · 예약제·고가' }
             ],
-            notes: ['그 밖에 漫月轩(Wandering Moon)도 있습니다'] }] }] }] },
+            notes: [] }] }] }] },
       { id: 'd20', date: '2월 20일 토요일', meals: [
         { title: '점심', time: '12:15~13:15', who: '10인', area: '신톈디', status: '예약', groups: [{ cards: [R.dtf] }] },
         { id: 'd20-dinner', title: '기념 만찬', time: '18:00~20:00', who: '10인 별실', area: '메리어트 마르퀴스 4층', status: '기념 만찬', groups: [{ cards: [R.mbl] }] }] },
       { id: 'd21', date: '2월 21일 일요일', meals: [
         { title: '점심', time: '11:30~12:30', who: '10인', area: '예원', status: '예약',
           groups: [{ cards: [R.lbl] }] },
-        { id: 'd21-dinner', title: '저녁', time: '17:30~18:30', who: '10인', area: '십육포 인근', status: '예약',
-          lines: ['황푸강 유람선 집결지(십육포 부두)에서 15분 안에 있는 식당 · 10인 예약 · 가이드가 예약·주문', '활동조·휴식조가 17:15 여기서 다시 만납니다 · 식사 뒤 18:45 유람선 집결'],
-          groups: [] }] },
+        { id: 'd21-dinner', title: '저녁', time: '17:30~18:30', who: '10인', area: 'BFC 안', status: '예약',
+          groups: [{ cards: [R.laojitang] }] }] },
       { id: 'd22', date: '2월 22일 월요일', meals: [
         { title: '점심', time: '12:30~13:00', who: '10인', area: '상하이 푸둥국제공항',
           lines: ['출국 수속 뒤 탑승구 근처에서 간단식', '저녁은 집에서'] }] }

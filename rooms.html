@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>객실 안내 — 상하이 가족여행</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script>window.__resources=window.__resources||{};</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>객실 안내 — 상하이 가족여행</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="./wenkai-han.css">
+<style>
+body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
+nav::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F4EFE5;color:#1E2536;font-family:'WK Han','Pretendard Variable',Pretendard,'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding-bottom:88px">
+
+<div style="position:sticky;top:0;z-index:30;background:rgba(244,239,229,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,37,54,.1);padding:8px clamp(14px,5vw,64px)">
+  <nav ref="{{ navRef }}" aria-label="여행 안내 · 이 페이지 바로가기" style="max-width:1120px;margin:0 auto;display:flex;align-items:stretch;gap:clamp(6px,2.4vw - 4px,24px);overflow-x:auto;scrollbar-width:none">
+    <a href="{{ mainHref }}" aria-label="여행 안내로 돌아가기" style="flex:none;display:flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>여행 안내</span></a><span aria-hidden="true" style="flex:none;align-self:center;width:1px;height:16px;background:rgba(30,37,54,.2)"></span>
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" aria-current="{{ n.cur }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:{{ n.bb }};font-size:14px;font-weight:600;line-height:1.2;color:{{ n.c }};text-decoration:none;white-space:nowrap;transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent" style-hover="color:#1E2536">{{ n.top }}</a></sc-for>
+  </nav>
+</div>
+
+<div style="padding:0 clamp(14px,5vw,64px)">
+<main style="max-width:1120px;margin:0 auto">
+
+<header data-screen-label="객실 안내" style="margin-top:clamp(14px,2.5vw,28px);background:radial-gradient(120% 90% at 85% -10%,#34406A 0%,#1E2536 50%,#151A28 100%);color:#F4EFE5;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:clamp(20px,2.4vw,28px);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch">
+  <div style="flex:4 1 340px;min-width:0;padding:clamp(24px,3.4vw,48px);display:flex;flex-direction:column;justify-content:center">
+  <div style="font-size:14px;font-weight:700;letter-spacing:.04em;color:#E0B46A">상하이 가족여행 · 2027. 2. 18 — 2. 22</div>
+  <h1 style="margin:12px 0 0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(34px,2.6vw + 16px,54px);line-height:1.25;letter-spacing:-.01em;text-wrap:balance">우리가 묵는 방</h1>
+  <p style="margin:16px 0 0;max-width:520px;font-size:16px;line-height:1.75;color:rgba(244,239,229,.95);text-wrap:pretty">크라운플라자 난징로드에서 4박. 어른 세 부부가 쓰는 원베드룸 스위트 3실과 아이들이 쓰는 WorkLife 트윈 2실, 방 안이 어떤 모습인지 호텔 공식 사진으로 모았습니다. 호텔 주소와 연락처는 <a href="{{ infoHref }}" style="color:#F4EFE5;font-weight:600;text-decoration:underline;text-decoration-color:#E0B46A;text-underline-offset:4px" style-hover="color:#E0B46A">현지 정보·연락처</a>에 있습니다.</p>
+  </div>
+  <div style="flex:6 1 420px;min-width:0;min-height:clamp(280px,34vw,460px);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px">
+    <a href="#suite" aria-label="원베드룸 스위트 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/hotel/01_one_bedroom_suite/01_living_room.webp" alt="일반 원베드룸 스위트 거실" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">스위트 거실</span></a>
+    <a href="#suite" aria-label="원베드룸 스위트 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/hotel/01_one_bedroom_suite/02_bedroom.webp" alt="일반 원베드룸 스위트 침실" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">스위트 침실</span></a>
+    <a href="#twin" aria-label="WorkLife 트윈 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/hotel/02_twin_premium_worklife/01_bedroom.webp" alt="WorkLife 트윈 객실" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">트윈 객실</span></a>
+    <a href="#twin" aria-label="WorkLife 트윈 안내로 이동" style="position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:#151A28;transition:filter .2s" style-hover="filter:brightness(1.12)"><img src="./photos/hotel/02_twin_premium_worklife/03_bathroom.webp" alt="WorkLife 트윈 욕실" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;padding:3px 9px;border-radius:6px;background:rgba(21,26,40,.8);color:#F4EFE5;font-size:13px;font-weight:600;line-height:1.4">트윈 욕실</span></a>
+  </div>
+</header>
+
+<section id="overview" data-screen-label="한눈에" style="scroll-margin-top:76px;padding-top:clamp(36px,4.6vw,56px)">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">어디서, 어떻게 묵나요?</h2><span style="font-size:14px;font-weight:600;color:#5B6272">Crowne Plaza Shanghai Nanjing Road · 난징동루 보행자거리 문 앞</span></div>
+  <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:0 clamp(18px,2.4vw,28px);overflow:hidden">
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;margin-top:-1px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'WK Han','Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">4박</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">2/18(목) 체크인 → 2/22(월) 체크아웃</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">한 호텔 연박</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">체크인은 15:00부터, 체크아웃은 12:00까지입니다. 우리는 마지막 날 09:00에 체크아웃하고 09:20 로비에 모입니다.</p></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'WK Han','Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">5실</div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">열 명 · 객실당 2명</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">두 종류</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">어른 세 부부는 <a href="#suite" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">일반 원베드룸 스위트</a> 3실, 아이 넷은 <a href="#twin" style="font-weight:600;color:#1E2536;text-decoration:none" style-hover="color:#85622A">WorkLife 트윈</a> 2실에 두 명씩 묵습니다.</p></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,8vw,96px) minmax(0,1fr);column-gap:clamp(14px,2vw,24px);row-gap:2px;padding:18px 0;border-top:1px solid rgba(30,37,54,.08)"><div style="align-self:center;font-family:'WK Han','Instrument Serif',serif;font-size:34px;line-height:24px;white-space:nowrap">575<span style="font-family:'WK Han','Pretendard Variable',sans-serif;font-size:14px;margin-left:2px">만</span></div><div style="align-self:center;min-width:0;font-size:16px;font-weight:700;line-height:1.5">약 575만 원 · 5객실 4박</div><div style="align-self:baseline;font-size:13px;font-weight:600;color:#5B6272">확인 전</div><p style="align-self:baseline;margin:0;min-width:0;font-size:16px;line-height:1.7;text-wrap:pretty">가족이 전달한 금액이며 예약내역으로 확인하기 전입니다. 조식·세금·봉사료 포함 여부와 취소 조건도 예약확인서에서 확인합니다.</p></div>
+  </div>
+  <h3 style="margin:clamp(22px,3vw,30px) 0 10px;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:19px;line-height:1.35">객실 배정 · 5객실</h3>
+  <p style="margin:-4px 0 12px;font-size:14px;line-height:1.6;color:#5B6272">실제 방 번호는 체크인 때 받습니다. 아이들 방의 짝과 객실끼리 같은 층·옆방이 되는지는 아직 정해진 것이 없습니다.</p>
+  <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:4px clamp(18px,2vw,26px)">
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div style="font-family:'WK Han','Instrument Serif',serif;font-size:26px;line-height:calc(17px * 1.7);color:#85622A">1</div><div><div style="font-weight:700;font-size:17px">이수호 · 이동순</div><div style="font-size:14px;line-height:1.55;color:#5B6272;margin-top:2px">할아버지 · 할머니 · 킹 1개 · 46~48㎡</div></div><a href="#suite" style="font-size:14px;color:#5B6272;white-space:nowrap;align-self:center;text-decoration:none" style-hover="color:#85622A">원베드룸 스위트</a></div>
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div style="font-family:'WK Han','Instrument Serif',serif;font-size:26px;line-height:calc(17px * 1.7);color:#85622A">2</div><div><div style="font-weight:700;font-size:17px">이관수 · 권정은</div><div style="font-size:14px;line-height:1.55;color:#5B6272;margin-top:2px">킹 1개 · 46~48㎡</div></div><a href="#suite" style="font-size:14px;color:#5B6272;white-space:nowrap;align-self:center;text-decoration:none" style-hover="color:#85622A">원베드룸 스위트</a></div>
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0;border-bottom:1px solid rgba(30,37,54,.08)"><div style="font-family:'WK Han','Instrument Serif',serif;font-size:26px;line-height:calc(17px * 1.7);color:#85622A">3</div><div><div style="font-weight:700;font-size:17px">이민수 · 김지은</div><div style="font-size:14px;line-height:1.55;color:#5B6272;margin-top:2px">킹 1개 · 46~48㎡</div></div><a href="#suite" style="font-size:14px;color:#5B6272;white-space:nowrap;align-self:center;text-decoration:none" style-hover="color:#85622A">원베드룸 스위트</a></div>
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0"><div style="font-family:'WK Han','Instrument Serif',serif;font-size:26px;line-height:calc(17px * 1.7);color:#85622A;white-space:nowrap">4·5</div><div><div style="font-weight:700;font-size:17px">이나림 · 이나율 · 이아린 · 이우주</div><div style="font-size:14px;line-height:1.55;color:#5B6272;margin-top:2px">두 명씩 두 방 · 트윈 2개 · 30~32㎡ · 방 짝은 아직 정하지 않음</div></div><a href="#twin" style="font-size:14px;color:#5B6272;white-space:nowrap;align-self:center;text-decoration:none" style-hover="color:#85622A">WorkLife 트윈</a></div>
+  </div>
+</section>
+
+<sc-for list="{{ rooms }}" as="rm" hint-placeholder-count="2">
+<section id="{{ rm.id }}" data-screen-label="{{ rm.label }}" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536">
+    <span style="font-family:'WK Han','Instrument Serif',serif;font-size:clamp(36px,2vw + 24px,50px);line-height:.95;color:#85622A;margin-right:clamp(2px,1.4vw - 6px,10px)">{{ rm.num }}</span>
+    <h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">{{ rm.ko }}</h2>
+    <span lang="en" style="min-width:0;font-size:16px;line-height:1.5;color:#5B6272">{{ rm.en }}</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px">
+    <span style="margin-right:2px;font-size:13px;font-weight:700;letter-spacing:.04em;color:#85622A">누가 쓰나</span>
+    <sc-for list="{{ rm.who }}" as="w" hint-placeholder-count="1"><sc-if value="{{ w.all }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:#1E2536;color:#F4EFE5;font-size:14px;font-weight:600;line-height:1.35">{{ w.t }}</span></sc-if><sc-if value="{{ w.some }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;border:1px solid rgba(30,37,54,.3);color:#1E2536;font-size:14px;font-weight:600;line-height:1.35">{{ w.t }}</span></sc-if></sc-for>
+    <span style="font-size:14px;line-height:1.5;color:#5B6272">{{ rm.whoNote }}</span>
+  </div>
+  <article style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:18px">
+    <figure style="margin:0;min-width:0;display:flex;flex-direction:column;gap:8px">
+      <button type="button" onClick="{{ rm.main.open }}" aria-label="{{ rm.main.zoom }}" style="display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#E9E2D4;cursor:zoom-in"><img src="{{ rm.main.src }}" alt="{{ rm.main.alt }}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:{{ rm.main.ar }};object-fit:cover;object-position:{{ rm.main.pos }}"></button>
+      <figcaption style="font-size:13px;font-weight:600;line-height:1.45;text-wrap:pretty">{{ rm.main.cap }}</figcaption>
+    </figure>
+    <div style="display:grid;grid-template-columns:{{ rm.subCols }};gap:16px 12px">
+      <sc-for list="{{ rm.subs }}" as="p" hint-placeholder-count="2">
+        <figure style="margin:0;min-width:0;display:flex;flex-direction:column;gap:8px">
+          <button type="button" onClick="{{ p.open }}" aria-label="{{ p.zoom }}" style="display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#E9E2D4;cursor:zoom-in"><img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:{{ p.ar }};object-fit:cover;object-position:{{ p.pos }}"></button>
+          <figcaption style="font-size:13px;font-weight:600;line-height:1.45;text-wrap:pretty">{{ p.cap }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px 16px;align-items:baseline;font-size:16px;line-height:1.7">
+      <sc-for list="{{ rm.rows }}" as="r" hint-placeholder-count="4"><span style="font-size:14px;color:#5B6272">{{ r.k }}</span><sc-if value="{{ r.strong }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;text-wrap:pretty">{{ r.v }}</span></sc-if><sc-if value="{{ r.plain }}" hint-placeholder-val="{{ true }}"><span style="text-wrap:pretty">{{ r.v }}</span></sc-if></sc-for>
+    </div>
+  </article>
+</section>
+</sc-for>
+
+<section id="compare" data-screen-label="두 객실 비교" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">두 객실 비교</h2><span style="font-size:14px;font-weight:600;color:#5B6272">IHG 공식 객실 안내 기준</span></div>
+  <div style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:4px clamp(18px,2.4vw,28px) 6px;overflow:hidden">
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:12px 0 10px;border-bottom:2px solid #1E2536;font-size:14px;font-weight:700;line-height:1.5"><span style="color:#5B6272;font-weight:600">구분</span><span>일반 원베드룸 스위트</span><span>WorkLife 트윈</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;border-bottom:1px solid rgba(30,37,54,.08);font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">공식 영문명</span><span lang="en" style="font-weight:700">1 Bedroom Suite</span><span lang="en" style="font-weight:700">2 Twin Premium WorkLife</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;border-bottom:1px solid rgba(30,37,54,.08);font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">객실 수</span><span>3실 · 어른 세 부부</span><span>2실 · 아이 넷, 두 명씩</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;border-bottom:1px solid rgba(30,37,54,.08);font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">면적</span><span style="font-weight:700">46~48㎡</span><span style="font-weight:700">30~32㎡</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;border-bottom:1px solid rgba(30,37,54,.08);font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">침대</span><span>킹 침대 1개</span><span>트윈 침대 2개</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;border-bottom:1px solid rgba(30,37,54,.08);font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">공간</span><span>침실과 거실 공간</span><span>침대 두 개, 소파·테이블·업무 공간</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;border-bottom:1px solid rgba(30,37,54,.08);font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">욕실</span><span>공식 사진에서 독립형 욕조 확인. 별도 샤워부스 여부는 미확인</span><span>공식 객실 상세에서 욕조와 워크인 샤워 분리 안내</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;border-bottom:1px solid rgba(30,37,54,.08);font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">객실 성격</span><span>거실에서 함께 쉬기 좋은 구성</span><span>각자 침대를 쓰며 머무는 구성</span></div>
+    <div style="display:grid;grid-template-columns:clamp(64px,9vw,96px) minmax(0,1fr) minmax(0,1fr);gap:0 clamp(12px,2vw,24px);padding:11px 0;font-size:16px;line-height:1.6"><span style="font-size:14px;color:#5B6272">분위기</span><span>밝은 목재색 바닥, 청회색 벽 장식, 따뜻한 색감</span><span>회색·베이지색, 선 무늬 카펫, 간결한 가구</span></div>
+  </div>
+  <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:#5B6272;text-wrap:pretty">면적·침대·공간 구성은 IHG 객실 상세에서 확인한 내용이고, 색감과 분위기는 공식 사진을 보고 적었습니다. 층수와 리모델링 시기는 확인되지 않았고, 사진 속 전망이나 특정 호실을 보장하는 자료는 아닙니다.</p>
+</section>
+
+<section id="hotel" data-screen-label="호텔 기본 정보" style="scroll-margin-top:76px;padding-top:clamp(56px,8vw,76px)">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:14px;border-bottom:2px solid #1E2536"><h2 style="margin:0;font-family:'WK Han','Gowun Batang',serif;font-weight:700;font-size:clamp(22px,1vw + 16px,28px);line-height:1.3">호텔 기본 정보</h2><span style="font-size:14px;font-weight:600;color:#5B6272">IHG 공식 호텔 안내 · 2026. 11. 6 확인</span></div>
+  <article style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:18px">
+    <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px 16px;align-items:baseline;font-size:16px;line-height:1.7">
+      <span style="font-size:14px;color:#5B6272">호텔</span><span><span style="font-weight:700">Crowne Plaza Shanghai Nanjing Road</span> · <span lang="zh-CN" style="font-family:'WK Han','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif">上海南新雅皇冠假日酒店</span> · 5성</span>
+      <span style="font-size:14px;color:#5B6272">주소</span><span style="text-wrap:pretty">No. 700 Jiujiang Road / No. 719 East Nanjing Road, Huangpu District, Shanghai 200001<br><span lang="zh-CN" style="font-family:'WK Han','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif">上海市黄浦区九江路700号 / 南京东路719号</span></span>
+      <span style="font-size:14px;color:#5B6272">체크인</span><span><span style="font-weight:700">15:00부터</span> · 상하이 현지 시각 · 우리는 2/18(목) 오후 도착</span>
+      <span style="font-size:14px;color:#5B6272">체크아웃</span><span><span style="font-weight:700">12:00까지</span> · 우리는 2/22(월) 09:00에 체크아웃</span>
+      <span style="font-size:14px;color:#5B6272">프런트</span><span><a href="tel:+862163500000" style="font-weight:700;font-variant-numeric:tabular-nums;color:#1E2536;text-decoration:none" style-hover="color:#85622A">+86 21 6350 0000</a></span>
+      <span style="font-size:14px;color:#5B6272">예약 문의</span><span><a href="mailto:rsvn@cpnanxinya.com" style="color:#1E2536;text-decoration:underline;text-decoration-color:rgba(133,98,42,.55);text-underline-offset:4px" style-hover="color:#85622A">rsvn@cpnanxinya.com</a></span>
+      <span style="font-size:14px;color:#5B6272">조식</span><span style="text-wrap:pretty">Comely All Day Dining <span lang="zh-CN" style="font-family:'WK Han','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif">金莱全日餐厅</span> · 2층 뷔페 · 매일 06:30~10:30 · 포함 여부는 예약내역에서 확인</span>
+      <span style="font-size:14px;color:#5B6272">객실 설비</span><span style="text-wrap:pretty">호텔 공식 안내 기준 Wi-Fi, 에어컨, 금고, TV, 헤어드라이어, 욕실용품</span>
+      <span style="font-size:14px;color:#5B6272">숙박비</span><span style="text-wrap:pretty"><span style="font-weight:700">약 575만 원</span> · 스위트 3실 + 트윈 2실 · 4박 · 가족 전달 기준, 예약내역 확인 예정</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px">
+      <a href="https://www.google.com/maps/search/?api=1&query=Crowne+Plaza+Shanghai+Nanjing+Road" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(30,37,54,.07);color:#1E2536;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap" style-hover="background:rgba(30,37,54,.12)">지도에서 보기 ↗</a>
+      <a href="{{ mapHotelHref }}" onClick="{{ goMapHotel }}" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(30,37,54,.07);color:#1E2536;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap" style-hover="background:rgba(30,37,54,.12)">동선 지도에서 호텔 위치 보기 →</a>
+      <a href="{{ infoCardHref }}" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(30,37,54,.07);color:#1E2536;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap" style-hover="background:rgba(30,37,54,.12)">호텔 주소 카드 →</a>
+      <a href="https://www.ihg.com/crowneplaza/hotels/us/en/shanghai/shahd/hoteldetail/rooms" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(30,37,54,.07);color:#1E2536;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap" style-hover="background:rgba(30,37,54,.12)">IHG 공식 객실 안내 ↗</a>
+    </div>
+  </article>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(30,37,54,.12);font-size:13px;line-height:1.7;color:#5B6272">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#85622A">참고 · 확인한 것과 확인 전인 것</div>
+    <p style="margin:4px 0 0;text-wrap:pretty">객실 구성(스위트 3실·트윈 2실)과 숙박비는 가족이 전달한 내용으로, 예약확인서로 대조하기 전입니다. 예약확인서를 받으면 객실의 영문명·수량, 조식 인원, 총액, 취소 조건을 먼저 맞춰 봅니다. 면적·침대·욕실 구성은 IHG 공식 객실 안내(2026. 11. 6 확인) 기준입니다.</p>
+  </div>
+</section>
+
+<p style="margin:clamp(44px,5vw,64px) 0 0;font-size:13px;line-height:1.6;color:#5B6272;text-align:center;text-wrap:pretty">사진은 호텔 공식 갤러리의 참고 사진입니다. 실제 배정되는 호실의 전망·층수·가구 배치는 다를 수 있습니다.</p>
+<details id="photo-credits" style="margin-top:14px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:0 clamp(18px,2.4vw,28px)">
+  <summary style="cursor:pointer;padding:12px 0;font-size:14px;font-weight:600;line-height:1.6">사진 출처</summary>
+  <div style="padding:0 0 10px">
+    <sc-for list="{{ credits }}" as="c" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;gap:1px;padding:10px 0;border-top:1px solid rgba(30,37,54,.08);font-size:13px;line-height:1.55">
+        <span style="font-weight:600">{{ c.what }}</span>
+        <span style="color:#5B6272">{{ c.by }} · <a href="{{ c.url }}" target="_blank" rel="noopener" style="color:#5B6272">{{ c.site }}</a> · {{ c.lic }}</span>
+      </div>
+    </sc-for>
+  </div>
+</details>
+
+<footer style="margin-top:clamp(40px,5vw,64px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
+  <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
+    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536"><span aria-hidden="true">←</span><span>여행 안내</span></a>
+    <span aria-current="page" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#1E2536">객실 안내</span>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ mapHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">동선 지도</a>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">식당 안내</a>
+    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">갈 곳 안내</a>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">현지 정보·연락처</a>
+  </nav>
+  <div style="margin-top:14px;font-size:14px;color:#5B6272">객실 안내 · 가족 전달 기준 · 예약확인서를 받으면 다시 맞춥니다</div>
+</footer>
+
+</main>
+</div>
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="{{ lb.cap }}" onClick="{{ closeLb }}" style="position:fixed;inset:0;z-index:100;background:rgba(21,26,40,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:56px clamp(12px,3vw,32px) 24px">
+    <img src="{{ lb.src }}" alt="{{ lb.alt }}" loading="lazy" style="display:block;max-width:100%;max-height:78vh;object-fit:contain;border-radius:8px">
+    <div style="max-width:880px;font-size:14px;line-height:1.6;color:#F4EFE5;text-align:center;text-wrap:pretty">{{ lb.cap }}</div>
+    <button type="button" onClick="{{ closeLb }}" style="position:absolute;top:10px;right:12px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(244,239,229,.4);background:transparent;color:#F4EFE5;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">닫기</button>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: -1, lb: -1 };
+  navRef = React.createRef();
+  NAV = [['overview', '한눈에'], ['suite', '스위트'], ['twin', '트윈'], ['compare', '비교'], ['hotel', '호텔 정보']];
+  POS = { 'hotel/01_one_bedroom_suite/01_living_room.webp': '50% 58%', 'hotel/02_twin_premium_worklife/01_bedroom.webp': '50% 56%' };
+  ROOMS = [
+    { id: 'suite', num: '01', ko: '일반 원베드룸 스위트', en: '1 Bedroom Suite',
+      who: [['할아버지 · 할머니', 1], ['이관수 · 권정은', 1], ['이민수 · 김지은', 1]], whoNote: '3객실 · 한 객실에 두 명',
+      main: ['hotel/01_one_bedroom_suite/01_living_room.webp', '침실 옆으로 이어지는 거실 공간', '일반 원베드룸 스위트 거실의 소파와 안락의자, TV, 옆으로 연결된 침실'],
+      subs: [['hotel/01_one_bedroom_suite/02_bedroom.webp', '킹 침대가 놓인 침실', '일반 원베드룸 스위트의 킹 침대와 청회색 벽 장식'], ['hotel/01_one_bedroom_suite/03_bathroom.webp', '독립형 욕조와 세면대', '일반 원베드룸 스위트의 독립형 욕조와 세면대']],
+      rows: [
+        ['어떤 방', '46~48㎡ 크기의 객실에 킹 침대와 거실 공간이 있습니다. 어른 세 부부가 한 객실씩 사용하는 구성입니다. 침실에서 쉬는 시간과 소파에 앉아 이야기하는 시간을 나누어 보낼 수 있습니다.'],
+        ['한눈에', '46~48㎡ · 킹 침대 1개 · 침실 + 거실 · 3객실', 1],
+        ['욕실', '독립형 욕조가 있는 욕실. 별도 샤워부스 구성은 호텔 확인 예정입니다.'],
+        ['분위기', '밝은 목재색 바닥, 청회색 벽 장식, 따뜻한 색감'],
+      ] },
+    { id: 'twin', num: '02', ko: 'WorkLife 트윈', en: '2 Twin Premium WorkLife',
+      who: [['이나림 · 이나율 · 이아린 · 이우주', 0]], whoNote: '2객실 · 두 명씩 · 방 짝은 아직 정하지 않음',
+      main: ['hotel/02_twin_premium_worklife/01_bedroom.webp', '트윈 침대 두 개와 창가 휴식 공간', 'WorkLife 트윈 객실의 침대 두 개와 창가 소파, 테이블'],
+      subs: [['hotel/02_twin_premium_worklife/02_bedroom_reverse.webp', '반대 방향에서 본 객실과 욕실 구획', 'WorkLife 트윈의 침대 두 개와 TV, 뒤편 욕실 구획'], ['hotel/02_twin_premium_worklife/03_bathroom.webp', '욕조와 워크인 샤워가 분리된 욕실', 'WorkLife 트윈 욕실의 독립형 욕조와 분리된 유리 샤워부스'], ['hotel/02_twin_premium_worklife/04_bath_amenities.webp', '공식 갤러리의 욕실용품 사진', '공식 WorkLife 트윈 갤러리의 Antipodes 바디로션과 핸드워시']],
+      rows: [
+        ['어떤 방', '30~32㎡ 객실에 트윈 침대 두 개와 소파·테이블이 있습니다. 자녀 네 명이 두 명씩 나누어 사용하는 구성입니다. 공식 설명에서 욕조와 워크인 샤워가 분리된 욕실을 안내합니다.'],
+        ['한눈에', '30~32㎡ · 트윈 침대 2개 · 소파·테이블 · 2객실', 1],
+        ['욕실', '욕조와 워크인 샤워가 분리된 욕실'],
+        ['분위기', '회색·베이지색, 선 무늬 카펫, 간결한 가구'],
+      ] },
+  ];
+  CR = [
+    ['일반 원베드룸 스위트 · 거실', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-7056220083-original?resmode=bilin&qlt=70&fmt=webp'],
+    ['일반 원베드룸 스위트 · 침실', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-7056221473-original?resmode=bilin&qlt=70&fmt=webp'],
+    ['일반 원베드룸 스위트 · 욕실', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-7056208607-original?resmode=bilin&qlt=70&fmt=webp'],
+    ['WorkLife 트윈 · 침실', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-8134588192-original?resmode=bilin&qlt=70&fmt=webp'],
+    ['WorkLife 트윈 · 침실 반대 방향', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-8134589120-original?resmode=bilin&qlt=70&fmt=webp'],
+    ['WorkLife 트윈 · 욕실', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-8134590158-original?resmode=bilin&qlt=70&fmt=webp'],
+    ['WorkLife 트윈 · 욕실용품', 'https://digital.ihg.com/is/image/ihg/crowne-plaza-shanghai-11261174781-original?resmode=bilin&qlt=70&fmt=webp'],
+  ];
+  componentDidMount() {
+    this.onScroll = () => { if (this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = 0; this.spy(); }); };
+    this.onKey = (e) => { if (e.key === 'Escape' && this.state.lb >= 0) this.setState({ lb: -1 }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('keydown', this.onKey);
+    this.spy();
+    const h = window.location.hash;
+    if (h && h.length > 1) {
+      this.jt = setTimeout(() => {
+        const el = document.getElementById(decodeURIComponent(h.slice(1)));
+        if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 72));
+      }, 200);
+    }
+  }
+  componentDidUpdate() {
+    if (this.lastActive === this.state.active) return;
+    this.lastActive = this.state.active;
+    const nav = this.navRef.current;
+    if (!nav || nav.scrollWidth <= nav.clientWidth + 1) return;
+    const a = nav.querySelector('a[aria-current="true"]');
+    if (!a) return;
+    const r = a.getBoundingClientRect(), nr = nav.getBoundingClientRect();
+    nav.scrollTo({ left: nav.scrollLeft + (r.left - nr.left) - (nr.width - r.width) / 2, behavior: 'smooth' });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('keydown', this.onKey);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    clearTimeout(this.jt);
+  }
+  spy() {
+    let a = -1;
+    this.NAV.forEach((x, i) => { const el = document.getElementById(x[0]); if (el && el.getBoundingClientRect().top <= 140) a = i; });
+    if (a !== this.state.active) this.setState({ active: a });
+  }
+  // 동선 지도로 넘어갈 때 고른 날짜를 잠깐 맡겨 둡니다(편집기에서는 주소의 #day가 전달되지 않을 수 있어서).
+  pendMap(n, place) { try { window.localStorage.setItem('sh-route-map-day', JSON.stringify({ day: n, place: place || null, t: Date.now() })); } catch (e) {} }
+  links() {
+    let p = window.location.pathname || '';
+    try { p = decodeURIComponent(p); } catch (e) {}
+    const dc = /\.dc\.html$/i.test(p);
+    const f = (a, b) => './' + (dc ? encodeURIComponent(a) : b);
+    return {
+      main: f('상하이 가족여행 계획서 확정안.dc.html', 'index.html'),
+      sched: f('집에서 집까지 상세 시간표.dc.html', 'schedule.html'),
+      map: f('상하이 동선 지도.dc.html', 'map.html'),
+      dining: f('상하이 식당 안내.dc.html', 'dining.html'),
+      places: f('상하이 갈 곳 안내.dc.html', 'places.html'),
+      prep: f('출발 전 준비.dc.html', 'prep.html'),
+      info: f('현지 정보·연락처.dc.html', 'info.html'),
+    };
+  }
+  renderVals() {
+    const L = this.links();
+    const { active, lb } = this.state;
+    const all = [];
+    const ph = (list, ar) => list.map(([f, cap, alt]) => {
+      const i = all.length;
+      const o = { src: './photos/' + f, cap, alt: alt || cap, ar, pos: this.POS[f] || '50% 50%', zoom: cap + ' 크게 보기', open: () => this.setState({ lb: i }) };
+      all.push(o);
+      return o;
+    });
+    const rooms = this.ROOMS.map((r) => ({
+      id: r.id, num: r.num, ko: r.ko, en: r.en, label: r.num + ' ' + r.ko,
+      who: r.who.map(([t, a]) => ({ t, all: !!a, some: !a })), whoNote: r.whoNote,
+      main: ph([r.main], '2 / 1')[0],
+      subs: ph(r.subs, '4 / 3'),
+      subCols: 'repeat(auto-fit,minmax(min(100%,' + (r.subs.length >= 3 ? '200px' : '260px') + '),1fr))',
+      rows: r.rows.map(([k, v, s]) => ({ k, v, strong: !!s, plain: !s })),
+    }));
+    const nav = this.NAV.map(([id, top], i) => {
+      const on = i === active;
+      return { href: '#' + id, top, cur: on ? 'true' : undefined, c: on ? '#1E2536' : '#5B6272', bb: on ? '#85622A' : 'transparent' };
+    });
+    return {
+      nav, navRef: this.navRef, rooms,
+      mainHref: L.main, schedHref: L.sched, mapHref: L.map, mapHotelHref: L.map + '#day=0&place=hotel', goMapHotel: () => this.pendMap(0, 'hotel'), diningHref: L.dining, placesHref: L.places, prepHref: L.prep, infoHref: L.info, infoCardHref: L.info + '#card',
+      credits: this.CR.map(([what, url]) => ({ what, by: 'Crowne Plaza Shanghai Nanjing Road 공식 객실 갤러리', url, site: 'IHG (digital.ihg.com)', lic: '호텔 공식 사진 · 가족 안내용 참고' })),
+      lbOpen: lb >= 0 && !!all[lb], lb: all[lb] || { src: '', cap: '', alt: '' },
+      closeLb: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ lb: -1 }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

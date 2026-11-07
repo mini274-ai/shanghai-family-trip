@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>동선 지도 — 상하이 가족여행</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script>window.__resources=window.__resources||{};</script>
+<script src="./support.js"></script>
+<script src="./map/places.js"></script>
+<script src="./map/routes.js"></script>
+<script src="./map/routes-20261107.js"></script>
+<script src="./shanghai-v4-data.js"></script>
+<script src="./map/route-map-data.js"></script>
+<script src="./map/route-map-model.js"></script>
+<script src="./map/tiles/tiles.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>동선 지도 — 상하이 가족여행</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="./map/leaflet.css">
+<script>
+(function () {
+  // Leaflet은 한 번만 실행되어야 합니다(두 번 실행되면 지도 객체와 L 네임스페이스가 어긋납니다).
+  if (window.L || window.__rmLeafletLoading) return;
+  window.__rmLeafletLoading = true;
+  var s = document.createElement('script'); s.src = './map/leaflet.js'; document.head.appendChild(s);
+})();
+</script>
+<style>
+body{margin:0;background:#F4EFE5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
+button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+select{font-family:inherit}
+details summary{cursor:pointer}
+.rm-map .leaflet-container{font-family:inherit;background:#E6E1D7}
+.rm-map .leaflet-control-zoom a{font-family:inherit!important;color:#1E2536!important;font-weight:600}
+.rm-map .leaflet-control-attribution{font-size:10px!important;background:rgba(255,253,249,.85)!important;color:#5B6272}
+.rm-map .leaflet-tooltip{font-family:inherit;font-size:12px;border-color:rgba(30,37,54,.2)}
+.rm-mk{border:0;background:none}
+.rm-pin{height:30px;min-width:30px;padding:0 6px;border:2px solid #FFFDF9;border-radius:50%;background:#1E2536;color:#F4EFE5;display:grid;place-items:center;font-size:12px;font-weight:700;box-shadow:0 1px 4px rgba(30,37,54,.35);white-space:nowrap}
+.rm-pin.rm-hotel{width:36px;height:36px;background:#E0B46A;color:#1E2536;font-size:16px;border:3px solid #1E2536}
+.rm-pin.rm-sel{box-shadow:0 0 0 5px rgba(224,180,106,.6),0 1px 4px rgba(30,37,54,.35)}
+.rm-arrow{border:0;background:none;color:#1E2536;font-size:14px;line-height:16px;text-shadow:0 1px 2px #FFFDF9}
+.rm-tagwrap{border:0;background:none}
+.rm-tag{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;background:#FFFDF9;border:1px solid rgba(30,37,54,.25);color:#1E2536;font-size:12px;font-weight:700;line-height:16px;white-space:nowrap;font-variant-numeric:tabular-nums;box-shadow:0 1px 2px rgba(30,37,54,.15)}
+.rm-tag i{display:inline-block;width:7px;height:7px;border-radius:50%}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#F4EFE5;color:#1E2536;font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Noto Sans SC',sans-serif;font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:break-word;padding-bottom:56px">
+
+<div style="border-bottom:1px solid rgba(30,37,54,.1);padding:6px {{ gutter }}">
+  <nav aria-label="안내 페이지" style="max-width:1120px;margin:0 auto;display:flex;align-items:stretch;gap:{{ navGap }};overflow-x:auto;scrollbar-width:none">
+    <a href="{{ mainHref }}" style="flex:none;display:flex;align-items:center;gap:5px;min-height:44px;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;text-decoration:none;white-space:nowrap" style-hover="color:#85622A"><span aria-hidden="true">←</span><span>여행 안내</span></a><span aria-hidden="true" style="flex:none;align-self:center;width:1px;height:16px;background:rgba(30,37,54,.2)"></span>
+    <span aria-current="page" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;color:#1E2536;white-space:nowrap">동선 지도</span>
+    <sc-if value="{{ hasCompare }}" hint-placeholder-val="{{ true }}"><a href="{{ compareHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;color:#5B6272;text-decoration:none;white-space:nowrap" style-hover="color:#1E2536">숙소 위치 비교</a></sc-if>
+    <a href="{{ schedHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;color:#5B6272;text-decoration:none;white-space:nowrap" style-hover="color:#1E2536">상세 시간표</a>
+    <a href="{{ placesHref }}" style="flex:none;display:flex;align-items:center;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;color:#5B6272;text-decoration:none;white-space:nowrap" style-hover="color:#1E2536">갈 곳 안내</a>
+  </nav>
+</div>
+
+<div style="max-width:1120px;margin:0 auto;padding:0 {{ gutter }}">
+
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;padding-top:{{ padTop }}">
+  <div style="flex:1 1 420px;min-width:0">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.06em;color:#85622A">동선 지도 · 2027. 2. 18 — 2. 22</div>
+    <h1 style="margin:6px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:{{ h1Size }};line-height:1.25;letter-spacing:-.01em;text-wrap:balance">지도에서 보는 우리 여행</h1>
+    <p style="margin:8px 0 0;max-width:640px;font-size:15px;line-height:1.7;color:#5B6272;text-wrap:pretty">현재 여행계획을 지도에 옮긴 안내입니다. 시각은 중국 현지시각이고, 지도 이동시간은 교통 상황을 반영하지 않은 참고값입니다.</p>
+  </div>
+  <a href="{{ roomsHref }}" aria-label="크라운플라자 난징로드 객실 안내 보기" style="flex:none;display:flex;align-items:center;gap:12px;padding:10px 16px 10px 12px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:14px;color:#1E2536;text-decoration:none" style-hover="border-color:rgba(133,98,42,.45)">
+    <span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:#E0B46A;border:3px solid #1E2536;display:grid;place-items:center;font-size:16px;font-weight:700;color:#1E2536">H</span>
+    <div style="min-width:0"><div style="font-size:12.5px;font-weight:600;line-height:1.4;color:#5B6272">닷새의 기준점 · 한 호텔 4박</div><div style="font-size:15px;font-weight:700;line-height:1.4">크라운플라자 난징로드</div><div style="font-size:13px;line-height:1.4;color:#5B6272">Crowne Plaza Shanghai Nanjing Road</div><div style="margin-top:3px;font-size:13px;font-weight:700;line-height:1.4;color:#85622A">객실 안내 →</div></div>
+  </a>
+</div>
+
+<div role="tablist" aria-label="여행 날짜 선택" style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:{{ tabGap }};margin-top:18px">
+  <sc-for list="{{ tabs }}" as="d" hint-placeholder-count="6"><button type="button" role="tab" aria-selected="{{ d.on }}" onClick="{{ d.pick }}" style="min-height:{{ tabH }};padding:8px 4px;border-radius:12px;border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};text-align:center;line-height:1.2"><span style="display:block;font-family:{{ d.font }};font-size:{{ d.size }};font-weight:{{ d.weight }};line-height:1.15;white-space:nowrap">{{ d.label }}</span><span style="display:block;margin-top:4px;font-size:{{ dateSize }};font-weight:600;color:{{ d.sub }};white-space:nowrap">{{ d.date }}</span></button></sc-for>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;margin-top:{{ dayHeadTop }}">
+  <div style="flex:1 1 360px;min-width:0">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.06em;color:#85622A">{{ dayEyebrow }}</div>
+    <h2 style="margin:6px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:{{ h2Size }};line-height:1.3;letter-spacing:-.01em;text-wrap:balance">{{ dayTitle }}</h2>
+    <p style="margin:6px 0 0;font-size:15px;line-height:1.65;color:#5B6272;text-wrap:pretty">{{ daySummary }}</p>
+    <sc-if value="{{ hasKeyChips }}" hint-placeholder-val="{{ true }}">
+      <div role="list" aria-label="이날 주요 시각" style="display:flex;flex-wrap:wrap;gap:{{ chipGap }};margin-top:{{ chipTop }}">
+        <sc-for list="{{ keyChips }}" as="k" hint-placeholder-count="4"><div role="listitem" style="display:inline-flex;align-items:baseline;gap:{{ chipInGap }};min-width:0;padding:{{ chipPad }};border-radius:999px;background:#FFFDF9;border:1px solid rgba(30,37,54,.1);line-height:1.35"><span style="font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;color:#1E2536">{{ k.time }}</span><span style="display:inline-flex;align-items:center;gap:5px;min-width:0;font-size:{{ chipLabelSize }};font-weight:500;color:#5B6272"><sc-if value="{{ k.hasDot }}" hint-placeholder-val="{{ false }}"><i aria-hidden="true" style="flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:{{ k.color }}"></i></sc-if>{{ k.label }}</span></div></sc-for>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ hasCompare }}" hint-placeholder-val="{{ true }}"><a href="{{ compareHref }}" style="flex:none;display:inline-flex;align-items:center;gap:4px;min-height:40px;font-size:14px;font-weight:600;color:#85622A;text-decoration:underline;text-decoration-color:rgba(133,98,42,.45);text-underline-offset:4px" style-hover="color:#1E2536">호텔 위치도 비교해 보기 →</a></sc-if>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:14px">
+  <sc-if value="{{ hasTeams }}" hint-placeholder-val="{{ true }}">
+    <div role="group" aria-label="팀 선택" style="display:flex;flex:{{ teamFlex }};min-width:0;padding:4px;gap:3px;border-radius:12px;background:#ECE7DD">
+      <sc-for list="{{ teams }}" as="t" hint-placeholder-count="4"><button type="button" aria-pressed="{{ t.on }}" onClick="{{ t.pick }}" style="flex:{{ teamBtnFlex }};min-width:0;min-height:38px;padding:6px {{ teamPad }};border:0;border-radius:9px;background:{{ t.bg }};color:{{ t.fg }};font-size:14px;font-weight:{{ t.w }};line-height:1.3;white-space:nowrap;box-shadow:{{ t.sh }}">{{ t.label }}</button></sc-for>
+    </div>
+  </sc-if>
+  <sc-if value="{{ hasOpts }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;flex:{{ optToggleFlex }};min-width:0">
+      <button type="button" aria-expanded="{{ optOpenStr }}" aria-controls="rm-day-opts" onClick="{{ toggleOpts }}" style="display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border:1px solid rgba(30,37,54,.2);border-radius:10px;background:{{ optBtnBg }};color:#1E2536;font-size:14px;font-weight:700;line-height:1.3;white-space:nowrap">{{ optBtnLabel }}<span aria-hidden="true" style="font-size:11px;color:#5B6272">{{ optCaret }}</span></button>
+      <sc-if value="{{ optChanged }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;min-width:0;padding:4px 10px;border-radius:999px;background:#FBF3E2;border:1px solid rgba(178,130,51,.35);font-size:13px;font-weight:700;line-height:1.4;color:#85622A">{{ optChangedText }}</span><button type="button" onClick="{{ resetOpts }}" style="min-height:34px;padding:0 8px;border:0;background:transparent;color:#1E2536;font-size:13.5px;font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap">원안으로</button></sc-if>
+    </div>
+    <sc-if value="{{ optOpen }}" hint-placeholder-val="{{ false }}">
+    <div id="rm-day-opts" role="group" aria-label="이날 고를 일정 · 한 번에 한 가지씩 지도에 반영" style="display:{{ optDisplay }};grid-template-columns:{{ optCols }};flex-wrap:wrap;align-items:{{ optAlign }};gap:10px {{ optGapX }};flex:1 1 100%;min-width:0;padding:12px 14px;border-radius:12px;background:#FFFDF9;border:1px solid rgba(30,37,54,.09)">
+      <sc-if value="{{ optWalk }}" hint-placeholder-val="{{ false }}">
+        <label style="display:inline-flex;align-items:center;gap:8px;min-height:38px;font-size:{{ optCheckSize }};font-weight:600;line-height:1.35;color:#1E2536"><input type="checkbox" checked="{{ day1Walk }}" onChange="{{ setWalk }}" style="flex:none;width:18px;height:18px;margin:0;accent-color:#1E2536">난징동루 선택 산책 넣어 보기</label>
+      </sc-if>
+      <sc-if value="{{ optDay2 }}" hint-placeholder-val="{{ false }}">
+        <label style="display:{{ labDisplay }};flex-direction:{{ labDir }};align-items:{{ labAlign }};gap:{{ labGap }};min-width:0;font-size:{{ labSize }};font-weight:600;color:#5B6272;white-space:{{ labWs }}">전시 한 곳
+          <select value="{{ museum }}" onChange="{{ setMuseum }}" style="min-height:38px;width:{{ selW }};min-width:0;padding:0 10px;border:1px solid rgba(30,37,54,.2);border-radius:9px;background:#FFFDF9;color:#1E2536;font-size:{{ selSize }};font-weight:600">
+            <option value="history">역사박물관</option>
+            <option value="planning">도시계획전시관</option>
+          </select>
+        </label>
+        <label style="display:{{ labDisplay }};flex-direction:{{ labDir }};align-items:{{ labAlign }};gap:{{ labGap }};min-width:0;font-size:{{ labSize }};font-weight:600;color:#5B6272;white-space:{{ labWs }}">점심 후
+          <select value="{{ day2Rest }}" onChange="{{ setRest }}" style="min-height:38px;width:{{ selW }};min-width:0;padding:0 10px;border:1px solid rgba(30,37,54,.2);border-radius:9px;background:#FFFDF9;color:#1E2536;font-size:{{ selSize }};font-weight:600">
+            <option value="hotel">호텔 휴식</option>
+            <option value="cafe">인근 카페</option>
+          </select>
+        </label>
+        <label style="display:{{ labDisplay }};flex-direction:{{ labDir }};align-items:{{ labAlign }};gap:{{ labGap }};min-width:0;font-size:{{ labSize }};font-weight:600;color:#5B6272;white-space:{{ labWs }}">저녁 한 곳
+          <select value="{{ dinner }}" onChange="{{ setDinner }}" style="min-height:38px;width:{{ selW }};min-width:0;padding:0 10px;border:1px solid rgba(30,37,54,.2);border-radius:9px;background:#FFFDF9;color:#1E2536;font-size:{{ selSize }};font-weight:600">
+            <option value="laozhengxing">라오정싱</option>
+            <option value="xinya">신야</option>
+          </select>
+        </label>
+        <label style="display:{{ labDisplay }};flex-direction:{{ labDir }};align-items:{{ labAlign }};gap:{{ labGap }};min-width:0;font-size:{{ labSize }};font-weight:600;color:#5B6272;white-space:{{ labWs }}">저녁 이동
+          <select value="{{ eveningMode }}" onChange="{{ setEvening }}" style="min-height:38px;width:{{ selW }};min-width:0;padding:0 10px;border:1px solid rgba(30,37,54,.2);border-radius:9px;background:#FFFDF9;color:#1E2536;font-size:{{ selSize }};font-weight:600">
+            <option value="foot">도보</option>
+            <option value="car">버스</option>
+          </select>
+        </label>
+      </sc-if>
+      <sc-if value="{{ optDay3 }}" hint-placeholder-val="{{ false }}">
+        <label style="display:{{ labDisplay }};flex-direction:{{ labDir }};align-items:{{ labAlign }};gap:{{ labGap }};min-width:0;font-size:{{ labSize }};font-weight:600;color:#5B6272;white-space:{{ labWs }}">선택활동 한 곳
+          <select value="{{ activity }}" onChange="{{ setActivity }}" style="min-height:38px;width:{{ selW }};min-width:0;padding:0 10px;border:1px solid rgba(30,37,54,.2);border-radius:9px;background:#FFFDF9;color:#1E2536;font-size:{{ selSize }};font-weight:600">
+            <option value="cafe">신톈디 카페·쇼핑</option>
+            <option value="massage">발마사지 (시간 확인)</option>
+            <option value="park">푸싱공원</option>
+          </select>
+        </label>
+      </sc-if>
+      <sc-if value="{{ hasViewpoint }}" hint-placeholder-val="{{ true }}">
+        <label style="display:{{ labDisplay }};flex-direction:{{ labDir }};align-items:{{ labAlign }};gap:{{ labGap }};min-width:0;font-size:{{ labSize }};font-weight:600;color:#5B6272;white-space:{{ labWs }}">루자쭈이 선택
+          <select value="{{ viewpoint }}" onChange="{{ setViewpoint }}" style="min-height:38px;width:{{ selW }};min-width:0;padding:0 10px;border:1px solid rgba(30,37,54,.2);border-radius:9px;background:#FFFDF9;color:#1E2536;font-size:{{ selSize }};font-weight:600">
+            <option value="ifc">육교·IFC 카페</option>
+            <option value="tower">상하이타워 전망대</option>
+          </select>
+        </label>
+      </sc-if>
+    </div>
+    </sc-if>
+  </sc-if>
+</div>
+
+<div ref="{{ rowRef }}" style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:{{ colGap }};margin-top:16px">
+
+  <div ref="{{ colRef }}" style="flex:1 1 560px;min-width:0;position:{{ mapPos }};top:12px;display:flex;flex-direction:column;gap:12px">
+    <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;overflow:hidden">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding:10px 12px">
+        <sc-if value="{{ hasViews }}" hint-placeholder-val="{{ true }}"><div role="group" aria-label="지도 범위" style="display:inline-flex;padding:3px;gap:2px;border-radius:10px;background:#ECE7DD">
+          <sc-for list="{{ views }}" as="v" hint-placeholder-count="3"><button type="button" aria-pressed="{{ v.on }}" onClick="{{ v.pick }}" style="min-height:32px;padding:4px 11px;border:0;border-radius:8px;background:{{ v.bg }};color:{{ v.fg }};font-size:13px;font-weight:{{ v.w }};white-space:nowrap;box-shadow:{{ v.sh }}">{{ v.label }}</button></sc-for>
+        </div></sc-if>
+        <sc-if value="{{ hasReturns }}" hint-placeholder-val="{{ true }}"><label style="display:inline-flex;align-items:center;gap:7px;min-height:32px;font-size:13px;font-weight:600;color:#1E2536;white-space:nowrap"><input type="checkbox" checked="{{ highlight }}" onChange="{{ toggleHighlight }}" style="width:16px;height:16px;margin:0;accent-color:#1E2536">호텔 복귀 시간</label></sc-if>
+      </div>
+      <sc-if value="{{ showReturns }}" hint-placeholder-val="{{ false }}">
+        <div aria-label="호텔 복귀 시간" style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:0 12px 10px">
+          <span style="font-size:12.5px;font-weight:700;letter-spacing:.03em;color:#85622A">호텔 복귀</span>
+          <sc-for list="{{ returnChips }}" as="r" hint-placeholder-count="2"><span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:#F4EFE5;font-size:13.5px;line-height:1.35"><i aria-hidden="true" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:{{ r.color }}"></i><sc-if value="{{ r.hasLead }}" hint-placeholder-val="{{ false }}"><span style="color:#5B6272">{{ r.lead }}</span></sc-if><span style="font-weight:600;font-variant-numeric:tabular-nums;color:#1E2536">{{ r.time }}</span><sc-if value="{{ r.hasLabel }}" hint-placeholder-val="{{ true }}"><span style="color:#5B6272">{{ r.label }}</span></sc-if></span></sc-for>
+        </div>
+      </sc-if>
+      <div class="rm-map" style="position:relative;height:{{ mapH }};background:#E6E1D7;border-top:1px solid rgba(30,37,54,.08);border-bottom:1px solid rgba(30,37,54,.08)">
+        <div ref="{{ mapRef }}" role="region" aria-label="상하이 여행 지도" style="position:absolute;inset:0"></div>
+        <sc-if value="{{ hasMapMsg }}" hint-placeholder-val="{{ true }}"><div role="status" style="position:absolute;left:{{ msgLeft }};right:12px;top:12px;z-index:1000;padding:10px 14px;border-radius:10px;background:rgba(255,253,249,.94);border:1px solid rgba(30,37,54,.12);font-size:13.5px;line-height:1.5;color:#1E2536;pointer-events:none">{{ mapMsg }}</div></sc-if>
+        <sc-if value="{{ showFloatDetail }}" hint-placeholder-val="{{ false }}">
+          <div data-rm-card style="position:absolute;left:12px;bottom:12px;z-index:500;width:300px;max-width:calc(100% - 24px);background:#FFFDF9;border:1px solid rgba(30,37,54,.12);border-radius:14px;box-shadow:0 2px 10px rgba(30,37,54,.12);overflow:hidden">
+            <sc-if value="{{ detail.hasPhoto }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ detail.photoAlt }}" style="display:block;width:100%;aspect-ratio:16/8;background:#E6E1D7 url({{ detail.photoUrl }}) center/cover no-repeat"></div></sc-if>
+            <div style="padding:12px 14px 12px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font-size:12px;font-weight:700;letter-spacing:.05em;color:#85622A">{{ detail.pinText }} · 장소와 방문</span><button type="button" onClick="{{ clearSelection }}" aria-label="닫기" style="min-height:28px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:#5B6272;font-size:13px;font-weight:600">닫기</button></div>
+              <div style="margin-top:4px;font-size:16px;font-weight:700;line-height:1.35">{{ detail.name }}</div>
+              <div lang="zh-CN" style="font-family:'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;font-size:13px;line-height:1.5;color:#5B6272">{{ detail.zh }}</div>
+              <div style="margin-top:4px;font-size:13px;line-height:1.5;color:#5B6272">{{ detail.where }}</div>
+              <div style="margin-top:8px;display:flex;flex-direction:column;gap:3px">
+                <sc-for list="{{ detail.visits }}" as="x" hint-placeholder-count="2"><div style="display:flex;gap:8px;font-size:13.5px;line-height:1.5"><span style="flex:none;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap">{{ x.time }}</span><span style="min-width:0">{{ x.title }}</span></div></sc-for>
+              </div>
+              <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;font-weight:600"><a href="{{ detail.osm }}" target="_blank" rel="noopener">OSM 위치 ↗</a><a href="{{ detail.amap }}" target="_blank" rel="noopener">고덕 검색 ↗</a></div>
+              <sc-if value="{{ detail.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="margin-top:6px;font-size:11.5px;line-height:1.5;color:#5B6272">{{ detail.credit }}</div></sc-if>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <div aria-label="지도 범례" style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 12px;font-size:12.5px;font-weight:600;color:#5B6272">
+        <span style="display:inline-flex;align-items:center;gap:6px"><i aria-hidden="true" style="display:inline-block;width:22px;border-top:3px solid #1E2536"></i>버스</span>
+        <sc-if value="{{ notOverview }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex;align-items:center;gap:6px"><i aria-hidden="true" style="display:inline-block;width:22px;border-top:3px dashed #1E2536"></i>도보</span></sc-if>
+        <span style="display:inline-flex;align-items:center;gap:6px"><i aria-hidden="true" style="display:inline-block;width:22px;border-top:3px dotted #3B79A0"></i>페리</span>
+        <sc-if value="{{ notOverview }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex;align-items:center;gap:6px"><i aria-hidden="true" style="display:inline-block;width:22px;border-top:3px dashed #8C919B"></i>빈 차</span></sc-if>
+        <span style="display:inline-flex;align-items:center;gap:6px"><i aria-hidden="true" style="display:inline-block;width:22px;border-top:2px dotted #5B6272"></i>미조회 연결선</span>
+        <sc-if value="{{ hasTeamLegend }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="width:1px;height:14px;background:rgba(30,37,54,.2)"></span><sc-for list="{{ teamLegend }}" as="g" hint-placeholder-count="3"><span style="display:inline-flex;align-items:center;gap:6px"><i aria-hidden="true" style="display:inline-block;width:{{ g.w }};height:{{ g.h }};border-radius:{{ g.r }};background:{{ g.color }}"></i>{{ g.label }}</span></sc-for></sc-if>
+        <span style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:#85622A"><i aria-hidden="true" style="display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#E0B46A;border:2px solid #1E2536;font-size:10px;font-weight:700;color:#1E2536;font-style:normal">H</i>호텔</span>
+      </div>
+    </div>
+
+    <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;padding:14px 16px">
+      <div style="display:grid;grid-template-columns:{{ metricCols }};gap:10px">
+        <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="2"><div style="min-width:0;padding:10px 12px;border-radius:12px;background:#F4EFE5"><div style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:#5B6272"><i aria-hidden="true" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:{{ m.color }}"></i>{{ m.label }}</div><div style="margin-top:4px;font-size:15px;font-weight:700;line-height:1.4;font-variant-numeric:tabular-nums">{{ m.value }}</div><div style="margin-top:2px;font-size:12.5px;line-height:1.45;color:#5B6272">{{ m.sub }}</div></div></sc-for>
+      </div>
+      <sc-if value="{{ hasCallout }}" hint-placeholder-val="{{ true }}"><div style="margin-top:10px;padding:10px 12px;border-left:3px solid #E0B46A;background:#FBF7EE;border-radius:0 10px 10px 0"><div style="font-size:14px;font-weight:700;line-height:1.45">{{ calloutTitle }}</div><div style="margin-top:2px;font-size:13.5px;line-height:1.55;color:#5B6272;text-wrap:pretty">{{ calloutText }}</div></div></sc-if>
+      <p style="margin:10px 0 0;font-size:13.5px;line-height:1.6;color:#5B6272;text-wrap:pretty">{{ dayNote }}</p>
+    </div>
+
+    <sc-if value="{{ showInlineDetail }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;overflow:hidden">
+        <sc-if value="{{ detail.hasPhoto }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ detail.photoAlt }}" style="display:block;width:100%;aspect-ratio:16/7;background:#E6E1D7 url({{ detail.photoUrl }}) center/cover no-repeat"></div></sc-if>
+        <div style="padding:14px 16px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font-size:12px;font-weight:700;letter-spacing:.05em;color:#85622A">{{ detail.pinText }} · 장소와 방문</span><button type="button" onClick="{{ clearSelection }}" style="min-height:28px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:#5B6272;font-size:13px;font-weight:600">닫기</button></div>
+          <div style="margin-top:4px;font-size:17px;font-weight:700;line-height:1.35">{{ detail.name }}</div>
+          <div lang="zh-CN" style="font-family:'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;font-size:13.5px;line-height:1.5;color:#5B6272">{{ detail.zh }}</div>
+          <div style="margin-top:4px;font-size:13.5px;line-height:1.55;color:#5B6272">{{ detail.where }}</div>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:3px"><sc-for list="{{ detail.visits }}" as="x" hint-placeholder-count="2"><div style="display:flex;gap:8px;font-size:14px;line-height:1.5"><span style="flex:none;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap">{{ x.time }}</span><span style="min-width:0">{{ x.title }}</span></div></sc-for></div>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13.5px;font-weight:600"><a href="{{ detail.osm }}" target="_blank" rel="noopener">OSM 위치 ↗</a><a href="{{ detail.amap }}" target="_blank" rel="noopener">고덕 검색 ↗</a></div>
+          <sc-if value="{{ detail.hasCredit }}" hint-placeholder-val="{{ false }}"><div style="margin-top:6px;font-size:12px;line-height:1.5;color:#5B6272">{{ detail.credit }}</div></sc-if>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <aside aria-label="날짜별 장소와 시간표" style="flex:1 1 300px;min-width:0;max-width:{{ asideMax }};background:#FFFDF9;border:1px solid rgba(30,37,54,.09);border-radius:18px;overflow:hidden">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:14px 18px 12px;border-bottom:1px solid rgba(30,37,54,.1)"><h3 style="margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:18px;line-height:1.3">{{ listTitle }}</h3><span style="font-size:12.5px;font-weight:600;color:#5B6272;white-space:nowrap">{{ listSub }}</span></div>
+    <sc-if value="{{ dataLoading }}" hint-placeholder-val="{{ false }}"><p role="status" style="margin:0;padding:16px 18px;font-size:14.5px;line-height:1.6;color:#5B6272">일정 자료를 불러오는 중입니다…</p></sc-if>
+    <sc-if value="{{ dataFail }}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding:16px 18px;font-size:15px;line-height:1.65"><strong style="display:block;font-weight:700">일정 자료를 불러오지 못했습니다.</strong><span style="color:#5B6272">같은 일정은 <a href="{{ schedHref }}">상세 시간표</a>에서, 장소 설명은 <a href="{{ placesHref }}">갈 곳 안내</a>에서 볼 수 있습니다.</span></div></sc-if>
+    <sc-if value="{{ isVehicle }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:6px 0 10px">
+        <p style="margin:0;padding:10px 18px 8px;font-size:13.5px;line-height:1.55;color:#5B6272;text-wrap:pretty">승객 운행 사이에 필요한 빈 차 이동을 포함합니다. 순서를 보여 주는 운행안이며 배차 확정표가 아닙니다.</p>
+        <sc-for list="{{ coachLegs }}" as="c" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:10px 18px;border-top:1px solid rgba(30,37,54,.07)">
+            <span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;background:{{ c.bg }};color:{{ c.fg }};border:{{ c.bd }}">{{ c.n }}</span>
+            <div style="min-width:0"><div style="font-size:15px;font-weight:700;line-height:1.4">{{ c.title }}</div><div style="margin-top:2px;font-size:13.5px;line-height:1.5;color:#5B6272">{{ c.sub }}</div><div style="margin-top:2px;font-size:13px;line-height:1.5;color:#5B6272">{{ c.route }}</div></div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:2px 0 6px">
+        <sc-for list="{{ daysSummary }}" as="o" hint-placeholder-count="5">
+          <button type="button" onClick="{{ o.pick }}" aria-label="{{ o.aria }}" style="display:grid;grid-template-columns:4px minmax(0,1fr);gap:12px;width:100%;padding:13px 18px;border:0;border-top:{{ o.bt }};background:transparent;text-align:left;color:inherit;font:inherit;line-height:1.5">
+            <span aria-hidden="true" style="border-radius:2px;background:{{ o.color }}"></span>
+            <span style="display:block;min-width:0">
+              <span style="display:flex;align-items:baseline;gap:8px"><span style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.1;color:#1E2536">{{ o.day }}</span><span style="font-size:13px;font-weight:600;color:#5B6272;white-space:nowrap">{{ o.date }}</span><span aria-hidden="true" style="margin-left:auto;font-size:13px;font-weight:600;color:#85622A;white-space:nowrap">이날 보기 →</span></span>
+              <span style="display:block;margin-top:5px;font-size:15.5px;font-weight:700;line-height:1.4">{{ o.title }}</span>
+              <span style="display:block;margin-top:2px;font-size:13.5px;line-height:1.55;color:#5B6272;text-wrap:pretty">{{ o.summary }}</span>
+              <span style="display:block;margin-top:4px;font-size:13px;font-weight:600;line-height:1.5;color:#1E2536">{{ o.rest }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:4px 0 10px">
+        <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="2">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:12px 18px 6px;margin-top:{{ b.top }}"><span style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:{{ b.color }}"><i aria-hidden="true" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:{{ b.color }}"></i>{{ b.label }}</span><span style="font-size:12.5px;line-height:1.4;color:#5B6272">{{ b.sub }}</span></div>
+          <sc-for list="{{ b.stops }}" as="s" hint-placeholder-count="4">
+            <sc-if value="{{ s.hasLeg }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:4px 18px">
+                <span aria-hidden="true" style="justify-self:center;width:0;min-height:22px;border-left:2px {{ s.legStyle }} {{ s.legColor }}"></span>
+                <div style="min-width:0;font-size:13px;line-height:1.5;color:#5B6272"><span style="font-weight:700;color:#1E2536">{{ s.legMode }}</span> · <span style="font-variant-numeric:tabular-nums">{{ s.legTime }}</span> · {{ s.legPlan }} · {{ s.legRoute }}</div>
+              </div>
+            </sc-if>
+            <button type="button" id="{{ s.domId }}" onClick="{{ s.pick }}" aria-pressed="{{ s.on }}" style="display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;width:100%;padding:9px 18px;border:0;border-left:3px solid {{ s.edge }};background:{{ s.bg }};text-align:left;color:inherit;font:inherit;line-height:1.5">
+              <span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:{{ s.pinSize }};font-weight:700;background:{{ s.pinBg }};color:{{ s.pinFg }};border:{{ s.pinBd }}">{{ s.pin }}</span>
+              <div style="min-width:0">
+                <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px"><span style="font-size:15.5px;font-weight:700;line-height:1.4">{{ s.name }}</span><span lang="zh-CN" style="font-family:'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;font-size:12.5px;line-height:1.4;color:#5B6272">{{ s.zh }}</span><sc-if value="{{ s.isRet }}" hint-placeholder-val="{{ false }}"><span style="padding:1px 8px;border-radius:999px;background:#FBF3E2;border:1px solid rgba(178,130,51,.35);font-size:12.5px;font-weight:700;line-height:1.5;color:#85622A;white-space:nowrap">호텔 복귀</span></sc-if></div>
+                <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="1"><div style="margin-top:3px"><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px"><span style="font-size:15px;font-weight:600;line-height:1.45;font-variant-numeric:tabular-nums;white-space:nowrap">{{ r.time }}</span><span style="font-size:15px;line-height:1.45">{{ r.title }}</span></div><sc-if value="{{ r.hasNote }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;line-height:1.5;color:#5B6272;text-wrap:pretty">{{ r.note }}</div></sc-if></div></sc-for>
+              </div>
+            </button>
+          </sc-for>
+        </sc-for>
+      </div>
+    </sc-if>
+  </aside>
+</div>
+
+<p style="margin:14px 0 0;font-size:12.5px;line-height:1.6;color:#5B6272;text-wrap:pretty">일정은 「상하이 여행 상세.pdf」 기준입니다. 실선·긴 점선은 저장된 길찾기(FOSSGIS OSRM · 2026-11-06 조회), 짧은 점선은 실제 길이 아닌 동선 연결입니다. 차량은 승용차 경로 참고이며 22인승 통행·주정차는 배차 확인이 필요합니다. 지도 배경은 OpenStreetMap 데이터(Protomaps 2026-11-05판)로 미리 만들어 둔 이미지입니다. 지도 © OpenStreetMap contributors.</p>
+
+
+<footer style="margin-top:clamp(32px,4vw,52px);padding-top:18px;border-top:1px solid rgba(30,37,54,.12)">
+  <nav aria-label="안내 페이지" style="display:flex;flex-wrap:wrap;gap:4px clamp(18px,2.4vw,28px)">
+    <a href="{{ mainHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536"><span aria-hidden="true">←</span><span>여행 안내</span></a>
+    <a href="{{ roomsHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">객실 안내</a>
+    <a href="{{ schedHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">상세 시간표</a>
+    <span aria-current="page" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid #85622A;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#1E2536">동선 지도</span>
+    <a href="{{ diningHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">식당 안내</a>
+    <a href="{{ placesHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">갈 곳 안내</a>
+    <a href="{{ prepHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">출발 전 준비</a>
+    <a href="{{ infoHref }}" style="display:inline-flex;align-items:center;gap:5px;min-height:44px;border-top:2px solid transparent;border-bottom:2px solid transparent;font-size:14px;font-weight:600;line-height:1.2;white-space:nowrap;color:#5B6272;text-decoration:none" style-hover="color:#1E2536">현지 정보·연락처</a>
+  </nav>
+</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false,"tsType":"boolean","section":"화면"},"mapHeight":{"editor":"int","default":0,"min":0,"max":900,"unit":"px","tsType":"number","section":"화면"}}'>
+class Component extends DCLogic {
+  state = { ready: false, day: 4, team: 'both', viewpoint: 'ifc', museum: 'history', dinner: 'laozhengxing', day1Walk: false, day2Rest: 'hotel', activity: 'cafe', eveningMode: 'foot', highlight: false, view: 'route', selected: null, place: null, narrow: false, stack: false, fitH: 0, optOpen: false, mapMsg: '' };
+  // 지도 배경: Protomaps 20261105판(OpenStreetMap 데이터)으로 미리 만들어 둔 512px 타일을 묶음 이미지(map/tiles/*.webp)에서 잘라 씁니다.
+  // 외부 지도 서버를 쓰지 않으므로 편집기 안에서도 그대로 보입니다. 해당 확대 단계 타일이 없는 곳은 한 단계 위(더 넓은 범위) 타일을 확대해 채웁니다.
+  makeBase() {
+    const L = window.L, T = window.SH_TILES, cache = {}, self = this;
+    const load = (f) => cache[f] || (cache[f] = new Promise((ok, no) => { const im = new Image(); im.onload = () => ok(im); im.onerror = no; im.src = './map/tiles/' + f; }));
+    const find = (z, x, y) => {
+      for (let d = 0; z - d >= T.minZoom; d++) {
+        const e = T.z[z - d]; if (!e) continue;
+        const ax = x >> d, ay = y >> d, hit = e.t[ax + '/' + ay];
+        if (hit) return { d, ax, ay, file: e.f[hit[0]], slot: hit[1] };
+      }
+      return null;
+    };
+    const Base = L.GridLayer.extend({
+      createTile(c, done) {
+        const r = Math.min(2, Math.max(1, window.devicePixelRatio || 1)), px = Math.round(256 * r), cv = document.createElement('canvas');
+        cv.width = px; cv.height = px;
+        const hit = find(c.z, c.x, c.y);
+        if (!hit) { setTimeout(() => done(null, cv), 0); return cv; }
+        load(hit.file).then((im) => {
+          const n = 1 << hit.d, part = T.size / n, pitch = T.size + 2 * T.gutter;
+          const sx = (hit.slot % T.cols) * pitch + T.gutter + (c.x - hit.ax * n) * part;
+          const sy = Math.floor(hit.slot / T.cols) * pitch + T.gutter + (c.y - hit.ay * n) * part;
+          const g = cv.getContext('2d'); g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high';
+          g.drawImage(im, sx, sy, part, part, 0, 0, px, px); done(null, cv);
+        }, (err) => { self.tileFail(); done(err, cv); });
+        return cv;
+      },
+    });
+    return new Base({ tileSize: 256, minZoom: T.minZoom, maxZoom: 18, bounds: T.bounds, attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · <a href="https://protomaps.com">Protomaps</a> · <a href="https://www.openstreetmap.org/fixthemap">지도 수정</a>' });
+  }
+  TEAMSETS = { 2: [['both', '두 팀'], ['city', '시내팀'], ['disney', '디즈니팀'], ['vehicle', '버스 운행']], 3: [['both', '두 선택팀'], ['outside', '외부 활동팀'], ['rest', '호텔 휴식팀'], ['vehicle', '버스 운행']], 4: [['both', '두 팀'], ['active', '활동팀'], ['rest', '휴식팀'], ['vehicle', '버스 운행']] };
+  TEAM_COLOR = { active: '#467968', outside: '#467968', rest: '#A88038', disney: '#416C94', city: '#1E2536' };
+  MODES = { car: '버스', foot: '도보', ferry: '페리', inside: '권역 내 이동' };
+  rootRef = (el) => {
+    if (this.rootEl === el) return;
+    if (this.ro && this.rootEl) this.ro.unobserve(this.rootEl);
+    this.rootEl = el;
+    if (el && window.ResizeObserver) { if (!this.ro) this.ro = new ResizeObserver(() => this.measure()); this.ro.observe(el); }
+    this.measure();
+  };
+  mapRef = (el) => { this.mapEl = el; };
+  rowRef = (el) => { if (this.rowEl === el) return; this.rowEl = el; this.measure(); };
+  colRef = (el) => { this.colEl = el; };
+  measure() {
+    const el = this.rootEl; if (!el) return;
+    const narrow = (this.props.mobile ?? false) || el.clientWidth < 760;
+    // 지도(560px 기준)와 일정 목록(300px)이 나란히 들어갈 폭인지. 안 들어가면 지도를 고정하지 않고, 목록을 지도 아래 전체 폭으로 펼칩니다.
+    const rw = this.rowEl ? this.rowEl.clientWidth : el.clientWidth, stack = !narrow && rw > 0 && rw < 880;
+    if (narrow !== this.state.narrow || stack !== this.state.stack) this.setState({ narrow, stack });
+    if (this.map) setTimeout(() => { if (this.map) this.map.invalidateSize(); }, 50);
+    this.fitMapSoon();
+  }
+  // 나란히 놓일 때 지도 칸(지도·요약·알림)이 창 높이 안에 들어오도록 지도 높이를 260–560px 사이로 맞춥니다.
+  // 260px로도 안 들어가는 낮은 창이면 지도 칸을 고정하지 않아(따라 내려오지 않음) 아래가 잘리지 않게 합니다.
+  FIT_MIN = 260;
+  fitMap() {
+    const s = this.state;
+    if (s.narrow || s.stack || s.mapFail || (this.props.mapHeight || 0) > 0 || !this.colEl || !this.mapEl) { if (s.fitH || s.tall) this.setState({ fitH: 0, tall: false }); return; }
+    const box = this.mapEl.closest('.rm-map'); if (!box) return;
+    const others = this.colEl.offsetHeight - box.offsetHeight, vh = window.innerHeight || 900, room = vh - 24 - others;
+    const h = Math.round(Math.max(this.FIT_MIN, Math.min(560, room))), tall = room < this.FIT_MIN;
+    if (Math.abs(h - (s.fitH || 560)) > 4 || tall !== !!s.tall) this.setState({ fitH: h, tall });
+  }
+  fitMapSoon() { clearTimeout(this.fitT); this.fitT = setTimeout(() => { if (!this.gone) this.fitMap(); }, 30); }
+  // 일정 자료(장소·저장 경로·계산)만 있으면 목록·시간·비교를 보여 줍니다. 지도(Leaflet·배경 타일)는 따로 기다리고, 끝내 안 열려도 목록은 남습니다.
+  libsReady() { return !!(window.RouteData && window.RouteModel && window.ROUTE_PLACES && window.ROUTE_CACHE); }
+  // 다른 페이지의 '지도' 링크에서 넘어온 날짜·장소: 주소의 #day=N&place=id(또는 메인 형식 #dayN)를 먼저, 없으면 잠깐 맡겨 둔 값(2분 안)을 씁니다.
+  // 링크로 고를 수 있는 날짜별 선택(#activity=park 등). 값은 지도 자료(route-map-data.js)의 선택지와 같습니다.
+  OPT_KEYS = { museum: ['museum', ['history', 'planning']], dinner: ['dinner', ['laozhengxing', 'xinya']], rest: ['day2Rest', ['hotel', 'cafe']], evening: ['eveningMode', ['car', 'foot']], activity: ['activity', ['cafe', 'massage', 'park']], viewpoint: ['viewpoint', ['ifc', 'tower']] };
+  handoff() {
+    let h = '';
+    try { h = window.location.hash || ''; } catch (e) {}
+    try {
+      const raw = window.localStorage.getItem('sh-route-map-day');
+      if (raw) {
+        window.localStorage.removeItem('sh-route-map-day');
+        const o = JSON.parse(raw);
+        if (o && Date.now() - o.t < 120000) {
+          const kept = o.hash ? String(o.hash) : '#day=' + o.day + (o.place ? '&place=' + o.place : '');
+          if (!/(?:^|[#&])day=?\d/.test(h) || (!/[#&]place=/.test(h) && new RegExp('(?:^|[#&])day=?' + (+o.day) + '(?!\\d)').test(h))) h = kept;
+        }
+      }
+    } catch (e) {}
+    const get = (k) => { const m = new RegExp('(?:^|[#&])' + k + '=([A-Za-z0-9]+)').exec(h); return m ? m[1] : null; };
+    const m = /(?:^|[#&])day=?(\d)(?!\d)/.exec(h), n = m ? +m[1] : null, place = get('place'), opts = {};
+    Object.keys(this.OPT_KEYS).forEach((k) => { const v = get(k), [key, ok] = this.OPT_KEYS[k]; if (v && ok.includes(v)) opts[key] = v; });
+    if (get('walk') === '1') opts.day1Walk = true;
+    return { day: Number.isInteger(n) && n >= 0 && n <= 5 ? n : null, place: place && /^[A-Za-z]+$/.test(place) ? place : null, opts };
+  }
+  // 넘어온 장소가 그날 지도에 있으면 표식·목록·상세를 함께 고르고 그곳으로 옮깁니다. 그날 지도에 없는 곳이면 날짜만 엽니다.
+  applyPlace(id) {
+    if (!id || !this.libsReady() || !this.P()[id] || !this.placeOrder().pin[id]) return;
+    const v = this.state.day ? this.firstVisitOf([id]) : null;
+    this.setState({ selected: v, place: id }, () => { if (this.map) this.focusOn(id, v); else if (this.state.mapFail) this.revealSelection(); else this.pendingFocus = { id, v }; });
+  }
+  focusOn(id, v) {
+    const map = this.map, c = this.P()[id].coord; if (!map) return;
+    if (v) this.panTo(v); else { const ll = window.L.latLng(c[1], c[0]), z = Math.max(map.getZoom(), 14); map.setView(this.aside(ll, z, ll), z); }
+    // 장소를 보려고 넘어온 것이므로 지도 카드가 화면 위쪽에 오도록 내려 줍니다.
+    try { const box = this.mapEl.closest('.rm-map').parentElement, y = box.getBoundingClientRect().top + window.scrollY - 12; if (y > 0) window.scrollTo(0, y); } catch (e) {}
+  }
+  // 지도가 안 열린 상태에서 장소를 받았으면 목록의 그 일정으로 내려 줍니다.
+  revealSelection() { const v = this.state.selected; if (!v) return; setTimeout(() => { try { const el = document.getElementById('rm-stop-' + v); if (el) el.scrollIntoView({ block: 'center' }); } catch (e) {} }, 80); }
+  componentDidMount() {
+    const h0 = this.handoff(), d0 = h0.day, init = { ...h0.opts };
+    if (d0 !== null && d0 !== this.state.day) { init.day = d0; init.team = 'both'; }
+    if (Object.keys(init).length) this.setState(init);
+    this.pendingPlace = h0.place;
+    this.onHash = () => { const h = this.handoff(); if (h.day === null || (h.day === this.state.day && !h.place && !Object.keys(h.opts).length)) return; this.setState({ day: h.day, team: 'both', selected: null, place: null, ...h.opts }, () => this.applyPlace(h.place)); };
+    try { window.addEventListener('hashchange', this.onHash); } catch (e) {}
+    this.onWin = () => this.measure();
+    try { window.addEventListener('resize', this.onWin); } catch (e) {}
+    this.prev = { ...this.state, ...init }; this.prevMapH = this.props.mapHeight || 0;
+    let n = 0;
+    // 일정 자료와 지도를 따로 기다립니다(25ms 간격, 최대 10초). 배경 타일 목록은 5초까지 기다렸다가 없으면 배경 없이 엽니다.
+    const wait = () => {
+      if (this.gone) return;
+      if (!this.dataUp && this.libsReady()) { this.dataUp = true; this.setState({ ready: true }, () => { const id = this.pendingPlace; this.pendingPlace = null; this.applyPlace(id); }); }
+      if (this.dataUp && window.L && (window.SH_TILES || n > 200)) { this.initMap(); return; }
+      if (n++ < 400) { this.waitT = setTimeout(wait, 25); return; }
+      if (!this.dataUp) this.setState({ dataFail: true, mapFail: true, mapMsg: '일정 자료를 불러오지 못했습니다. 새로 고침하거나, 상세 시간표에서 같은 일정을 보세요.' });
+      else this.setState({ mapFail: true, mapMsg: '지도를 불러오지 못했습니다. 날짜별 장소·시간·이동은 목록에서 그대로 볼 수 있습니다.' }, () => this.revealSelection());
+    };
+    wait();
+  }
+  componentDidUpdate() {
+    // 공항·디즈니가 없는 날·팀으로 바뀌면 '공항·디즈니' 범위를 '선택 동선'으로 되돌립니다(이전 상태 기록은 그대로 두어 다음 갱신에서 날짜 변경을 반영).
+    if (this.state.view === 'region' && this.map && !this.regionOK()) { this.setState({ view: 'route' }); return; }
+    const s = this.state, p = this.prev || {}, mh = this.props.mapHeight || 0, pmh = this.prevMapH || 0;
+    this.prev = { ...s }; this.prevMapH = mh;
+    if (!this.map) return;
+    const scope = JSON.stringify(this.optsOf(s)) !== JSON.stringify(this.optsOf(p));
+    if (scope || s.highlight !== p.highlight || s.selected !== p.selected || s.place !== p.place) this.drawMap(!scope);
+    if (s.view !== p.view) this.fit();
+    if (mh !== pmh || s.narrow !== p.narrow || s.stack !== p.stack || s.fitH !== p.fitH) setTimeout(() => { if (this.map) { this.map.invalidateSize(); if (!s.selected) this.fit(); } }, 60);
+    this.fitMapSoon();
+  }
+  componentWillUnmount() { this.gone = true; clearTimeout(this.tileT); clearTimeout(this.fitT); try { window.removeEventListener('hashchange', this.onHash); window.removeEventListener('resize', this.onWin); } catch (e) {} clearTimeout(this.waitT); if (this.ro) this.ro.disconnect(); if (this.map) { this.map.remove(); this.map = null; } }
+  // 지도 자료에 넘기는 선택: 날짜·팀과 날짜별 대체 선택(전시·저녁·점심 후·저녁 이동·선택활동·전망대·첫날 산책). 낮 호텔 휴식·만보루 도보는 원안 그대로(바꿔 보는 것은 「숙소 위치 비교」 페이지).
+  optsOf(s) { return { day: s.day, team: s.team, viewpoint: s.viewpoint, museum: s.museum, dinner: s.dinner, day1Walk: !!s.day1Walk, day2Rest: s.day2Rest, activity: s.activity, eveningMode: s.eveningMode }; }
+  opts() { return this.optsOf(this.state); }
+  // 날짜별 선택의 원안 값과 원안과 다를 때의 짧은 이름
+  OPT_DEFAULT = { day1Walk: false, museum: 'history', day2Rest: 'hotel', dinner: 'laozhengxing', eveningMode: 'foot', activity: 'cafe', viewpoint: 'ifc' };
+  OPT_NAME = { day1Walk: { true: '난징동루 산책' }, museum: { planning: '도시계획전시관' }, day2Rest: { cafe: '점심 후 카페' }, dinner: { xinya: '신야' }, eveningMode: { car: '저녁 버스' }, activity: { massage: '발마사지', park: '푸싱공원' }, viewpoint: { tower: '상하이타워 전망대' } };
+  dayKeys(w, d2, d3, d4) { return [].concat(w ? ['day1Walk'] : [], d2 ? ['museum', 'day2Rest', 'dinner', 'eveningMode'] : [], d3 ? ['activity'] : [], d4 ? ['viewpoint'] : []); }
+  changedOpts(w, d2, d3, d4) { const s = this.state; return this.dayKeys(w, d2, d3, d4).filter((k) => (k === 'day1Walk' ? !!s[k] : s[k]) !== this.OPT_DEFAULT[k]).map((k) => (this.OPT_NAME[k] || {})[String(k === 'day1Walk' ? !!s[k] : s[k])] || k); }
+  dayDefaults() { const d = this.state.day, o = {}; this.dayKeys(d === 1, d === 2, d === 3, d === 4).forEach((k) => { o[k] = this.OPT_DEFAULT[k]; }); return o; }
+  data() { const sig = JSON.stringify(this.opts()); if (this._sig !== sig) { this._data = window.RouteData.build(this.opts()); this._sig = sig; } return this._data; }
+  P() { return window.ROUTE_PLACES; }
+  M() { return window.RouteModel; }
+  // 전체 탭(day 0)은 닷새의 모든 여정을 씁니다.
+  journeys() { const d = this.data(), { day, team } = this.state; if (!day) return d.journeys; return d.journeys.filter((j) => j.day === day && (team === 'both' || team === 'vehicle' || j.team === team || j.team === 'all')); }
+  // 전체 탭의 날짜별 선 색(첨부 웹 코드와 같은 값)과 날짜 카드의 휴식 메모.
+  DAY_COLOR = { 1: '#273A56', 2: '#416C94', 3: '#467968', 4: '#A88038', 5: '#78728C' };
+  DAY_REST = ['16:15 체크인 후 선택 휴식', '시내팀 낮 호텔 복귀 · 걸어서 다님', '14:15 호텔 휴식 선택 · 17:25 가족사진', '휴식팀 원안 150분 · 17:15 BFC 재합류', '11:00 공항 도착 · 수속 여유 유지'];
+  // 날짜 제목 아래 핵심 시각: [팀, 지도 자료의 일정 이름, 시각의 앞(s)/끝(e), 칩 이름]. 시각은 지도 자료(route-map-data.js)에서 그때그때 읽어 일정이 바뀌면 따라 바뀝니다.
+  DAY_KEYS = {
+    1: [['all', '상하이 도착 · 입국과 수하물', 's', '푸둥공항 도착'], ['all', '호텔 도착', 's', '호텔 도착'], ['all', '로비 집결 · 탑승', 's', '로비 집결'], ['all', '호텔 귀환', 's', '호텔 귀환']],
+    2: [['disney', '호텔 집결', 'e', '디즈니팀 출발'], ['city', '호텔 출발', 's', '시내팀 출발'], ['city', '호텔 귀환', 's', '시내팀 귀환'], ['disney', '호텔 귀환', 's', '디즈니팀 귀환']],
+    3: [['outside', '로비 집결', 'e', '호텔 출발'], ['outside', '호텔 로비 가족사진', 's', '로비 가족사진'], ['outside', '가족 기념 만찬', 's', '만보루 만찬'], ['outside', '호텔 귀환', 's', '호텔 귀환']],
+    4: [['active', '로비 집결', 'e', '호텔 출발'], ['active', '두 팀이 다시 만나는 곳', 's', 'BFC 재합류'], ['active', '유람선 집결 · 표 확인 · 탑승', 's', '유람선 집결'], ['active', '호텔 귀환', 's', '호텔 귀환']],
+    5: [['all', '로비 집결 · 짐 싣기', 'e', '호텔 출발'], ['all', '푸둥공항 T1 도착', 's', '푸둥공항 도착'], ['all', '탑승 · 출발 준비', 'e', '귀국편 출발']],
+  };
+  // 자료에서 찾지 못한 항목은 빼고 보입니다(빈 칩이나 지어낸 시각을 만들지 않음). 두 팀 공통 일정은 점 없이, 한 팀만의 일정은 팀 색 점을 붙입니다.
+  dayKeyChips(day) {
+    const spec = this.DAY_KEYS[day]; if (!spec || !this.libsReady()) return [];
+    const d = this.data(), js = d.journeys.filter((j) => j.day === day);
+    return spec.map(([team, title, part, label]) => {
+      const j = js.find((x) => x.team === team); if (!j) return null;
+      const id = j.visitIds.find((vid) => d.visits[vid].title === title); if (!id) return null;
+      const t = String(d.visits[id].time || ''), m = /(\d{1,2}:\d{2})(?:\s*[–-]\s*(\d{1,2}:\d{2}))?/.exec(t); if (!m) return null;
+      const note = t.replace(m[0], '').trim(), shared = js.length > 1 && js.every((x) => x.visitIds.includes(id));
+      return { time: part === 'e' && m[2] ? m[2] : m[1], label: label + (note ? '(' + note + ')' : ''), hasDot: js.length > 1 && !shared, color: this.teamColor(team) };
+    }).filter(Boolean);
+  }
+  resolve(leg) { return this.M().resolve(leg, this.data(), this.P(), null, this.RC()); }
+  coachLegs() { return this.M().coach(this.state.day, this.data(), this.P(), null, this.RC()); }
+  visibleLegs() {
+    if (this.state.team === 'vehicle' && this.state.day) return this.coachLegs();
+    const d = this.data();
+    const legs = [...new Set(this.journeys().flatMap((j) => j.legIds))].map((id) => this.resolve(d.legs[id]));
+    return this.state.day ? legs : legs.filter((l) => l.mode === 'car' || l.mode === 'ferry');   // 전체: 버스·페리만(도보는 지도가 복잡해져 뺌)
+  }
+  blocksOf() {
+    if (!this.state.day) return [];
+    const d = this.data(), js = this.journeys();
+    if (!js.length) return [];
+    if (js.length === 1) return [{ kind: 'all', team: js[0].team, label: js[0].label, visits: js[0].visitIds, legs: js[0].legIds }];
+    const [a, b] = js, A = a.visitIds, B = b.visitIds;
+    let head = 0; while (head < A.length && head < B.length && A[head] === B[head]) head++;
+    let tail = 0; while (tail < A.length - head && tail < B.length - head && A[A.length - 1 - tail] === B[B.length - 1 - tail]) tail++;
+    const legsFor = (j, ids) => { const set = new Set(ids); return j.legIds.filter((id) => set.has(d.legs[id].toVisit)); };
+    const out = [];
+    if (head) { const v = A.slice(0, head); out.push({ kind: 'common', team: 'common', label: '전원 · 오전', visits: v, legs: legsFor(a, v) }); }
+    const ownA = A.slice(head, A.length - tail), ownB = B.slice(head, B.length - tail);
+    out.push({ kind: 'team', team: a.team, label: a.label, visits: ownA, legs: legsFor(a, ownA) });
+    out.push({ kind: 'team', team: b.team, label: b.label, visits: ownB, legs: legsFor(b, ownB) });
+    if (tail) { const v = A.slice(A.length - tail); out.push({ kind: 'common', team: 'evening', label: '전원 · 저녁', visits: v, legs: legsFor(a, v) }); }
+    return out;
+  }
+  placeOrder() {
+    const d = this.data(), M = this.M(), P = this.P();
+    let places;
+    if (!this.state.day) places = [...new Set(this.visibleLegs().flatMap((l) => [l.from, l.to]))];
+    else if (this.state.team === 'vehicle') places = [...new Set(this.coachLegs().flatMap((l) => [l.from, l.to]))];
+    else places = [...new Set(this.blocksOf().flatMap((b) => b.visits).map((id) => d.visits[id].place))];
+    if (!places.includes('hotel')) places.unshift('hotel');
+    const teamOf = {};
+    if (this.state.team !== 'vehicle') this.blocksOf().forEach((b) => b.visits.forEach((id) => { const pl = d.visits[id].place, t = b.kind === 'team' ? b.team : 'common'; if (!(pl in teamOf) || t === 'common') teamOf[pl] = t; }));
+    const groups = new Map();
+    places.forEach((id) => { const k = M.coordKey(P[id].coord); if (!groups.has(k)) groups.set(k, { ids: [], key: k, team: teamOf[id] || 'common' }); groups.get(k).ids.push(id); });
+    let num = 0; const pin = {}, pinTeam = {};
+    groups.forEach((g) => { const hotel = g.ids.includes('hotel'); if (!hotel) num++; g.label = hotel ? 'H' : String(num); g.hotel = hotel; g.ids.forEach((id) => { pin[id] = g.label; pinTeam[id] = g.team; }); });
+    return { groups: [...groups.values()], pin, pinTeam };
+  }
+  // 도심 확대 범위. 그날(선택한 팀 기준) 표식 중 이 밖에 있는 곳(공항·디즈니)이 있을 때만 '공항·디즈니' 범위 버튼을 보입니다.
+  CITY_BOUNDS = [[31.199, 121.427], [31.248, 121.510]];
+  // 그날 표식 가운데 도심 밖 장소. 전체 탭은 공항·디즈니 모두입니다.
+  farIds() {
+    if (!this.libsReady()) return [];
+    if (this.state.day === 0) return ['pvg', 'disney', 'disneyDrop'];
+    const P = this.P(), [[s, w], [n, e]] = this.CITY_BOUNDS;
+    return this.placeOrder().groups.flatMap((g) => g.ids).filter((id) => { const c = P[id].coord; return c[0] < w || c[0] > e || c[1] < s || c[1] > n; });
+  }
+  hasFarPlaces() { return this.farIds().length > 0; }
+  // 버튼 이름도 그날 해당하는 곳만: Day 1·5 '공항', Day 2 '디즈니', 전체 '공항·디즈니'.
+  regionLabel() {
+    const ids = this.farIds(), names = [];
+    if (ids.includes('pvg')) names.push('공항');
+    if (ids.some((id) => id.indexOf('disney') === 0)) names.push('디즈니');
+    return names.length ? names.join('·') : '광역';
+  }
+  regionOK() { return this.state.day === 0 || this.hasFarPlaces(); }
+  teamColor(team) { return this.TEAM_COLOR[team] || '#1E2536'; }
+  legColor(l) { if (!l.occupied && l.mode === 'car') return '#8C919B'; if (l.mode === 'ferry') return '#3B79A0'; if (!this.state.day) return this.DAY_COLOR[l.day] || '#1E2536'; return this.teamColor(l.team); }
+  routeText(l) {
+    const r = l.route, f = (n) => new Intl.NumberFormat('ko-KR').format(Math.round(n));
+    if (l.mode === 'ferry') return '양안 연결 개념선 · 대기·항행시간 미산출';
+    if (l.mode === 'inside') return '권역 내부 · 거리 미산출';
+    if (!r) return '지도 미조회 · 실제 경로가 아닌 연결선';
+    if (r.samePoint) return '같은 지도 위치 · 건물 내부 이동 별도';
+    return '지도 약 ' + f(r.durationSeconds / 60) + '분 · ' + (r.distanceMeters / 1000).toFixed(1) + 'km' + (l.mode === 'car' ? ' · 교통 미반영' : '');
+  }
+  planText(l) { if (l.group === 'd4-return') return '세 구간에 함께 60분 배정'; return l.plan.minutes === null ? '배정시간 개별 미분리' : '계획 ' + l.plan.minutes + '분'; }
+  initMap() {
+    const L = window.L, el = this.mapEl; if (!L || !el || this.map) return;
+    try {
+      const T = window.SH_TILES;
+      // 받아 둔 범위(상하이 도심~푸둥공항·디즈니) 밖으로는 끌리지 않게 막고, 그보다 멀리 축소하지 않습니다.
+      this.map = L.map(el, { scrollWheelZoom: false, zoomControl: true, minZoom: T ? T.minZoom : 10, maxZoom: 17, maxBounds: T ? T.bounds : null, maxBoundsViscosity: .8 }).setView([31.225, 121.49], 13);
+      if (T) this.base = this.makeBase().addTo(this.map);
+      else this.setState({ mapMsg: '지도 배경 파일을 불러오지 못했습니다. 장소 표식·저장된 경로·일정 목록은 계속 볼 수 있습니다.' });
+      this.routeGroup = L.layerGroup().addTo(this.map); this.pinGroup = L.layerGroup().addTo(this.map); this.tagGroup = L.layerGroup().addTo(this.map);
+      this.map.on('zoomend', () => this.placeRetLabels());
+      this.drawMap(false);
+      if (this.pendingFocus) { const f = this.pendingFocus; this.pendingFocus = null; this.focusOn(f.id, f.v); }
+    } catch (e) { try { if (this.map) this.map.remove(); } catch (err) {} this.map = null; this.setState({ mapFail: true, mapMsg: '지도를 열지 못했습니다. 날짜별 장소·시간·이동은 목록에서 그대로 볼 수 있습니다.' }, () => this.revealSelection()); }
+  }
+  // 배경 이미지 일부가 안 열리면 한 번만, 잠깐 알립니다(표식·경로·목록은 그대로).
+  tileFail() { if (this.tileWarned || this.state.mapMsg) return; this.tileWarned = true; this.setState({ mapMsg: '지도 배경 일부를 불러오지 못했습니다. 표식·경로·목록은 그대로 볼 수 있습니다.' }); this.tileT = setTimeout(() => { if (!this.gone && this.state.mapMsg && !this.state.mapFail) this.setState({ mapMsg: '' }); }, 8000); }
+  fit() {
+    const map = this.map; if (!map) return;
+    const kind = this.state.view, P = this.P();
+    if (kind === 'city') { map.fitBounds(this.CITY_BOUNDS, { padding: [20, 20] }); return; }
+    if (kind === 'region') { const far = this.farIds(); if (far.length) { map.fitBounds([P.hotel.coord, ...far.map((id) => P[id].coord)].map((c) => [c[1], c[0]]), { padding: [40, 40], maxZoom: 13 }); return; } }
+    const pts = this.visibleLegs().flatMap((l) => [l.fromCoord, l.toCoord]).map((c) => [c[1], c[0]]);
+    pts.push([P.hotel.coord[1], P.hotel.coord[0]]);
+    if (pts.length) map.fitBounds(pts, { padding: [35, 35], maxZoom: 15 });
+  }
+  drawMap(keepView) {
+    const L = window.L, M = this.M(), P = this.P(), map = this.map; if (!map) return;
+    if (map._animatingZoom) { if (!this._deferred) { this._deferred = true; map.once('zoomend', () => { this._deferred = false; this.drawMap(keepView); }); } return; }
+    this.routeGroup.clearLayers(); this.pinGroup.clearLayers();
+    const { selected, day } = this.state, d = this.data();
+    const legs = this.visibleLegs();
+    // 호텔 복귀 시간: 켜면 호텔로 '돌아오는' 구간만 굵게 남기고 나머지는 흐리게, 날짜 화면에서는 선 위에 도착 시각을 붙입니다.
+    const rets = this.hlOn() ? this.returns() : [], retById = new Map(rets.map((r) => [r.id, r]));
+    this.retLabels = [];
+    legs.forEach((l) => {
+      if (M.same(l.fromCoord, l.toCoord)) return;
+      const coords = l.route && l.route.geometry ? l.route.geometry.coordinates : [l.fromCoord, l.toCoord];
+      const conceptual = !l.route || l.mode === 'ferry', returnLeg = retById.has(l.id);
+      const color = this.legColor(l), focused = !!selected && l.toVisit === selected;
+      const dim = rets.length > 0 && !returnLeg;
+      if (returnLeg && day) this.retLabels.push({ coords, time: retById.get(l.id).time, text: retById.get(l.id).time + ' 복귀', color });
+      const line = L.polyline(coords.map((c) => [c[1], c[0]]), { color: focused ? '#B28233' : color, weight: focused ? 7 : (returnLeg ? 6 : (l.mode === 'car' ? 3.6 : 2.8)), opacity: dim ? .18 : .85, dashArray: conceptual ? '2 7' : (!l.occupied && l.mode === 'car' ? '9 9' : (l.mode === 'foot' ? '8 5' : null)) }).addTo(this.routeGroup);
+      line.bindTooltip(P[l.from].name + ' → ' + P[l.to].name + ' · ' + this.MODES[l.mode] + (conceptual ? ' · 연결 개념선' : ''), { sticky: true });
+      if (l.toVisit) line.on('click', () => this.selectVisit(l.toVisit, false));
+      if (coords.length > 1) {
+        const i = Math.max(1, Math.floor(coords.length / 2)), a = coords[i - 1], b = coords[i];
+        const angle = Math.atan2(-(b[1] - a[1]), (b[0] - a[0]) * Math.cos(b[1] * Math.PI / 180)) * 180 / Math.PI;
+        L.marker([b[1], b[0]], { interactive: false, keyboard: false, icon: L.divIcon({ className: 'rm-arrow', html: '<span style="display:block;transform:rotate(' + angle + 'deg);color:' + (focused ? '#B28233' : color) + ';opacity:' + (dim ? .2 : .9) + '">➤</span>', iconSize: [16, 16], iconAnchor: [8, 8] }) }).addTo(this.routeGroup);
+      }
+    });
+    const { groups } = this.placeOrder();
+    const selPlace = this.state.place;
+    groups.forEach((g) => {
+      const id = g.hotel ? 'hotel' : g.ids[0], c = P[id].coord, sel = g.ids.includes(selPlace);
+      const icon = L.divIcon({ className: 'rm-mk', html: '<span class="rm-pin' + (g.hotel ? ' rm-hotel' : '') + (sel ? ' rm-sel' : '') + '"' + (g.hotel ? '' : ' style="background:' + this.teamColor(g.team) + '"') + '>' + g.label + '</span>', iconSize: [g.hotel ? 36 : 30, g.hotel ? 36 : 30], iconAnchor: [g.hotel ? 18 : 15, g.hotel ? 18 : 15] });
+      const m = L.marker([c[1], c[0]], { icon, title: g.ids.map((x) => P[x].name).join(' / '), zIndexOffset: g.hotel ? 1000 : (sel ? 500 : 0) }).addTo(this.pinGroup);
+      m.bindTooltip(g.hotel ? '우리 호텔' : P[id].name, { direction: 'top', offset: [0, -12] });
+      m.on('click', () => this.selectPlace(id, g.ids));
+    });
+    this.placeRetLabels();
+    if (!keepView) this.fit();
+    else if (this.pendingPan) { const id = this.pendingPan; this.pendingPan = null; this.panTo(id); }
+  }
+  // 그날(선택한 팀 기준) 호텔로 돌아오는 구간과 도착 시각. 버스 운행 보기에서는 쓰지 않습니다.
+  returns() {
+    if (!this.libsReady()) return [];
+    const { day, team } = this.state; if (day && team === 'vehicle') return [];
+    const d = this.data(), seen = new Set(), out = [];
+    this.journeys().forEach((j) => j.legIds.forEach((id) => {
+      if (!d.legs[id] || seen.has(id)) return;
+      const l = this.resolve(d.legs[id]); if (l.to !== 'hotel') return; seen.add(id);
+      const dayJs = d.journeys.filter((x) => x.day === l.day), inAll = dayJs.every((x) => x.legIds.includes(id));
+      const pair = (this.TEAMSETS[l.day] || []).find((t) => t[0] === j.team);
+      const label = dayJs.length < 2 ? '' : (inAll ? '전원' : (pair ? pair[1] : ''));
+      const v = d.visits[l.toVisit], time = v ? String(v.time).split('–')[0].trim() : '';
+      out.push({ id, day: l.day, time, label, color: this.legColor(l) });
+    }));
+    return out.sort((a, b) => a.day - b.day || a.time.localeCompare(b.time));
+  }
+  hlOn() { return !!this.state.highlight && this.returns().length > 0; }
+  // 선 위 복귀 시각 표시: 호텔 표식이나 먼저 놓인 표시와 겹치면 그 표시는 생략합니다(시각은 지도 위 '호텔 복귀' 줄에 모두 있음).
+  placeRetLabels() {
+    const L = window.L, map = this.map; if (!map || !this.tagGroup) return;
+    this.tagGroup.clearLayers();
+    const list = this.retLabels || []; if (!list.length) return;
+    const P = this.P(), hp = map.latLngToContainerPoint([P.hotel.coord[1], P.hotel.coord[0]]);
+    const boxes = [{ x: hp.x - 20, y: hp.y - 20, w: 40, h: 40 }];
+    // 선의 가운데부터 앞뒤로 자리를 옮겨 가며 겹치지 않는 곳에 붙입니다(이른 시각 먼저).
+    const at = (cs, f) => { const n = cs.length; if (n > 2) { const c = cs[Math.round(f * (n - 1))]; return [c[1], c[0]]; } const a = cs[0], b = cs[n - 1]; return [a[1] + (b[1] - a[1]) * f, a[0] + (b[0] - a[0]) * f]; };
+    [...list].sort((a, b) => a.time.localeCompare(b.time)).forEach((t) => {
+      const w = Math.round(30 + [...t.text].reduce((a, ch) => a + (ch.charCodeAt(0) < 128 ? 7 : 12.5), 0)), h = 22;
+      for (const f of [0.5, 0.35, 0.65, 0.25, 0.75, 0.15, 0.85]) {
+        const ll = at(t.coords, f), p = map.latLngToContainerPoint(ll), b = { x: p.x - w / 2, y: p.y - h - 6, w, h };
+        if (boxes.some((o) => b.x < o.x + o.w && o.x < b.x + b.w && b.y < o.y + o.h && o.y < b.y + b.h)) continue;
+        boxes.push(b);
+        L.marker(ll, { interactive: false, keyboard: false, zIndexOffset: 800, icon: L.divIcon({ className: 'rm-tagwrap', html: '<span class="rm-tag"><i style="background:' + t.color + '"></i>' + t.text + '</span>', iconSize: [w, h], iconAnchor: [w / 2, h + 6] }) }).addTo(this.tagGroup);
+        break;
+      }
+    });
+  }
+  // 데스크톱의 장소 카드는 지도 왼쪽 아래를 덮습니다. 고른 곳이 카드 밑에 들어가면 카드 오른쪽(자리가 없으면 위쪽)으로 비켜 보이게 중심을 옮깁니다.
+  aside(center, z, ll) {
+    const map = this.map, el = this.mapEl, card = el && el.parentElement ? el.parentElement.querySelector('[data-rm-card]') : null;
+    if (!map || !card) return center;
+    const box = el.getBoundingClientRect(), r = card.getBoundingClientRect(), W = box.width, H = box.height;
+    const cpx = map.project(center, z), p = map.project(ll, z), x = p.x - cpx.x + W / 2, y = p.y - cpx.y + H / 2;
+    const left = r.left - box.left - 20, right = r.right - box.left + 28, top = r.top - box.top - 30;
+    if (x < left || x > right || y < top || y > H) return center;
+    const dx = right + 40 <= W ? x - right : 0, dy = dx ? 0 : y - top;
+    return map.unproject(cpx.add([dx, dy]), z);
+  }
+  panTo(id) {
+    const d = this.data(), v = d.visits[id], map = this.map, L = window.L; if (!v || !map) return;
+    const leg = this.visibleLegs().find((l) => l.toVisit === id), P = this.P(), M = this.M(), c = P[v.place].coord, ll = L.latLng(c[1], c[0]);
+    if (leg && leg.route && leg.route.geometry && !M.same(leg.fromCoord, leg.toCoord)) {
+      const b = L.latLngBounds(leg.route.geometry.coordinates.map((q) => [q[1], q[0]])), z = Math.min(16, map.getBoundsZoom(b, false, L.point(90, 90)));
+      map.setView(this.aside(b.getCenter(), z, ll), z);
+    } else { const z = Math.max(map.getZoom(), 15); map.setView(this.aside(ll, z, ll), z); }
+  }
+  firstVisitOf(ids) {
+    const d = this.data();
+    for (const b of this.blocksOf()) for (const v of b.visits) if (ids.includes(d.visits[v].place)) return v;
+    return null;
+  }
+  selectPlace(id, ids) {
+    const v = this.firstVisitOf(ids || [id]);
+    this.setState({ selected: v, place: id });
+    if (v) setTimeout(() => { const el = document.getElementById('rm-stop-' + v); if (el && el.scrollIntoView) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }, 60);
+  }
+  selectVisit(id, pan) {
+    const d = this.data(), v = d.visits[id]; if (!v) return;
+    if (pan) this.pendingPan = id;
+    if (this.state.selected === id && this.state.place === v.place) { if (pan) { this.pendingPan = null; this.panTo(id); } return; }
+    this.setState({ selected: id, place: v.place });
+  }
+  RC() { return window.ROUTE_CACHE; }
+  links() {
+    let p = window.location.pathname || '';
+    try { p = decodeURIComponent(p); } catch (e) {}
+    const dc = /\.dc\.html$/i.test(p);
+    const f = (a, b) => './' + (dc ? encodeURIComponent(a) : b);
+    return { main: f('상하이 가족여행 계획서 확정안.dc.html', 'index.html'), rooms: f('상하이 객실 안내.dc.html', 'rooms.html'), sched: f('집에서 집까지 상세 시간표.dc.html', 'schedule.html'), dining: f('상하이 식당 안내.dc.html', 'dining.html'), places: f('상하이 갈 곳 안내.dc.html', 'places.html'), prep: f('출발 전 준비.dc.html', 'prep.html'), info: f('현지 정보·연락처.dc.html', 'info.html'), compare: f('숙소 위치 비교.dc.html', 'compare.html') };
+  }
+  renderVals() {
+    const s = this.state, narrow = s.narrow, L = this.links();
+    const fmt = (n) => new Intl.NumberFormat('ko-KR').format(Math.round(n));
+    const ready = s.ready && this.libsReady();
+    const D = ready ? window.RouteData : null, P = ready ? this.P() : null, M = ready ? this.M() : null;
+    const dates = D ? D.meta.dates : ['2/18 목', '2/19 금', '2/20 토', '2/21 일', '2/22 월'];
+    const tabs = [0, 1, 2, 3, 4, 5].map((d) => { const on = s.day === d; return { label: d ? 'Day ' + d : '전체', date: d ? dates[d - 1] : '4박 5일', on: on ? 'true' : 'false', bg: on ? '#1E2536' : '#FFFDF9', fg: on ? '#F4EFE5' : '#1E2536', bd: on ? '#1E2536' : 'rgba(30,37,54,.14)', sub: on ? 'rgba(244,239,229,.8)' : '#5B6272', font: d ? "'Instrument Serif',serif" : "'Pretendard Variable',Pretendard,sans-serif", size: d ? (narrow ? '21px' : '26px') : (narrow ? '14.5px' : '16px'), weight: d ? '400' : '700', pick: () => this.setState({ day: d, team: 'both', selected: null, place: null, optOpen: false }) }; });
+    const teamset = this.TEAMSETS[s.day] || null;
+    const setOpt = (k) => (e) => this.setState({ [k]: e.target.value, selected: null, place: null });
+    const optWalk = s.day === 1, optDay2 = s.day === 2 && s.team !== 'disney', optDay3 = s.day === 3 && (s.team === 'both' || s.team === 'outside');
+    const optCount = (optWalk ? 1 : 0) + (optDay2 ? 4 : 0) + (optDay3 ? 1 : 0) + (s.day === 4 && s.team !== 'vehicle' ? 1 : 0);
+    const changed = this.changedOpts(optWalk, optDay2, optDay3, s.day === 4 && s.team !== 'vehicle');
+    const teams = (teamset || []).map(([v, label]) => { const on = s.team === v; return { label, on: on ? 'true' : 'false', bg: on ? '#FFFDF9' : 'transparent', fg: on ? '#1E2536' : '#5B6272', w: on ? '700' : '600', sh: on ? '0 1px 3px rgba(30,37,54,.12)' : 'none', pick: () => this.setState({ team: v, selected: null, place: null }) }; });
+    const regionOK = ready && this.regionOK();
+    const views = [['route', '선택 동선'], ['city', '도심 확대'], ['region', regionOK ? this.regionLabel() : '']].filter(([v]) => v !== 'region' || regionOK).map(([v, label]) => { const on = s.view === v; return { label, on: on ? 'true' : 'false', bg: on ? '#FFFDF9' : 'transparent', fg: on ? '#1E2536' : '#5B6272', w: on ? '700' : '600', sh: on ? '0 1px 3px rgba(30,37,54,.12)' : 'none', pick: () => this.setState({ view: v }, () => this.fit()) }; });
+    const dayEyebrow = s.day ? 'DAY ' + s.day + ' · ' + dates[s.day - 1] : 'OUR FIVE DAYS';
+    const dayTitle = s.day ? (D ? D.meta.titles[s.day - 1] : '') : '닷새의 길을 한눈에';
+    const daySummary = s.day ? (D ? D.meta.summaries[s.day - 1] : '') : '도심에서 디즈니와 푸둥공항까지, 여행의 전체 범위입니다.';
+    const dayNote = s.day && D ? D.meta.notes[s.day - 1] : '공항과 디즈니는 도심보다 멀리 있습니다. 도심 확대로 바꾸면 식당·산책·호텔 왕복을 자세히 볼 수 있습니다.';
+    // 휴대폰에서는 팀 색 점을 빼서(팀 이름은 글자로 남음) 360px에서도 두 줄 안에 들어가게 합니다.
+    const keyChips = (ready && s.day ? this.dayKeyChips(s.day) : []).map((k) => ({ ...k, hasDot: k.hasDot && !narrow }));
+    let blocks = [], metrics = [], coachLegs = [], teamLegend = [], detail = null, calloutTitle = '', calloutText = '';
+    // 호텔 복귀 시간: 스위치는 복귀가 있는 날·팀에만 보이고, 켜면 지도 위에 복귀 시각 줄을 띄웁니다(전체 화면은 날짜별로 묶음).
+    const rets = ready ? this.returns() : [], hasReturns = rets.length > 0, showReturns = hasReturns && !!s.highlight;
+    let returnChips = [];
+    if (showReturns && !s.day) returnChips = [1, 2, 3, 4, 5].map((n) => ({ n, list: rets.filter((r) => r.day === n) })).filter((g) => g.list.length).map((g) => ({ lead: 'Day ' + g.n, hasLead: true, time: g.list.map((r) => r.time).join(' · '), label: '', hasLabel: false, color: this.DAY_COLOR[g.n] }));
+    else if (showReturns) returnChips = rets.map((r) => ({ lead: '', hasLead: false, time: r.time, label: r.label, hasLabel: !!r.label, color: r.color }));
+    if (ready && s.day) {
+      const d = this.data(), { pin, pinTeam } = this.placeOrder();
+      const pinStyle = (label, sel, team) => label === 'H' ? { bg: '#E0B46A', fg: '#1E2536', bd: '2px solid #1E2536', size: '14px' } : { bg: sel ? '#B28233' : this.teamColor(team), fg: '#F4EFE5', bd: '2px solid #FFFDF9', size: '12.5px' };
+      if (s.team === 'vehicle') {
+        coachLegs = this.coachLegs().map((l, i) => ({ n: String(i + 1), title: P[l.from].name + ' → ' + P[l.to].name, sub: l.occupied ? '승객 탑승 · 원안 ' + l.plan.time + ' · ' + this.planText(l) : '빈 차 · 앞 운행 후, 다음 탑승 전 · ' + (l.note || ''), route: this.routeText(l), bg: l.occupied ? '#1E2536' : '#FFFDF9', fg: l.occupied ? '#F4EFE5' : '#5B6272', bd: l.occupied ? '2px solid #FFFDF9' : '2px dashed #8C919B' }));
+        const ride = M.totals(this.coachLegs().filter((l) => l.occupied)).car, empty = M.totals(this.coachLegs().filter((l) => !l.occupied)).car;
+        const mt = (t) => !t.total ? '해당 없음' : !t.known ? '미조회' : '약 ' + fmt(t.minutes) + '분' + (t.complete ? '' : ' + 미조회');
+        metrics = [{ label: '승객 있는 운행', value: mt(ride), sub: ride.known + '/' + ride.total + '구간 조회' + (ride.km ? ' · ' + ride.km.toFixed(1) + 'km' : ''), color: '#1E2536' }, { label: '빈 차 운행', value: mt(empty), sub: empty.known + '/' + empty.total + '구간 조회 · 가족 탑승시간 제외', color: '#8C919B' }];
+      } else {
+        const bl = this.blocksOf();
+        blocks = bl.map((b, bi) => {
+          const color = b.kind === 'team' ? this.teamColor(b.team) : '#1E2536';
+          const legByTo = new Map(b.legs.map((id) => [d.legs[id].toVisit, this.resolve(d.legs[id])]));
+          const stops = [];
+          b.visits.forEach((id) => {
+            const v = d.visits[id], last = stops[stops.length - 1];
+            if (last && last.place === v.place && !legByTo.has(id)) { last.visitIds.push(id); return; }
+            stops.push({ place: v.place, visitIds: [id], leg: legByTo.get(id) || null });
+          });
+          const sub = b.kind === 'common' ? (b.team === 'evening' ? '두 팀이 다시 만난 뒤' : '두 팀이 나뉘기 전') : (b.kind === 'team' ? '같은 시간대에 따로 움직입니다' : '순서대로');
+          return { label: b.label, sub, color, top: bi ? '6px' : '0', stops: stops.map((st) => {
+            const p = P[st.place];
+            const on = !!s.selected && st.visitIds.includes(s.selected);
+            const ps = pinStyle(pin[st.place], on, pinTeam[st.place] || 'common');
+            const l = st.leg;
+            const isRet = showReturns && !!l && l.to === 'hotel';
+            return { domId: 'rm-stop-' + st.visitIds[0], pin: pin[st.place], pinBg: ps.bg, pinFg: ps.fg, pinBd: ps.bd, pinSize: ps.size, name: p.name, zh: p.zh, on: on ? 'true' : 'false', bg: on ? '#F6F0E3' : 'transparent', edge: on || isRet ? '#E0B46A' : 'transparent', isRet,
+              rows: st.visitIds.map((vid) => { const v = d.visits[vid]; return { time: v.time, title: v.title, note: v.note || '', hasNote: !!v.note }; }),
+              hasLeg: !!l, legMode: l ? this.MODES[l.mode] : '', legTime: l ? l.plan.time : '', legPlan: l ? this.planText(l) : '', legRoute: l ? this.routeText(l) : '', legColor: l ? this.legColor(l) : '#1E2536', legStyle: l ? (l.mode === 'car' ? 'solid' : (l.mode === 'ferry' ? 'dotted' : 'dashed')) : 'solid',
+              pick: () => this.selectVisit(st.visitIds[0], true) };
+          }) };
+        });
+        const js = this.journeys();
+        metrics = js.map((j) => { const t = M.journeyMetrics(j, d, P, null, this.RC()); const car = !t.car.total ? '탑승 없음' : (!t.car.known ? '탑승 미조회' : '탑승 약 ' + fmt(t.car.minutes) + '분' + (t.car.complete ? '' : ' + 미조회')); const foot = t.foot.known ? '도보 ' + t.foot.km.toFixed(1) + 'km · 약 ' + fmt(t.foot.minutes) + '분' + (t.foot.complete ? '' : ' + 미조회') : '도보 미산출'; return { label: j.label, value: car + ' · ' + foot, sub: t.car.known + '/' + t.car.total + '구간 차량 · ' + t.foot.known + '/' + t.foot.total + '구간 도보' + (t.ferry.count ? ' · 페리 ' + t.ferry.count + '회 시간 미산출' : '') + ' · 공통 구간 포함 · 관람·파크 안 걸음 제외', color: this.teamColor(j.team) }; });
+        teamLegend = bl.filter((b) => b.kind === 'team').map((b) => ({ label: b.label, color: this.teamColor(b.team), w: '10px', h: '10px', r: '50%' })).concat(bl.some((b) => b.kind === 'common') ? [{ label: '전원', color: '#1E2536', w: '10px', h: '10px', r: '50%' }] : []);
+      }
+      if (s.day === 4) { calloutTitle = '17:15 라오지탕 BFC에서 다시 만납니다'; calloutText = '휴식팀 원안: 13:15–15:45 객실 휴식 · 15:45–16:30 준비·집결 · 16:30 버스 출발. 페리와 저녁 유람선은 서로 다른 배입니다.' + (s.viewpoint === 'tower' ? ' 전망대를 고르면 입장·대기·관람을 14:25–15:30 안에 마칠 수 있는지 따로 확인이 필요합니다.' : ''); }
+      if (s.day === 2) { calloutTitle = '시내팀은 걸어서 다닙니다'; calloutText = '22인승 버스는 07:15에 디즈니팀을 태워다 주고 21:00에 데리러 갑니다. 시내팀은 가이드와 걸어서 다니고, 오후부터는 필요할 때 버스를 씁니다.'; }
+      if (s.day === 3) { calloutTitle = '호텔 휴식팀은 신톈디로 돌아가지 않습니다'; calloutText = '밖에 있는 가족만 16:00에 탑승하고, 17:25 호텔 로비 가족사진에서 모두 모입니다.'; }
+    }
+    let daysSummary = [];
+    if (ready && !s.day) {
+      // 전체: 날짜 카드 다섯 장 · 요약 세 칸 · 날짜별 선 색 범례(첨부 웹 코드의 전체 화면과 같은 구성)
+      daysSummary = D.meta.titles.map((t, i) => ({ day: 'Day ' + (i + 1), date: dates[i], title: t, summary: D.meta.summaries[i], rest: this.DAY_REST[i] || '', color: this.DAY_COLOR[i + 1], bt: i ? '1px solid rgba(30,37,54,.07)' : '0', aria: 'Day ' + (i + 1) + ' ' + dates[i] + ' 동선 보기', pick: () => this.setState({ day: i + 1, team: 'both', selected: null, place: null }) }));
+      metrics = [
+        { label: '닷새의 기준 호텔', value: '한 곳에서 4박', sub: '출발 · 낮 휴식 · 밤 귀환', color: '#E0B46A' },
+        { label: '금요일 버스', value: '디즈니팀 왕복', sub: '시내팀은 걸어서 · 오후부터 필요할 때', color: this.DAY_COLOR[2] },
+        { label: '낮 호텔 복귀', value: '금 · 토 · 일', sub: '각자 쉬는 선택을 포함', color: '#5B6272' },
+      ];
+      teamLegend = [1, 2, 3, 4, 5].map((n) => ({ label: 'Day ' + n, color: this.DAY_COLOR[n], w: '18px', h: '4px', r: '2px' }));
+    }
+    if (ready && s.place && P[s.place]) {
+      // 장소 상세: 날짜 화면은 그날 방문, 전체 화면은 닷새 중 그곳에 가는 일정(날짜 표시)
+      const d = this.data(), { pin } = this.placeOrder();
+      const p = P[s.place], photo = window.SH_V4 && window.SH_V4.photos ? window.SH_V4.photos[p.photoRef] : null;
+      const file = photo && (photo.file || '');
+      const ids = s.day ? [...new Set(this.blocksOf().flatMap((b) => b.visits))] : [...new Set(this.journeys().flatMap((j) => j.visitIds))];
+      let vs = ids.map((id) => d.visits[id]).filter((v) => v.place === s.place);
+      if (!s.day && vs.length > 8) vs = vs.filter((v, i, a) => a.findIndex((w) => w.day === v.day) === i);   // 전체 화면에서 방문이 많은 곳(호텔)은 날짜마다 첫 일정만
+      const visits = vs.slice(0, 8).map((v) => ({ time: (s.day ? '' : 'Day ' + v.day + ' · ') + v.time, title: v.title }));
+      detail = { pinText: pin[s.place] === 'H' ? '우리 호텔' : '지도 ' + pin[s.place] + '번', name: p.name, zh: p.zh, where: (p.address ? p.address + ' · ' : '') + p.precision, visits, hasPhoto: !!file, photo: file ? './' + file : '', photoUrl: file ? '"' + encodeURI('./' + file) + '"' : 'none', photoAlt: photo ? (photo.cap || p.name) : '', hasCredit: !!photo, credit: photo ? '사진 · ' + photo.author + ' / ' + photo.site + ' · ' + photo.lic : '', osm: 'https://www.openstreetmap.org/?mlat=' + p.coord[1] + '&mlon=' + p.coord[0] + '#map=17/' + p.coord[1] + '/' + p.coord[0], amap: 'https://uri.amap.com/search?keyword=' + encodeURIComponent(p.zh + ' ' + p.address) + '&city=' + encodeURIComponent('上海') };
+    }
+    // 지도 높이: 휴대폰 340 · 목록이 아래로 내려가는 폭 480 · 나란히 놓일 때 창 높이에 맞춰 260–560(그래도 안 들어가면 고정 안 함) · 지도가 안 열리면 빈 상자를 줄이고 안내만 남깁니다
+    const mapH = s.mapFail ? 132 : ((this.props.mapHeight || 0) > 0 ? this.props.mapHeight : (narrow ? 340 : (s.stack ? 480 : (s.fitH || 560))));
+    return {
+      rootRef: this.rootRef, mapRef: this.mapRef,
+      mainHref: L.main, schedHref: L.sched, placesHref: L.places, roomsHref: L.rooms, diningHref: L.dining, prepHref: L.prep, infoHref: L.info,
+      gutter: narrow ? '16px' : 'clamp(16px,5vw,64px)', navGap: narrow ? '14px' : '24px', padTop: narrow ? '18px' : '26px',
+      h1Size: narrow ? '27px' : '34px', h2Size: narrow ? '23px' : '28px', tabGap: narrow ? '6px' : '10px', tabH: narrow ? '58px' : '66px', dateSize: narrow ? '12px' : '13px', dayHeadTop: narrow ? '22px' : '26px',
+      tabs, hasTeams: !!teamset, teams, teamFlex: narrow ? '1 1 100%' : '0 0 auto', teamBtnFlex: narrow ? '1 1 0' : '0 0 auto', teamPad: narrow ? '6px' : '14px',
+      hasViewpoint: s.day === 4 && s.team !== 'vehicle', viewpoint: s.viewpoint, setViewpoint: setOpt('viewpoint'),
+      // 날짜별 대체 선택: 1일차 산책 · 2일차 시내팀(전시·점심 후·저녁·저녁 이동, 버스 운행에도 반영) · 3일차 외부 활동팀 · 4일차 활동팀 전망
+      hasOpts: optCount > 0, optWalk, optDay2, optDay3, optCheckSize: narrow ? '15px' : '14px',
+      // 날짜별 선택은 기본으로 접어 원안 일정만 보이게. 원안과 다르게 고른 상태면 무엇이 다른지와 '원안으로'를 함께 보입니다.
+      optOpen: !!s.optOpen, optOpenStr: s.optOpen ? 'true' : 'false', toggleOpts: () => this.setState({ optOpen: !this.state.optOpen }),
+      optBtnLabel: s.optOpen ? '다른 선택 접기' : '다른 선택 보기' + (optCount > 1 ? ' · ' + optCount + '가지' : ''), optCaret: s.optOpen ? '▴' : '▾', optBtnBg: s.optOpen ? '#ECE7DD' : '#FFFDF9',
+      optChanged: changed.length > 0, optChangedText: '원안과 다름 · ' + changed.join(' · '), resetOpts: () => this.setState({ ...this.dayDefaults(), selected: null, place: null }),
+      optToggleFlex: narrow ? '1 1 100%' : '0 1 auto',
+      optDisplay: narrow ? 'grid' : 'flex', optCols: narrow ? (optCount > 1 ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)') : 'none', optAlign: narrow ? 'end' : 'center', optGapX: narrow ? '10px' : '18px', optFlex: narrow ? '1 1 100%' : '0 1 auto',
+      labDisplay: narrow ? 'flex' : 'inline-flex', labDir: narrow ? 'column' : 'row', labAlign: narrow ? 'stretch' : 'center', labGap: narrow ? '4px' : '8px', labSize: narrow ? '13px' : '14px', labWs: narrow ? 'normal' : 'nowrap',
+      selW: narrow ? '100%' : 'auto', selSize: narrow ? '16px' : '14px',
+      museum: s.museum, dinner: s.dinner, day2Rest: s.day2Rest, eveningMode: s.eveningMode, activity: s.activity, day1Walk: !!s.day1Walk,
+      setMuseum: setOpt('museum'), setDinner: setOpt('dinner'), setRest: setOpt('day2Rest'), setEvening: setOpt('eveningMode'), setActivity: setOpt('activity'),
+      setWalk: (e) => this.setState({ day1Walk: !!e.target.checked, selected: null, place: null }),
+      dayEyebrow, dayTitle, daySummary, dayNote, hasKeyChips: keyChips.length > 0, keyChips,
+      chipGap: narrow ? '6px' : '6px 8px', chipTop: narrow ? '10px' : '12px', chipPad: narrow ? '4px 10px' : '5px 12px', chipInGap: narrow ? '6px' : '7px', chipLabelSize: narrow ? '13px' : '14px',
+      views, highlight: s.highlight && hasReturns, toggleHighlight: (e) => this.setState({ highlight: !!e.target.checked }),
+      hasReturns, showReturns, returnChips, hasCompare: true, compareHref: L.compare,
+      colGap: narrow ? '14px' : '20px', mapPos: narrow || s.stack || s.tall ? 'static' : 'sticky', mapH: mapH + 'px', rowRef: this.rowRef, colRef: this.colRef,
+      hasMapMsg: !!s.mapMsg, mapMsg: s.mapMsg, msgLeft: s.mapFail ? '12px' : '60px',
+      dataFail: !!s.dataFail, dataLoading: !s.ready && !s.dataFail,
+      hasTeamLegend: teamLegend.length > 0, teamLegend,
+      metricCols: narrow || metrics.length < 2 ? '1fr' : 'repeat(' + Math.min(3, metrics.length) + ',minmax(0,1fr))', metrics,
+      hasCallout: !!calloutTitle, calloutTitle, calloutText,
+      showFloatDetail: !!detail && !narrow && !s.mapFail, showInlineDetail: !!detail && (narrow || !!s.mapFail), hasViews: !s.mapFail, detail: detail || { pinText: '', name: '', zh: '', where: '', visits: [], hasPhoto: false, photo: '', photoUrl: 'none', photoAlt: '', hasCredit: false, credit: '', osm: '', amap: '' },
+      clearSelection: () => this.setState({ selected: null, place: null }),
+      asideMax: narrow || s.stack ? '100%' : '380px',
+      listTitle: s.day ? (s.team === 'vehicle' ? '22인승 버스 한 대의 순서' : 'Day ' + s.day + ' · 방문 순서') : '우리 여행의 닷새', listSub: !s.day ? '누르면 그날 동선으로' : (s.team === 'vehicle' ? '운행 순서' : '계획 시각 · 중국 현지'),
+      isVehicle: !!s.day && s.team === 'vehicle', coachLegs, isList: !!s.day && s.team !== 'vehicle', blocks,
+      isOverview: !s.day, notOverview: !!s.day, daysSummary,
+    };
+  }
+}
+</script>
+</body>
+</html>
