@@ -146,7 +146,7 @@ a{color:#1E2536;text-underline-offset:3px}a:hover{color:#85622A}
                     <div lang="zh-CN" style="margin-top:4px;font-size:16px;line-height:1.5;color:#5B6272">{{ c.zh }}</div>
                   </div>
                   <sc-if value="{{ c.hasPh }}" hint-placeholder-val="{{ false }}">
-                    <div style="display:grid;grid-template-columns:{{ c.phCols }};gap:16px 12px">
+                    <div style="display:grid;grid-template-columns:{{ c.phCols }};max-width:{{ c.phMax }};gap:16px 12px">
                       <sc-for list="{{ c.photos }}" as="p" hint-placeholder-count="0">
                         <figure style="margin:0;min-width:0;display:flex;flex-direction:column;gap:8px">
                           <button type="button" onClick="{{ p.open }}" aria-label="{{ p.zoom }}" style="display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#E9E2D4;cursor:zoom-in"><img src="{{ p.src }}" alt="{{ p.d }}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover"></button>
@@ -324,8 +324,10 @@ class Component extends DCLogic {
     const t = status ? (this.TONE[status] || 'ref') : '';
     return { status: status || '', hasStatus: !!status, sDec: t === 'dec', sProg: t === 'prog', sWarn: t === 'warn', sRef: t === 'ref' };
   }
-  card(c, show, mealStatus) {
+  card(c, show, mealStatus, alone) {
     const photos = !show ? [] : c.spots ? c.spots.map((s) => ({ ...this.ph(s.photo), cap: s.ko, zh: s.zh, sub: s.zone + ' · ' + s.kind + ' · ' + s.menu, hasSub: true })) : (c.photos || []).map((p) => ({ ...this.ph(p), cap: p.d, zh: '', sub: '', hasSub: false }));
+    // 혼자 한 줄을 다 쓰는 카드에 사진이 4장이면 2×2로 둡니다(반쪽 카드인 신야와 같은 크기).
+    const grid2 = !!alone && !c.spots && photos.length === 4;
     const st = c.status && c.status !== mealStatus && c.status !== '대안' ? c.status : '';
     return {
       ...c, ...this.badge(st), label: c.label || '', hasLabel: !!c.label,
@@ -333,7 +335,8 @@ class Component extends DCLogic {
       notes: (c.notes || []).map((t) => ({ t })), hasNotes: !!(c.notes && c.notes.length),
       hasMap: !!c.map, mapUrl: c.map ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(c.map) : '',
       photos, hasPh: photos.length > 0, hasBranch: !!c.branch, hasWhat: !!c.what, rows: c.rows || [],
-      phCols: c.spots ? (this.state.wide ? 'repeat(4,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))') : 'repeat(auto-fill,minmax(min(100%,180px),1fr))',
+      phCols: c.spots ? (this.state.wide ? 'repeat(4,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))') : grid2 ? 'repeat(2,minmax(0,1fr))' : 'repeat(auto-fill,minmax(min(100%,180px),1fr))',
+      phMax: grid2 ? '496px' : 'none',
     };
   }
   links() {
@@ -376,13 +379,13 @@ class Component extends DCLogic {
             label, hasLabel: !!label && !alt, alt, main: !alt,
             altHead: parts[0] || '대안', labelRest: parts.slice(1).join(' · '), hasRest: parts.length > 1,
             names: g.cards.map((c) => c.ko).join(' · '),
-            cards: g.cards.map((c) => this.card(c, show, m.status)),
+            cards: g.cards.map((c) => this.card(c, show, m.status, g.cards.length === 1)),
           };
         }),
       })),
     })) : [];
     const breakfast = S && show ? S.breakfast.photos.map((p) => this.ph(p)) : [];
-    const SRC = [['yomo.co.kr', '요모 견적서'], ['ctrip.com', 'Ctrip'], ['trip.com', 'Trip.com'], ['bfcsh.com', 'BFC 쇼핑몰'], ['kkday.com', 'KKday'], ['shobserver.com', '上观新闻'], ['jfdaily.com', '上观新闻'], ['xinlvxing.com.cn', '新旅行'], ['sohu.com', '搜狐'], ['graceblog.tw', 'GRACE幸福漫步'], ['michelin.com', 'MICHELIN Guide'], ['citynewsservice.cn', 'SHINE'], ['ihg.com', 'IHG 공식'], ['lemon8-app.com', '@ssbyae09 / Lemon8'], ['shanghaidisneyresort.com', 'Shanghai Disney Resort'], ['d23.com', 'Disney D23']];
+    const SRC = [['yomo.co.kr', '요모 견적서'], ['ctrip.com', 'Ctrip'], ['trip.com', 'Trip.com'], ['bfcsh.com', 'BFC 쇼핑몰'], ['kkday.com', 'KKday'], ['shobserver.com', '上观新闻'], ['jfdaily.com', '上观新闻'], ['xinlvxing.com.cn', '新旅行'], ['sohu.com', '搜狐'], ['graceblog.tw', 'GRACE幸福漫步'], ['michelin.com', 'MICHELIN Guide'], ['citynewsservice.cn', 'SHINE'], ['ihg.com', 'IHG 공식'], ['lemon8-app.com', '@ssbyae09 / Lemon8'], ['shanghaidisneyresort.com', 'Shanghai Disney Resort'], ['d23.com', 'Disney D23'], ['trvlogue.com', 'TRVLOGUE(바 바나나푸딩) 방문기']];
     const cr = [], seenCard = {};
     const addCr = (name, photos) => {
       if (seenCard[name]) return; seenCard[name] = 1;

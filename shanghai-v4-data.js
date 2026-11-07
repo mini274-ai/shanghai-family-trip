@@ -213,7 +213,7 @@
               R('10:45~11:25', '안푸루 구경·상점 또는 짧은 카페', '실제 영업 중인 곳 중심.'),
               R('11:25~12:00', '집결·택시로 신톈디 이동', '호출과 세 대의 재집결까지 포함.'),
               R('12:00~12:15', '식당 도착·화장실·착석', '12:15는 식사를 시작하는 목표시각.'),
-              R('12:15~13:15', '점도덕 환위후이점 점심', '광둥 딤섬 · 10인 예약 · 마당루역 위, 신톈디 남쪽.', { ph: ['P06'], sum: { title: '점도덕 환위후이점 점심', note: '10인 예약 · 광둥 딤섬', map: 'dtf' } }),
+              R('12:15~13:15', '점도덕 환위후이점 점심', '광둥 딤섬 · 10인 예약 · 中海环宇荟 B1층 · 마당루역 위, 신톈디 남쪽.', { ph: ['P06b'], sum: { title: '점도덕 환위후이점 점심', note: '10인 예약 · 광둥 딤섬', map: 'dtf' } }),
               R('13:15~13:30', '임시정부청사 이동·입장 준비', '식당을 멀리 잡으면 이 시간도 바뀐다.'),
               R('13:30~14:15', '대한민국 임시정부청사 관람', '30~45분 계획. 2027 당일 개관·입장 조건 확인.', { ph: ['P08', 'P22'], sum: { notime: true, title: '대한민국 임시정부청사', note: '신톈디에서 도보 5분 · 30~45분 관람', map: 'kpg' } })
             ]
@@ -392,6 +392,7 @@
       P03: P('photos/05-xiaolongbao.jpg', '05-xiaolongbao.jpg', '샤오롱바오', '샤오롱바오 음식 참고 사진 · 예약 식당·주문 메뉴 아님', 'MR+G', WM, 'https://commons.wikimedia.org/wiki/File:Xiao_long_bao_closeup_in_Shanghai.jpg', 'CC BY 2.0', ORIG, 1071, 957),
       P05: P('photos/04-xintiandi-cafe.jpg', '04-xintiandi-cafe.jpg', '신톈디 카페 거리', '신톈디 카페 거리 참고 · 녹음·야외 좌석은 촬영 계절의 모습 · 사진 속 가게는 예약 식당 아님', 'Ye Massa', 'Unsplash', 'https://unsplash.com/photos/0Z8hYPSroQw', 'Unsplash License', ORIG, 2400, 1600),
       P06: P('photos/gallery-xintiandi.jpg', 'gallery-xintiandi.jpg', '신톈디 거리', '신톈디 거리 · 참고 사진 · 사진 속 사람·가게는 우리 가족·예약 식당과 무관', 'Fabio Achilli', WM, 'https://commons.wikimedia.org/wiki/File:Xintiandi,_Shanghai,_China_(9734263917).jpg', 'CC BY 2.0', ORIG, 960, 688),
+      P06b: P('dining/ddd-sign.jpg', 'image-1786349912954-1786349912954-0e994949.jpg', '점도덕 입구', '점도덕 환위후이점 입구와 간판 · 방문기 사진 · 촬영일 미확인', 'TRVLOGUE(바 바나나푸딩) 방문기', 'TRVLOGUE', 'https://www.trvlogue.com/zh-Hant/diandude-shanghai-xintiandi-dimsum', '저작권은 원 권리자', 'WebP 원본을 같은 크기 JPG로 변환 · 자르기·색 보정·문구 추가 없음', 1080, 810),
       P07: P('photos/gallery-lantern.jpg', 'gallery-lantern.jpg', '예원 등불축제', '과거 예원 등불축제 참고 사진 · 2027년 장식·개최를 뜻하지 않음', 'Augusthaiho', WM, 'https://commons.wikimedia.org/wiki/File:%E8%B1%AB%E5%9B%AD%E5%BA%99%E4%BC%9A04037.jpg', 'CC BY-SA 4.0', ORIG, 1920, 1281),
       P08: P('photos/gallery-kpg.jpg', 'gallery-kpg.jpg', '대한민국 임시정부청사 표지', '상하이 대한민국 임시정부청사 입구 표지', 'Ericmetro', WM, 'https://commons.wikimedia.org/wiki/File:Entrance_wall_of_Provisional_Government_of_ROK_in_Shanghai.JPG', 'CC BY-SA 3.0', ORIG, 1920, 1280),
       P09: P('photos/shanghai-history-museum.jpg', 'Shanghai_History_Museum_20181021.jpg', '상하이역사박물관 외관', '상하이역사박물관 외관 · 선택 시설 B · 참고 사진', 'Simon Wade', WM, 'https://commons.wikimedia.org/wiki/File:Shanghai_History_Museum_20181021.jpg', 'CC BY-SA 4.0', WEB, 1350, 1800),

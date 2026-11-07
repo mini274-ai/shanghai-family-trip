@@ -14,6 +14,8 @@
   var TRIPM_N = '2024-09-07 게시된 라오지탕 BFC점(南区 4F S415) 방문 후기 사진. 현재 메뉴 제공 여부는 별도 확인.';
   var SUNYA_SRC = 'https://www.jfdaily.com/sgh/detail?id=4072185';
   var SUNYA_N = '2026-10-11 上观新闻 신야 기사 사진(촬영 王勇·闵栋·张静芝·马健). 현재 메뉴 제공 여부는 별도 확인.';
+  var DDD_SRC = 'https://www.trvlogue.com/zh-Hant/diandude-shanghai-xintiandi-dimsum';
+  var DDD_N = '点都德(中海环宇荟店) 방문기 사진(수집 2026-11-07). 촬영일·재게시 허락 미확인, 저작권은 원 권리자. 현재 메뉴 제공 여부는 별도 확인.';
   function p(f, d, s, u, n, lic, licUrl) { return { f: 'dining/' + f, d: d, s: s, u: u, n: n || '', lic: lic || '', licUrl: licUrl || '' }; }
 
   var R = {
@@ -63,12 +65,17 @@
         p('sunya-beef.png', '굴소스 소고기 蚝油牛肉', '上观新闻, 2026-10-11', SUNYA_SRC, SUNYA_N),
         p('sunya-fish.jpg', '훈제 병어 沙律烟鲳鱼', '上观新闻, 2026-10-11', SUNYA_SRC, SUNYA_N)
       ] },
-    ddd: { ko: '점도덕', zh: '点都德', branch: '환위후이(环宇荟)점 · 지하철 9·13호선 마당루(马当路)역 위 · 신톈디 남쪽, 임시정부청사까지 걸어서 10분 안팎', status: '예약',
-      what: '1933년 광저우에서 시작한 광둥 딤섬 전문점. 새우 딤섬(虾饺皇)·차슈빠오·샤오마이·창펀·죽이 대표 메뉴이고, 맵지 않아 아이들과 어르신 모두 먹기 편합니다. 종일 딤섬을 냅니다.',
-      price: '¥100 안팎', priceSrc: '',
-      notes: ['10인 예약'],
-      map: '点都德 环宇荟店 上海',
-      photos: [] },
+    ddd: { ko: '점도덕', zh: '点都德', branch: '환위후이점 · 黄陂南路838弄 中海环宇荟 B1층 B125호 · 지하철 9·13호선 마당루(马当路)역 위, 신톈디 남쪽 · 임시정부청사까지 걸어서 15분 안팎', status: '예약',
+      what: '1933년 광저우에서 시작한 광둥 딤섬 전문점. 홍미창펀(金莎红米肠)·새우 샤오마이·샤오롱바오·차슈빠오·에그타르트·죽·볶음면이 대표 메뉴이고, 맵지 않아 아이들과 어르신 모두 먹기 편합니다. 영업 09:00~21:30, 자리에서 QR로 주문합니다.',
+      price: '¥100 안팎', priceSrc: 'Ctrip 1인 평균 ¥104 · 2026-11-07 확인',
+      notes: ['12:15 · 10인 예약', '식당은 지하 1층(B1)', '식사 뒤 걸어서 임시정부청사(15분) · 힘들면 버스'],
+      map: '点都德 中海环宇荟店 上海',
+      photos: [
+        p('ddd-sign.jpg', '점도덕 환위후이점 입구와 간판', 'TRVLOGUE(바 바나나푸딩) 방문기', DDD_SRC, DDD_N),
+        p('ddd-changfen.jpg', '홍미창펀 金莎红米肠 — 새우를 감싼 붉은 쌀피 롤', 'TRVLOGUE(바 바나나푸딩) 방문기', DDD_SRC, DDD_N),
+        p('ddd-shaomai.jpg', '새우 샤오마이 鲜虾烧卖', 'TRVLOGUE(바 바나나푸딩) 방문기', DDD_SRC, DDD_N),
+        p('ddd-xlb.jpg', '샤오롱바오 灌汤酱汁小笼包', 'TRVLOGUE(바 바나나푸딩) 방문기', DDD_SRC, DDD_N)
+      ] },
     mbl: { ko: '만보루', zh: '满宝楼 · Man Bao Lou Chinese Restaurant', status: '기념 만찬',
       branch: 'Shanghai Marriott Marquis City Centre (上海雅居乐万豪侯爵酒店) 4층 · 西藏中路555号 · 우리 호텔에서 도보 5분',
       occasion: '아린이의 수능과 대학 입학을 축하하는 저녁. 열 명이 별실 한 방에.',
